@@ -136,13 +136,13 @@ function SaveGameInfo:new(data, pos)
 	local saveGameInfo = {}
 	
 	saveGameInfo.SaveDate = {}
-	saveGameInfo.SaveDate.year, saveGameInfo.SaveDate.month, saveGameInfo.SaveDate.day, saveGameInfo.SaveDate.hour, saveGameInfo.SaveDate.minute, saveGameInfo.SaveDate.second, saveGameInfo.DisplayLevel, saveGameInfo.DisplayMission, saveGameInfo.FileSize, pos = string_unpack("HBBBBBxBBI", data, pos)
+	saveGameInfo.SaveDate.year, saveGameInfo.SaveDate.month, saveGameInfo.SaveDate.day, saveGameInfo.SaveDate.hour, saveGameInfo.SaveDate.min, saveGameInfo.SaveDate.sec, saveGameInfo.DisplayLevel, saveGameInfo.DisplayMission, saveGameInfo.FileSize, pos = string_unpack("HBBBBBxBBI", data, pos)
 	
 	return setmetatable(saveGameInfo, self), pos
 end
 
 function SaveGameInfo:__tostring()
-	return string_pack("HBBBBBxBBI", self.SaveDate.year, self.SaveDate.month, self.SaveDate.day, self.SaveDate.hour, self.SaveDate.minute, self.SaveDate.second, self.DisplayLevel, self.DisplayMission, self.FileSize)
+	return string_pack("HBBBBBxBBI", self.SaveDate.year, self.SaveDate.month, self.SaveDate.day, self.SaveDate.hour, self.SaveDate.min, self.SaveDate.sec, self.DisplayLevel, self.DisplayMission, self.FileSize)
 end
 -- End SaveGameInfo
 
@@ -177,9 +177,23 @@ end
 function CharacterSheet:new(data, pos)
 	self.__index = self
 	if data == nil then
-		return setmetatable({
-			PlayerName = "Player1",
-		}, self)
+		data = {}
+		data.PlayerName = "Player1"
+		data.Levels = {}
+		for i=1,7 do
+			data.Levels[i] = CharacterSheet.Level:new()
+		end
+		data.CurrentMissionInfo = CharacterSheet.CurrentMission:new()
+		data.HighestMissionInfo = CharacterSheet.CurrentMission:new()
+		data.IsNavSystemEnabled = true
+		data.Coins = 0
+		data.Cars = CharacterSheet.CarInventory:new()
+		data.PersistentObjectStates = {}
+		for i=1,1312 do
+			data.PersistentObjectStates[i] = 0
+		end
+		data.State = 0
+		return setmetatable(data, self)
 	end
 	
 	assert(type(data) == "string", "Input data must be a string.")
