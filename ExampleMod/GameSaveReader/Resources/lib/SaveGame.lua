@@ -192,8 +192,8 @@ function CharacterSheet:new(data, pos)
 		for i=1,1312 do
 			data.PersistentObjectStates[i] = 0
 		end
-		data.IsCBGFirst = false
-		data.IsTicket = false
+		data.ItchyScratchyCBGFirst = false
+		data.ItchyScratchyTicket = false
 		return setmetatable(data, self)
 	end
 	
@@ -219,8 +219,8 @@ function CharacterSheet:new(data, pos)
 	characterSheet.PersistentObjectStates[#characterSheet.PersistentObjectStates] = nil
 	local state
 	state, pos = string_unpack("Bxxx", data, pos)
-	characterSheet.IsCBGFirst = (state & 0x01) > 0
-	characterSheet.IsTicket = (state & 0x02) > 0
+	characterSheet.ItchyScratchyCBGFirst = (state & 0x01) > 0
+	characterSheet.ItchyScratchyTicket = (state & 0x02) > 0
 	
 	return setmetatable(characterSheet, self), pos
 end
@@ -237,10 +237,10 @@ function CharacterSheet:__tostring()
 	data[12] = tostring(self.Cars)
 	data[13] = string_pack(string_rep("B", 1312), table_unpack(self.PersistentObjectStates))
 	local state = 0
-	if self.IsCBGFirst then
+	if self.ItchyScratchyCBGFirst then
 		state = state | 0x01
 	end
-	if self.IsTicket then
+	if self.ItchyScratchyTicket then
 		state = state | 0x02
 	end
 	data[14] = string_pack("Bxxx", state)
