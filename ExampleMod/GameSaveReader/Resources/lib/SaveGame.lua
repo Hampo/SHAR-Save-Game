@@ -192,7 +192,8 @@ function CharacterSheet:new(data, pos)
 		for i=1,1312 do
 			data.PersistentObjectStates[i] = 0
 		end
-		data.State = 0
+		data.IsCBGFirst = false
+		data.IsTicket = false
 		return setmetatable(data, self)
 	end
 	
@@ -212,11 +213,14 @@ function CharacterSheet:new(data, pos)
 	characterSheet.CurrentMissionInfo, pos = CharacterSheet.CurrentMission:new(data, pos)
 	characterSheet.HighestMissionInfo, pos = CharacterSheet.CurrentMission:new(data, pos)
 	characterSheet.IsNavSystemEnabled, characterSheet.Coins, pos = string_unpack("Bxxxi", data, pos)
-	self.Cars, pos = CharacterSheet.CarInventory:new(data, pos)
-	self.PersistentObjectStates = {string_unpack(string_rep("B", 1312), data, pos)}
-	pos = self.PersistentObjectStates[#self.PersistentObjectStates]
-	self.PersistentObjectStates[#self.PersistentObjectStates] = nil
-	self.State, pos = string_unpack("Bxxx", data, pos)
+	characterSheet.Cars, pos = CharacterSheet.CarInventory:new(data, pos)
+	characterSheet.PersistentObjectStates = {string_unpack(string_rep("B", 1312), data, pos)}
+	pos = characterSheet.PersistentObjectStates[#characterSheet.PersistentObjectStates]
+	characterSheet.PersistentObjectStates[#characterSheet.PersistentObjectStates] = nil
+	local state
+	state, pos = string_unpack("Bxxx", data, pos)
+	characterSheet.IsCBGFirst = (state & 0x01) > 0
+	characterSheet.IsTicket = (state & 0x02) > 0
 	
 	return setmetatable(characterSheet, self), pos
 end
@@ -232,7 +236,14 @@ function CharacterSheet:__tostring()
 	data[11] = string_pack("Bxxxi", self.IsNavSystemEnabled and 1 or 0, self.Coins)
 	data[12] = tostring(self.Cars)
 	data[13] = string_pack(string_rep("B", 1312), table_unpack(self.PersistentObjectStates))
-	data[14] = string_pack("Bxxx", self.State)
+	local state = 0
+	if self.IsCBGFirst then
+		state = state | 0x01
+	end
+	if self.IsTicket then
+		state = state | 0x02
+	end
+	data[14] = string_pack("Bxxx", state)
 	return table_concat(data)
 end
 
