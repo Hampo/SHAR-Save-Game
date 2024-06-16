@@ -87,8 +87,13 @@ namespace SHARSaveGameEditor
             CBHighestMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
             CBHighestMissionInfoMission.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Missions));
 
-            for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
-                CLBPersistentObjectStates.Items.Add($"Persistent Object {i}");
+            foreach (var value in Names.PersistentObjectStateSectors)
+                for (int i = 0; i < 16 * 8; i++)
+                    CLBPersistentObjectStates.Items.Add($"Sector: {value} | Persistent Object: {i}");
+            var x = CLBPersistentObjectStates.Items.Count;
+            ;
+            /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
+                CLBPersistentObjectStates.Items.Add($"Persistent Object {i}");*/
             /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
                 LVPersistentObjectStates.Items.Add(new ListViewItem(new string[] { i.ToString(), "0" }));*/
 

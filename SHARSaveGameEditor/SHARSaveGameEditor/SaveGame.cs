@@ -205,7 +205,7 @@ namespace SHARSaveGameEditor
             for (int i = 0; i < PersistentObjectStates.Length; i++)
             {
                 uint index = (uint)(i / 8);
-                PersistentObjectStates[i] = (persistentObjectStates[index] & (1 << i % 8)) > 0;
+                PersistentObjectStates[i] = (persistentObjectStates[index] & (1 << i % 8)) != 0;
             }
             /*for (int i = 0; i < PersistentObjectStates.Length; i++)
                 PersistentObjectStates[i] = br.ReadByte();*/
