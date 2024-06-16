@@ -2470,7 +2470,13 @@ namespace SHARSaveGameEditor
         private void CLBCollectedCardIDs_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             UnsavedChanges = true;
-            SaveGame.CardGallery.CollectedCardIDs[e.Index] = e.NewValue == CheckState.Checked;
+            bool value = e.NewValue == CheckState.Checked;
+            SaveGame.CardGallery.CollectedCardIDs[e.Index] = value;
+            int level = e.Index / 8;
+            int card = e.Index % 8;
+            if (card == 7)
+                return;
+            SaveGame.CharacterSheet.Levels[level].Cards[card].Collected = value;
         }
 
         private void TCCharacterSheetLevel1_SelectedIndexChanged(object sender, EventArgs e)
