@@ -1044,7 +1044,7 @@ namespace SHARSaveGameEditor
                 try
                 {
                     if (CBAutoSaveDate.Checked)
-                        DTPSaveDate.Value = SaveGame.SaveGameInfo.SaveDate;
+                        DTPSaveDate.Value = DateTime.Now;
                     using (var fileStream = File.OpenWrite(LastPath))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
@@ -1065,7 +1065,7 @@ namespace SHARSaveGameEditor
                 try
                 {
                     if (CBAutoSaveDate.Checked)
-                        DTPSaveDate.Value = SaveGame.SaveGameInfo.SaveDate;
+                        DTPSaveDate.Value = DateTime.Now;
                     using (var fileStream = File.OpenWrite(sfd.FileName))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
