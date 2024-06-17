@@ -706,28 +706,6 @@ namespace SHARSaveGameEditor
             SaveGame.CharacterSheet.PersistentObjectStates[e.Index] = e.NewValue != CheckState.Checked;
         }
 
-        private void TSMIPersistentObjectStatesSelectAll_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to select all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-                return;
-
-            CLBPersistentObjectStates.BeginUpdate();
-            for (int i = 0; i < CLBPersistentObjectStates.Items.Count; i++)
-                CLBPersistentObjectStates.SetItemChecked(i, true);
-            CLBPersistentObjectStates.EndUpdate();
-        }
-
-        private void TSMIPersistentObjectStatesDeselectAll_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Are you sure you want to deselect all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
-                return;
-
-            CLBPersistentObjectStates.BeginUpdate();
-            for (int i = 0; i < CLBPersistentObjectStates.Items.Count; i++)
-                CLBPersistentObjectStates.SetItemChecked(i, false);
-            CLBPersistentObjectStates.EndUpdate();
-        }
-
         /*private void LVPersistentObjectStates_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewItem lvi = LVPersistentObjectStates.GetItemAt(e.X, e.Y);
@@ -2407,6 +2385,42 @@ namespace SHARSaveGameEditor
             TCCharacterSheetLevel4.SelectedIndex = index;
             TCCharacterSheetLevel5.SelectedIndex = index;
             TCCharacterSheetLevel6.SelectedIndex = index;
+        }
+
+        private void TSMISelectAll_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to select all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
+
+            if (!(sender is ToolStripItem menuItem))
+                return;
+            if (!(menuItem.Owner is ContextMenuStrip owner))
+                return;
+            if (!(owner.SourceControl is CheckedListBox clb))
+                return;
+
+            clb.BeginUpdate();
+            for (int i = 0; i < clb.Items.Count; i++)
+                clb.SetItemChecked(i, true);
+            clb.EndUpdate();
+        }
+
+        private void TSMIDeselectAll_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to deselect all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
+
+            if (!(sender is ToolStripItem menuItem))
+                return;
+            if (!(menuItem.Owner is ContextMenuStrip owner))
+                return;
+            if (!(owner.SourceControl is CheckedListBox clb))
+                return;
+
+            clb.BeginUpdate();
+            for (int i = 0; i < clb.Items.Count; i++)
+                clb.SetItemChecked(i, false);
+            clb.EndUpdate();
         }
     }
 }

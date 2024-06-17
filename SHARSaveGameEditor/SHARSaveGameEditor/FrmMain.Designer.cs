@@ -53,9 +53,9 @@
             this.TCCharacterSheet = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetMiscellaneous = new System.Windows.Forms.TabPage();
             this.CLBPersistentObjectStates = new System.Windows.Forms.CheckedListBox();
-            this.CMSPersistentObjectStates = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.TSMIPersistentObjectStatesSelectAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSMIPersistentObjectStatesDeselectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.CMSCheckedListBox = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMISelectAll = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSMIDeselectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.LblPersistentObjectStates = new System.Windows.Forms.Label();
             this.CBItchyScratchyTicket = new System.Windows.Forms.CheckBox();
             this.CBItchyScratchyCBGFirst = new System.Windows.Forms.CheckBox();
@@ -365,7 +365,7 @@
             this.TPCharacterSheet.SuspendLayout();
             this.TCCharacterSheet.SuspendLayout();
             this.TPCharacterSheetMiscellaneous.SuspendLayout();
-            this.CMSPersistentObjectStates.SuspendLayout();
+            this.CMSCheckedListBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCoins)).BeginInit();
             this.TPCharacterSheetLevels.SuspendLayout();
             this.TCCharacterSheetLevels.SuspendLayout();
@@ -721,7 +721,7 @@
             // 
             this.CLBPersistentObjectStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBPersistentObjectStates.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBPersistentObjectStates.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBPersistentObjectStates.FormattingEnabled = true;
             this.CLBPersistentObjectStates.Location = new System.Drawing.Point(12, 247);
             this.CLBPersistentObjectStates.Name = "CLBPersistentObjectStates";
@@ -729,27 +729,27 @@
             this.CLBPersistentObjectStates.TabIndex = 18;
             this.CLBPersistentObjectStates.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBPersistentObjectStates_ItemCheck);
             // 
-            // CMSPersistentObjectStates
+            // CMSCheckedListBox
             // 
-            this.CMSPersistentObjectStates.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSMIPersistentObjectStatesSelectAll,
-            this.TSMIPersistentObjectStatesDeselectAll});
-            this.CMSPersistentObjectStates.Name = "CMSPersistentObjectStates";
-            this.CMSPersistentObjectStates.Size = new System.Drawing.Size(136, 48);
+            this.CMSCheckedListBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMISelectAll,
+            this.TSMIDeselectAll});
+            this.CMSCheckedListBox.Name = "CMSPersistentObjectStates";
+            this.CMSCheckedListBox.Size = new System.Drawing.Size(136, 48);
             // 
-            // TSMIPersistentObjectStatesSelectAll
+            // TSMISelectAll
             // 
-            this.TSMIPersistentObjectStatesSelectAll.Name = "TSMIPersistentObjectStatesSelectAll";
-            this.TSMIPersistentObjectStatesSelectAll.Size = new System.Drawing.Size(135, 22);
-            this.TSMIPersistentObjectStatesSelectAll.Text = "Select All";
-            this.TSMIPersistentObjectStatesSelectAll.Click += new System.EventHandler(this.TSMIPersistentObjectStatesSelectAll_Click);
+            this.TSMISelectAll.Name = "TSMISelectAll";
+            this.TSMISelectAll.Size = new System.Drawing.Size(135, 22);
+            this.TSMISelectAll.Text = "Select All";
+            this.TSMISelectAll.Click += new System.EventHandler(this.TSMISelectAll_Click);
             // 
-            // TSMIPersistentObjectStatesDeselectAll
+            // TSMIDeselectAll
             // 
-            this.TSMIPersistentObjectStatesDeselectAll.Name = "TSMIPersistentObjectStatesDeselectAll";
-            this.TSMIPersistentObjectStatesDeselectAll.Size = new System.Drawing.Size(135, 22);
-            this.TSMIPersistentObjectStatesDeselectAll.Text = "Deselect All";
-            this.TSMIPersistentObjectStatesDeselectAll.Click += new System.EventHandler(this.TSMIPersistentObjectStatesDeselectAll_Click);
+            this.TSMIDeselectAll.Name = "TSMIDeselectAll";
+            this.TSMIDeselectAll.Size = new System.Drawing.Size(135, 22);
+            this.TSMIDeselectAll.Text = "Deselect All";
+            this.TSMIDeselectAll.Click += new System.EventHandler(this.TSMIDeselectAll_Click);
             // 
             // LblPersistentObjectStates
             // 
@@ -980,7 +980,7 @@
             // 
             this.CLBLevel1PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel1PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel1PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel1PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel1PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel1PurchasedRewards.Name = "CLBLevel1PurchasedRewards";
@@ -1001,7 +1001,7 @@
             // 
             this.CLBLevel1Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel1Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel1Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel1Gags.FormattingEnabled = true;
             this.CLBLevel1Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel1Gags.Name = "CLBLevel1Gags";
@@ -1370,7 +1370,7 @@
             // 
             this.CLBLevel2PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel2PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel2PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel2PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel2PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel2PurchasedRewards.Name = "CLBLevel2PurchasedRewards";
@@ -1391,7 +1391,7 @@
             // 
             this.CLBLevel2Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel2Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel2Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel2Gags.FormattingEnabled = true;
             this.CLBLevel2Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel2Gags.Name = "CLBLevel2Gags";
@@ -1760,7 +1760,7 @@
             // 
             this.CLBLevel3PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel3PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel3PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel3PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel3PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel3PurchasedRewards.Name = "CLBLevel3PurchasedRewards";
@@ -1781,7 +1781,7 @@
             // 
             this.CLBLevel3Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel3Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel3Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel3Gags.FormattingEnabled = true;
             this.CLBLevel3Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel3Gags.Name = "CLBLevel3Gags";
@@ -2150,7 +2150,7 @@
             // 
             this.CLBLevel4PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel4PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel4PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel4PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel4PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel4PurchasedRewards.Name = "CLBLevel4PurchasedRewards";
@@ -2171,7 +2171,7 @@
             // 
             this.CLBLevel4Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel4Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel4Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel4Gags.FormattingEnabled = true;
             this.CLBLevel4Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel4Gags.Name = "CLBLevel4Gags";
@@ -2540,7 +2540,7 @@
             // 
             this.CLBLevel5PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel5PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel5PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel5PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel5PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel5PurchasedRewards.Name = "CLBLevel5PurchasedRewards";
@@ -2561,7 +2561,7 @@
             // 
             this.CLBLevel5Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel5Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel5Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel5Gags.FormattingEnabled = true;
             this.CLBLevel5Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel5Gags.Name = "CLBLevel5Gags";
@@ -2930,7 +2930,7 @@
             // 
             this.CLBLevel6PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel6PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel6PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel6PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel6PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel6PurchasedRewards.Name = "CLBLevel6PurchasedRewards";
@@ -2951,7 +2951,7 @@
             // 
             this.CLBLevel6Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel6Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel6Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel6Gags.FormattingEnabled = true;
             this.CLBLevel6Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel6Gags.Name = "CLBLevel6Gags";
@@ -3320,7 +3320,7 @@
             // 
             this.CLBLevel7PurchasedRewards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel7PurchasedRewards.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel7PurchasedRewards.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel7PurchasedRewards.FormattingEnabled = true;
             this.CLBLevel7PurchasedRewards.Location = new System.Drawing.Point(12, 196);
             this.CLBLevel7PurchasedRewards.Name = "CLBLevel7PurchasedRewards";
@@ -3341,7 +3341,7 @@
             // 
             this.CLBLevel7Gags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.CLBLevel7Gags.ContextMenuStrip = this.CMSPersistentObjectStates;
+            this.CLBLevel7Gags.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBLevel7Gags.FormattingEnabled = true;
             this.CLBLevel7Gags.Location = new System.Drawing.Point(311, 20);
             this.CLBLevel7Gags.Name = "CLBLevel7Gags";
@@ -4276,6 +4276,7 @@
             // 
             this.CLBCollectedCardIDs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.CLBCollectedCardIDs.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBCollectedCardIDs.FormattingEnabled = true;
             this.CLBCollectedCardIDs.Location = new System.Drawing.Point(12, 20);
             this.CLBCollectedCardIDs.Name = "CLBCollectedCardIDs";
@@ -4361,7 +4362,7 @@
             this.TCCharacterSheet.ResumeLayout(false);
             this.TPCharacterSheetMiscellaneous.ResumeLayout(false);
             this.TPCharacterSheetMiscellaneous.PerformLayout();
-            this.CMSPersistentObjectStates.ResumeLayout(false);
+            this.CMSCheckedListBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NUDCoins)).EndInit();
             this.TPCharacterSheetLevels.ResumeLayout(false);
             this.TCCharacterSheetLevels.ResumeLayout(false);
@@ -4599,9 +4600,9 @@
         private System.Windows.Forms.Label LblCarName;
         private System.Windows.Forms.Label LblPersistentObjectStates;
         private System.Windows.Forms.CheckedListBox CLBPersistentObjectStates;
-        private System.Windows.Forms.ContextMenuStrip CMSPersistentObjectStates;
-        private System.Windows.Forms.ToolStripMenuItem TSMIPersistentObjectStatesSelectAll;
-        private System.Windows.Forms.ToolStripMenuItem TSMIPersistentObjectStatesDeselectAll;
+        private System.Windows.Forms.ContextMenuStrip CMSCheckedListBox;
+        private System.Windows.Forms.ToolStripMenuItem TSMISelectAll;
+        private System.Windows.Forms.ToolStripMenuItem TSMIDeselectAll;
         private System.Windows.Forms.TabControl TCCharacterSheetLevel1;
         private System.Windows.Forms.TabPage TPCharacterSheetLevel1Miscellaneous;
         private System.Windows.Forms.TabPage TPCharacterSheetLevel1Missions;
