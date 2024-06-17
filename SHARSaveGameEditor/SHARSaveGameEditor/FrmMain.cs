@@ -8,6 +8,7 @@ namespace SHARSaveGameEditor
     {
         private SaveGame SaveGame = new SaveGame();
         private string LastPath = string.Empty;
+        private string _Text = string.Empty;
         private bool _unsavedChanges = false;
         private bool UnsavedChanges
         {
@@ -21,7 +22,10 @@ namespace SHARSaveGameEditor
                     return;
 
                 _unsavedChanges = value;
-                Text = value ? "SHAR Save Game Editor*" : "SHAR Save Game Editor";
+                if (value)
+                    Text = $"*{_Text}";
+                else
+                    Text = _Text;
             }
         }
 
@@ -80,6 +84,11 @@ namespace SHARSaveGameEditor
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            string version = Application.ProductVersion;
+            while (version.EndsWith(".0"))
+                version = version.Substring(0, version.Length - 2);
+            _Text = $"{Text} - v{version}";
+
             CBAutoSaveDate.Checked = true;
 
             CBCurrentMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
