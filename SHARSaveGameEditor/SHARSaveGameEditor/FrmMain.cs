@@ -811,7 +811,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[0].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[0].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[0].GagsViewed = CLBLevel1Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[0].GagsViewed = CLBLevel1Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel1Missions = false;
@@ -997,7 +997,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[1].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[1].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[1].GagsViewed = CLBLevel2Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[1].GagsViewed = CLBLevel2Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel2Missions = false;
@@ -1183,7 +1183,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[2].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[2].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[2].GagsViewed = CLBLevel3Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[2].GagsViewed = CLBLevel3Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel3Missions = false;
@@ -1369,7 +1369,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[3].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[3].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[3].GagsViewed = CLBLevel4Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[3].GagsViewed = CLBLevel4Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel4Missions = false;
@@ -1555,7 +1555,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[4].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[4].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[4].GagsViewed = CLBLevel5Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[4].GagsViewed = CLBLevel5Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel5Missions = false;
@@ -1741,7 +1741,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[5].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[5].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[5].GagsViewed = CLBLevel6Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[5].GagsViewed = CLBLevel6Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel6Missions = false;
@@ -1927,7 +1927,7 @@ namespace SHARSaveGameEditor
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[6].GagMask |= (uint)(1 << e.Index);
             SaveGame.CharacterSheet.Levels[6].GagsCompleted[e.Index] = value;
-            SaveGame.CharacterSheet.Levels[6].GagsViewed = CLBLevel7Gags.SelectedItems.Count;
+            SaveGame.CharacterSheet.Levels[6].GagsViewed = CLBLevel7Gags.CheckedItems.Count + (value ? 1 : -1);
         }
 
         private bool UpdatingLevel7Missions = false;
