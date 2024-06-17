@@ -104,6 +104,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level1Missions)
                 LBLevel1Missions.Items.Add(value);
             LBLevel1Missions.SelectedIndex = 0;
+            for (int i = 0; i < 7; i++)
+                LBLevel1Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level2PurchasedRewards)
                 CLBLevel2PurchasedRewards.Items.Add(value);
@@ -112,6 +114,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level2Missions)
                 LBLevel2Missions.Items.Add(value);
             LBLevel2Missions.SelectedIndex = 0;
+            for (int i = 8; i < 15; i++)
+                LBLevel2Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level3PurchasedRewards)
                 CLBLevel3PurchasedRewards.Items.Add(value);
@@ -120,6 +124,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level3Missions)
                 LBLevel3Missions.Items.Add(value);
             LBLevel3Missions.SelectedIndex = 0;
+            for (int i = 16; i < 23; i++)
+                LBLevel3Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level4PurchasedRewards)
                 CLBLevel4PurchasedRewards.Items.Add(value);
@@ -128,6 +134,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level4Missions)
                 LBLevel4Missions.Items.Add(value);
             LBLevel4Missions.SelectedIndex = 0;
+            for (int i = 24; i < 31; i++)
+                LBLevel4Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level5PurchasedRewards)
                 CLBLevel5PurchasedRewards.Items.Add(value);
@@ -136,6 +144,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level5Missions)
                 LBLevel5Missions.Items.Add(value);
             LBLevel5Missions.SelectedIndex = 0;
+            for (int i = 32; i < 39; i++)
+                LBLevel5Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level6PurchasedRewards)
                 CLBLevel6PurchasedRewards.Items.Add(value);
@@ -144,6 +154,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level6Missions)
                 LBLevel6Missions.Items.Add(value);
             LBLevel6Missions.SelectedIndex = 0;
+            for (int i = 40; i < 47; i++)
+                LBLevel6Cards.Items.Add(Names.Cards[i]);
 
             foreach (var value in Names.Level7PurchasedRewards)
                 CLBLevel7PurchasedRewards.Items.Add(value);
@@ -152,6 +164,8 @@ namespace SHARSaveGameEditor
             foreach (var value in Names.Level7Missions)
                 LBLevel7Missions.Items.Add(value);
             LBLevel7Missions.SelectedIndex = 0;
+            for (int i = 48; i < 55; i++)
+                LBLevel7Cards.Items.Add(Names.Cards[i]);
 
             CBPreferredFollowCam1.DataSource = Enum.GetValues(typeof(SuperCamCentral.PreferredFollowCams));
             CBPreferredFollowCam2.DataSource = Enum.GetValues(typeof(SuperCamCentral.PreferredFollowCams));
@@ -290,6 +304,7 @@ namespace SHARSaveGameEditor
                 CLBLevel1Gags.SetItemChecked(i, characterSheet.Levels[0].GagsCompleted[i] || (characterSheet.Levels[0].GagMask & (1 << i)) > 0);
             CLBLevel1Gags.EndUpdate();
             LBLevel1Missions_SelectedIndexChanged(LBLevel1Missions, EventArgs.Empty);
+            LBLevel1Cards_SelectedIndexChanged(LBLevel1Cards, EventArgs.Empty);
             CBLevel2FMVUnlocked.Checked = characterSheet.Levels[1].FMVUnlocked;
             NUDLevel2NumCarsPurchased.Value = characterSheet.Levels[1].NumCarsPurchased;
             NUDLevel2NumSkinsPurchased.Value = characterSheet.Levels[1].NumSkinsPurchased;
@@ -304,6 +319,7 @@ namespace SHARSaveGameEditor
                 CLBLevel2Gags.SetItemChecked(i, characterSheet.Levels[1].GagsCompleted[i] || (characterSheet.Levels[1].GagMask & (1 << i)) > 0);
             CLBLevel2Gags.EndUpdate();
             LBLevel2Missions_SelectedIndexChanged(LBLevel2Missions, EventArgs.Empty);
+            LBLevel2Cards_SelectedIndexChanged(LBLevel2Cards, EventArgs.Empty);
             CBLevel3FMVUnlocked.Checked = characterSheet.Levels[2].FMVUnlocked;
             NUDLevel3NumCarsPurchased.Value = characterSheet.Levels[2].NumCarsPurchased;
             NUDLevel3NumSkinsPurchased.Value = characterSheet.Levels[2].NumSkinsPurchased;
@@ -318,6 +334,7 @@ namespace SHARSaveGameEditor
                 CLBLevel3Gags.SetItemChecked(i, characterSheet.Levels[2].GagsCompleted[i] || (characterSheet.Levels[2].GagMask & (1 << i)) > 0);
             CLBLevel3Gags.EndUpdate();
             LBLevel3Missions_SelectedIndexChanged(LBLevel3Missions, EventArgs.Empty);
+            LBLevel3Cards_SelectedIndexChanged(LBLevel3Cards, EventArgs.Empty);
             CBLevel4FMVUnlocked.Checked = characterSheet.Levels[3].FMVUnlocked;
             NUDLevel4NumCarsPurchased.Value = characterSheet.Levels[3].NumCarsPurchased;
             NUDLevel4NumSkinsPurchased.Value = characterSheet.Levels[3].NumSkinsPurchased;
@@ -332,6 +349,7 @@ namespace SHARSaveGameEditor
                 CLBLevel4Gags.SetItemChecked(i, characterSheet.Levels[3].GagsCompleted[i] || (characterSheet.Levels[3].GagMask & (1 << i)) > 0);
             CLBLevel4Gags.EndUpdate();
             LBLevel4Missions_SelectedIndexChanged(LBLevel4Missions, EventArgs.Empty);
+            LBLevel4Cards_SelectedIndexChanged(LBLevel4Cards, EventArgs.Empty);
             CBLevel5FMVUnlocked.Checked = characterSheet.Levels[4].FMVUnlocked;
             NUDLevel5NumCarsPurchased.Value = characterSheet.Levels[4].NumCarsPurchased;
             NUDLevel5NumSkinsPurchased.Value = characterSheet.Levels[4].NumSkinsPurchased;
@@ -346,6 +364,7 @@ namespace SHARSaveGameEditor
                 CLBLevel5Gags.SetItemChecked(i, characterSheet.Levels[4].GagsCompleted[i] || (characterSheet.Levels[4].GagMask & (1 << i)) > 0);
             CLBLevel5Gags.EndUpdate();
             LBLevel5Missions_SelectedIndexChanged(LBLevel5Missions, EventArgs.Empty);
+            LBLevel5Cards_SelectedIndexChanged(LBLevel5Cards, EventArgs.Empty);
             CBLevel6FMVUnlocked.Checked = characterSheet.Levels[5].FMVUnlocked;
             NUDLevel6NumCarsPurchased.Value = characterSheet.Levels[5].NumCarsPurchased;
             NUDLevel6NumSkinsPurchased.Value = characterSheet.Levels[5].NumSkinsPurchased;
@@ -360,6 +379,7 @@ namespace SHARSaveGameEditor
                 CLBLevel6Gags.SetItemChecked(i, characterSheet.Levels[5].GagsCompleted[i] || (characterSheet.Levels[5].GagMask & (1 << i)) > 0);
             CLBLevel6Gags.EndUpdate();
             LBLevel6Missions_SelectedIndexChanged(LBLevel6Missions, EventArgs.Empty);
+            LBLevel6Cards_SelectedIndexChanged(LBLevel6Cards, EventArgs.Empty);
             CBLevel7FMVUnlocked.Checked = characterSheet.Levels[6].FMVUnlocked;
             NUDLevel7NumCarsPurchased.Value = characterSheet.Levels[6].NumCarsPurchased;
             NUDLevel7NumSkinsPurchased.Value = characterSheet.Levels[6].NumSkinsPurchased;
@@ -374,6 +394,7 @@ namespace SHARSaveGameEditor
                 CLBLevel7Gags.SetItemChecked(i, characterSheet.Levels[6].GagsCompleted[i] || (characterSheet.Levels[6].GagMask & (1 << i)) > 0);
             CLBLevel7Gags.EndUpdate();
             LBLevel7Missions_SelectedIndexChanged(LBLevel7Missions, EventArgs.Empty);
+            LBLevel7Cards_SelectedIndexChanged(LBLevel7Cards, EventArgs.Empty);
 
             SoundSettings soundSettings = SaveGame.SoundSettings;
             TBMusicVolume.Value = (int)(soundSettings.MusicVolume * 100);
@@ -895,6 +916,51 @@ namespace SHARSaveGameEditor
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[0], LBLevel1Missions.SelectedIndex).BestTime = (int)NUDLevel1BestTime.Value;
         }
 
+        private bool UpdatingLevel1Cards = false;
+        private void LBLevel1Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel1Cards.SelectedIndex;
+            UpdatingLevel1Cards = true;
+            if (index == -1)
+            {
+                TxtLevel1CardName.Text = "Cardx";
+                TxtLevel1CardName.Enabled = false;
+                CBLevel1CardCollected.Checked = false;
+                CBLevel1CardCollected.Enabled = true;
+
+                UpdatingLevel1Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel1CardName.Text = card.Name;
+            TxtLevel1CardName.Enabled = true;
+            CBLevel1CardCollected.Checked = card.Collected;
+            CBLevel1CardCollected.Enabled = true;
+
+            UpdatingLevel1Cards = false;
+        }
+
+        private void TxtLevel1CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel1Cards.SelectedIndex].Name = TxtLevel1CardName.Text;
+        }
+
+        private void CBLevel1CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel1Cards.SelectedIndex].Collected = CBLevel1CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(LBLevel1Cards.SelectedIndex, CBLevel1CardCollected.Checked);
+        }
+
         private void CBLevel2FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
             UnsavedChanges = true;
@@ -1034,6 +1100,51 @@ namespace SHARSaveGameEditor
 
             UnsavedChanges = true;
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[1], LBLevel2Missions.SelectedIndex).BestTime = (int)NUDLevel2BestTime.Value;
+        }
+
+        private bool UpdatingLevel2Cards = false;
+        private void LBLevel2Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel2Cards.SelectedIndex;
+            UpdatingLevel2Cards = true;
+            if (index == -1)
+            {
+                TxtLevel2CardName.Text = "Cardx";
+                TxtLevel2CardName.Enabled = false;
+                CBLevel2CardCollected.Checked = false;
+                CBLevel2CardCollected.Enabled = true;
+
+                UpdatingLevel2Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel2CardName.Text = card.Name;
+            TxtLevel2CardName.Enabled = true;
+            CBLevel2CardCollected.Checked = card.Collected;
+            CBLevel2CardCollected.Enabled = true;
+
+            UpdatingLevel2Cards = false;
+        }
+
+        private void TxtLevel2CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel2Cards.SelectedIndex].Name = TxtLevel2CardName.Text;
+        }
+
+        private void CBLevel2CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel2Cards.SelectedIndex].Collected = CBLevel2CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(8 + LBLevel2Cards.SelectedIndex, CBLevel2CardCollected.Checked);
         }
 
         private void CBLevel3FMVUnlocked_CheckedChanged(object sender, EventArgs e)
@@ -1177,6 +1288,51 @@ namespace SHARSaveGameEditor
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[2], LBLevel3Missions.SelectedIndex).BestTime = (int)NUDLevel3BestTime.Value;
         }
 
+        private bool UpdatingLevel3Cards = false;
+        private void LBLevel3Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel3Cards.SelectedIndex;
+            UpdatingLevel3Cards = true;
+            if (index == -1)
+            {
+                TxtLevel3CardName.Text = "Cardx";
+                TxtLevel3CardName.Enabled = false;
+                CBLevel3CardCollected.Checked = false;
+                CBLevel3CardCollected.Enabled = true;
+
+                UpdatingLevel3Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel3CardName.Text = card.Name;
+            TxtLevel3CardName.Enabled = true;
+            CBLevel3CardCollected.Checked = card.Collected;
+            CBLevel3CardCollected.Enabled = true;
+
+            UpdatingLevel3Cards = false;
+        }
+
+        private void TxtLevel3CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel3Cards.SelectedIndex].Name = TxtLevel3CardName.Text;
+        }
+
+        private void CBLevel3CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel3Cards.SelectedIndex].Collected = CBLevel3CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(16 + LBLevel3Cards.SelectedIndex, CBLevel3CardCollected.Checked);
+        }
+
         private void CBLevel4FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
             UnsavedChanges = true;
@@ -1316,6 +1472,51 @@ namespace SHARSaveGameEditor
 
             UnsavedChanges = true;
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[3], LBLevel4Missions.SelectedIndex).BestTime = (int)NUDLevel4BestTime.Value;
+        }
+
+        private bool UpdatingLevel4Cards = false;
+        private void LBLevel4Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel4Cards.SelectedIndex;
+            UpdatingLevel4Cards = true;
+            if (index == -1)
+            {
+                TxtLevel4CardName.Text = "Cardx";
+                TxtLevel4CardName.Enabled = false;
+                CBLevel4CardCollected.Checked = false;
+                CBLevel4CardCollected.Enabled = true;
+
+                UpdatingLevel4Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel4CardName.Text = card.Name;
+            TxtLevel4CardName.Enabled = true;
+            CBLevel4CardCollected.Checked = card.Collected;
+            CBLevel4CardCollected.Enabled = true;
+
+            UpdatingLevel4Cards = false;
+        }
+
+        private void TxtLevel4CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel4Cards.SelectedIndex].Name = TxtLevel4CardName.Text;
+        }
+
+        private void CBLevel4CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel4Cards.SelectedIndex].Collected = CBLevel4CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(24 + LBLevel4Cards.SelectedIndex, CBLevel4CardCollected.Checked);
         }
 
         private void CBLevel5FMVUnlocked_CheckedChanged(object sender, EventArgs e)
@@ -1459,6 +1660,51 @@ namespace SHARSaveGameEditor
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[4], LBLevel5Missions.SelectedIndex).BestTime = (int)NUDLevel5BestTime.Value;
         }
 
+        private bool UpdatingLevel5Cards = false;
+        private void LBLevel5Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel5Cards.SelectedIndex;
+            UpdatingLevel5Cards = true;
+            if (index == -1)
+            {
+                TxtLevel5CardName.Text = "Cardx";
+                TxtLevel5CardName.Enabled = false;
+                CBLevel5CardCollected.Checked = false;
+                CBLevel5CardCollected.Enabled = true;
+
+                UpdatingLevel5Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel5CardName.Text = card.Name;
+            TxtLevel5CardName.Enabled = true;
+            CBLevel5CardCollected.Checked = card.Collected;
+            CBLevel5CardCollected.Enabled = true;
+
+            UpdatingLevel5Cards = false;
+        }
+
+        private void TxtLevel5CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel5Cards.SelectedIndex].Name = TxtLevel5CardName.Text;
+        }
+
+        private void CBLevel5CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel5Cards.SelectedIndex].Collected = CBLevel5CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(32 + LBLevel5Cards.SelectedIndex, CBLevel5CardCollected.Checked);
+        }
+
         private void CBLevel6FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
             UnsavedChanges = true;
@@ -1600,6 +1846,51 @@ namespace SHARSaveGameEditor
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[5], LBLevel6Missions.SelectedIndex).BestTime = (int)NUDLevel6BestTime.Value;
         }
 
+        private bool UpdatingLevel6Cards = false;
+        private void LBLevel6Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel6Cards.SelectedIndex;
+            UpdatingLevel6Cards = true;
+            if (index == -1)
+            {
+                TxtLevel6CardName.Text = "Cardx";
+                TxtLevel6CardName.Enabled = false;
+                CBLevel6CardCollected.Checked = false;
+                CBLevel6CardCollected.Enabled = true;
+
+                UpdatingLevel6Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel6CardName.Text = card.Name;
+            TxtLevel6CardName.Enabled = true;
+            CBLevel6CardCollected.Checked = card.Collected;
+            CBLevel6CardCollected.Enabled = true;
+
+            UpdatingLevel6Cards = false;
+        }
+
+        private void TxtLevel6CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel6Cards.SelectedIndex].Name = TxtLevel6CardName.Text;
+        }
+
+        private void CBLevel6CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel6Cards.SelectedIndex].Collected = CBLevel6CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(40 + LBLevel6Cards.SelectedIndex, CBLevel6CardCollected.Checked);
+        }
+
         private void CBLevel7FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
             UnsavedChanges = true;
@@ -1739,6 +2030,51 @@ namespace SHARSaveGameEditor
 
             UnsavedChanges = true;
             GetMissionRecordFromIndex(SaveGame.CharacterSheet.Levels[6], LBLevel7Missions.SelectedIndex).BestTime = (int)NUDLevel7BestTime.Value;
+        }
+
+        private bool UpdatingLevel7Cards = false;
+        private void LBLevel7Cards_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = LBLevel7Cards.SelectedIndex;
+            UpdatingLevel7Cards = true;
+            if (index == -1)
+            {
+                TxtLevel7CardName.Text = "Cardx";
+                TxtLevel7CardName.Enabled = false;
+                CBLevel7CardCollected.Checked = false;
+                CBLevel7CardCollected.Enabled = true;
+
+                UpdatingLevel7Cards = true;
+                return;
+            }
+
+            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+
+            TxtLevel7CardName.Text = card.Name;
+            TxtLevel7CardName.Enabled = true;
+            CBLevel7CardCollected.Checked = card.Collected;
+            CBLevel7CardCollected.Enabled = true;
+
+            UpdatingLevel7Cards = false;
+        }
+
+        private void TxtLevel7CardName_TextChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel7Cards.SelectedIndex].Name = TxtLevel7CardName.Text;
+        }
+
+        private void CBLevel7CardCollected_CheckedChanged(object sender, EventArgs e)
+        {
+            if (UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
+                return;
+
+            UnsavedChanges = true;
+            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel7Cards.SelectedIndex].Collected = CBLevel7CardCollected.Checked;
+            CLBCollectedCardIDs.SetItemChecked(48 + LBLevel7Cards.SelectedIndex, CBLevel7CardCollected.Checked);
         }
 
         private bool UpdatingCars = false;
@@ -1939,6 +2275,45 @@ namespace SHARSaveGameEditor
             if (card == 7)
                 return;
             SaveGame.CharacterSheet.Levels[level].Cards[card].Collected = value;
+
+            ListBox lb;
+            CheckBox cb;
+            switch (level)
+            {
+                case 0:
+                    lb = LBLevel1Cards;
+                    cb = CBLevel1CardCollected;
+                    break;
+                case 1:
+                    lb = LBLevel2Cards;
+                    cb = CBLevel2CardCollected;
+                    break;
+                case 2:
+                    lb = LBLevel3Cards;
+                    cb = CBLevel3CardCollected;
+                    break;
+                case 3:
+                    lb = LBLevel4Cards;
+                    cb = CBLevel4CardCollected;
+                    break;
+                case 4:
+                    lb = LBLevel5Cards;
+                    cb = CBLevel5CardCollected;
+                    break;
+                case 5:
+                    lb = LBLevel6Cards;
+                    cb = CBLevel6CardCollected;
+                    break;
+                case 6:
+                    lb = LBLevel7Cards;
+                    cb = CBLevel7CardCollected;
+                    break;
+                default:
+                    return;
+            }
+            if (lb.SelectedIndex != card)
+                return;
+            cb.Checked = value;
         }
 
         private void TCCharacterSheetLevel1_SelectedIndexChanged(object sender, EventArgs e)

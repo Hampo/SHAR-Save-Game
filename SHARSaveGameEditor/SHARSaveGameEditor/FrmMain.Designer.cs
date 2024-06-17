@@ -99,6 +99,11 @@
             this.TxtLevel1MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel1MissionName = new System.Windows.Forms.Label();
             this.LBLevel1Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel1Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel1CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel1CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel1CardName = new System.Windows.Forms.Label();
+            this.LBLevel1Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel2 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel2 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel2Miscellaneous = new System.Windows.Forms.TabPage();
@@ -126,6 +131,11 @@
             this.TxtLevel2MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel2MissionName = new System.Windows.Forms.Label();
             this.LBLevel2Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel2Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel2CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel2CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel2CardName = new System.Windows.Forms.Label();
+            this.LBLevel2Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel3 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel3 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel3Miscellaneous = new System.Windows.Forms.TabPage();
@@ -153,6 +163,11 @@
             this.TxtLevel3MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel3MissionName = new System.Windows.Forms.Label();
             this.LBLevel3Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel3Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel3CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel3CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel3CardName = new System.Windows.Forms.Label();
+            this.LBLevel3Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel4 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel4 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel4Miscellaneous = new System.Windows.Forms.TabPage();
@@ -180,6 +195,11 @@
             this.TxtLevel4MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel4MissionName = new System.Windows.Forms.Label();
             this.LBLevel4Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel4Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel4CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel4CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel4CardName = new System.Windows.Forms.Label();
+            this.LBLevel4Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel5 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel5 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel5Miscellaneous = new System.Windows.Forms.TabPage();
@@ -207,6 +227,11 @@
             this.TxtLevel5MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel5MissionName = new System.Windows.Forms.Label();
             this.LBLevel5Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel5Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel5CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel5CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel5CardName = new System.Windows.Forms.Label();
+            this.LBLevel5Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel6 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel6 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel6Miscellaneous = new System.Windows.Forms.TabPage();
@@ -234,6 +259,11 @@
             this.TxtLevel6MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel6MissionName = new System.Windows.Forms.Label();
             this.LBLevel6Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel6Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel6CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel6CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel6CardName = new System.Windows.Forms.Label();
+            this.LBLevel6Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetLevel7 = new System.Windows.Forms.TabPage();
             this.TCCharacterSheetLevel7 = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetLevel7Miscellaneous = new System.Windows.Forms.TabPage();
@@ -261,6 +291,11 @@
             this.TxtLevel7MissionName = new System.Windows.Forms.TextBox();
             this.LblLevel7MissionName = new System.Windows.Forms.Label();
             this.LBLevel7Missions = new System.Windows.Forms.ListBox();
+            this.TPCharacterSheetLevel7Cards = new System.Windows.Forms.TabPage();
+            this.CBLevel7CardCollected = new System.Windows.Forms.CheckBox();
+            this.TxtLevel7CardName = new System.Windows.Forms.TextBox();
+            this.LblLevel7CardName = new System.Windows.Forms.Label();
+            this.LBLevel7Cards = new System.Windows.Forms.ListBox();
             this.TPCharacterSheetCars = new System.Windows.Forms.TabPage();
             this.NUDCounter = new System.Windows.Forms.NumericUpDown();
             this.LblCounter = new System.Windows.Forms.Label();
@@ -343,6 +378,7 @@
             this.TPCharacterSheetLevel1Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel1BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel1NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel1Cards.SuspendLayout();
             this.TPCharacterSheetLevel2.SuspendLayout();
             this.TCCharacterSheetLevel2.SuspendLayout();
             this.TPCharacterSheetLevel2Miscellaneous.SuspendLayout();
@@ -352,6 +388,7 @@
             this.TPCharacterSheetLevel2Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel2BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel2NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel2Cards.SuspendLayout();
             this.TPCharacterSheetLevel3.SuspendLayout();
             this.TCCharacterSheetLevel3.SuspendLayout();
             this.TPCharacterSheetLevel3Miscellaneous.SuspendLayout();
@@ -361,6 +398,7 @@
             this.TPCharacterSheetLevel3Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel3BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel3NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel3Cards.SuspendLayout();
             this.TPCharacterSheetLevel4.SuspendLayout();
             this.TCCharacterSheetLevel4.SuspendLayout();
             this.TPCharacterSheetLevel4Miscellaneous.SuspendLayout();
@@ -370,6 +408,7 @@
             this.TPCharacterSheetLevel4Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel4BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel4NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel4Cards.SuspendLayout();
             this.TPCharacterSheetLevel5.SuspendLayout();
             this.TCCharacterSheetLevel5.SuspendLayout();
             this.TPCharacterSheetLevel5Miscellaneous.SuspendLayout();
@@ -379,6 +418,7 @@
             this.TPCharacterSheetLevel5Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel5BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel5NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel5Cards.SuspendLayout();
             this.TPCharacterSheetLevel6.SuspendLayout();
             this.TCCharacterSheetLevel6.SuspendLayout();
             this.TPCharacterSheetLevel6Miscellaneous.SuspendLayout();
@@ -388,6 +428,7 @@
             this.TPCharacterSheetLevel6Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel6BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel6NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel6Cards.SuspendLayout();
             this.TPCharacterSheetLevel7.SuspendLayout();
             this.TCCharacterSheetLevel7.SuspendLayout();
             this.TPCharacterSheetLevel7Miscellaneous.SuspendLayout();
@@ -397,6 +438,7 @@
             this.TPCharacterSheetLevel7Missions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel7BestTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel7NumAttempts)).BeginInit();
+            this.TPCharacterSheetLevel7Cards.SuspendLayout();
             this.TPCharacterSheetCars.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCounter)).BeginInit();
             this.GBCars.SuspendLayout();
@@ -903,6 +945,7 @@
             // 
             this.TCCharacterSheetLevel1.Controls.Add(this.TPCharacterSheetLevel1Miscellaneous);
             this.TCCharacterSheetLevel1.Controls.Add(this.TPCharacterSheetLevel1Missions);
+            this.TCCharacterSheetLevel1.Controls.Add(this.TPCharacterSheetLevel1Cards);
             this.TCCharacterSheetLevel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel1.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel1.Name = "TCCharacterSheetLevel1";
@@ -1225,6 +1268,59 @@
             this.LBLevel1Missions.TabIndex = 1;
             this.LBLevel1Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel1Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel1Cards
+            // 
+            this.TPCharacterSheetLevel1Cards.Controls.Add(this.CBLevel1CardCollected);
+            this.TPCharacterSheetLevel1Cards.Controls.Add(this.TxtLevel1CardName);
+            this.TPCharacterSheetLevel1Cards.Controls.Add(this.LblLevel1CardName);
+            this.TPCharacterSheetLevel1Cards.Controls.Add(this.LBLevel1Cards);
+            this.TPCharacterSheetLevel1Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel1Cards.Name = "TPCharacterSheetLevel1Cards";
+            this.TPCharacterSheetLevel1Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel1Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel1Cards.Text = "Cards";
+            this.TPCharacterSheetLevel1Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel1CardCollected
+            // 
+            this.CBLevel1CardCollected.AutoSize = true;
+            this.CBLevel1CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel1CardCollected.Name = "CBLevel1CardCollected";
+            this.CBLevel1CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel1CardCollected.TabIndex = 9;
+            this.CBLevel1CardCollected.Text = "Collected";
+            this.CBLevel1CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel1CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel1CardCollected_CheckedChanged);
+            // 
+            // TxtLevel1CardName
+            // 
+            this.TxtLevel1CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel1CardName.MaxLength = 16;
+            this.TxtLevel1CardName.Name = "TxtLevel1CardName";
+            this.TxtLevel1CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel1CardName.TabIndex = 8;
+            this.TxtLevel1CardName.TextChanged += new System.EventHandler(this.TxtLevel1CardName_TextChanged);
+            // 
+            // LblLevel1CardName
+            // 
+            this.LblLevel1CardName.AutoSize = true;
+            this.LblLevel1CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel1CardName.Name = "LblLevel1CardName";
+            this.LblLevel1CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel1CardName.TabIndex = 7;
+            this.LblLevel1CardName.Text = "Card Name:";
+            // 
+            // LBLevel1Cards
+            // 
+            this.LBLevel1Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel1Cards.FormattingEnabled = true;
+            this.LBLevel1Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel1Cards.Name = "LBLevel1Cards";
+            this.LBLevel1Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel1Cards.TabIndex = 6;
+            this.LBLevel1Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel1Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel2
             // 
             this.TPCharacterSheetLevel2.Controls.Add(this.TCCharacterSheetLevel2);
@@ -1239,6 +1335,7 @@
             // 
             this.TCCharacterSheetLevel2.Controls.Add(this.TPCharacterSheetLevel2Miscellaneous);
             this.TCCharacterSheetLevel2.Controls.Add(this.TPCharacterSheetLevel2Missions);
+            this.TCCharacterSheetLevel2.Controls.Add(this.TPCharacterSheetLevel2Cards);
             this.TCCharacterSheetLevel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel2.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel2.Name = "TCCharacterSheetLevel2";
@@ -1561,6 +1658,59 @@
             this.LBLevel2Missions.TabIndex = 1;
             this.LBLevel2Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel2Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel2Cards
+            // 
+            this.TPCharacterSheetLevel2Cards.Controls.Add(this.CBLevel2CardCollected);
+            this.TPCharacterSheetLevel2Cards.Controls.Add(this.TxtLevel2CardName);
+            this.TPCharacterSheetLevel2Cards.Controls.Add(this.LblLevel2CardName);
+            this.TPCharacterSheetLevel2Cards.Controls.Add(this.LBLevel2Cards);
+            this.TPCharacterSheetLevel2Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel2Cards.Name = "TPCharacterSheetLevel2Cards";
+            this.TPCharacterSheetLevel2Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel2Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel2Cards.Text = "Cards";
+            this.TPCharacterSheetLevel2Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel2CardCollected
+            // 
+            this.CBLevel2CardCollected.AutoSize = true;
+            this.CBLevel2CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel2CardCollected.Name = "CBLevel2CardCollected";
+            this.CBLevel2CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel2CardCollected.TabIndex = 9;
+            this.CBLevel2CardCollected.Text = "Collected";
+            this.CBLevel2CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel2CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel2CardCollected_CheckedChanged);
+            // 
+            // TxtLevel2CardName
+            // 
+            this.TxtLevel2CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel2CardName.MaxLength = 16;
+            this.TxtLevel2CardName.Name = "TxtLevel2CardName";
+            this.TxtLevel2CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel2CardName.TabIndex = 8;
+            this.TxtLevel2CardName.TextChanged += new System.EventHandler(this.TxtLevel2CardName_TextChanged);
+            // 
+            // LblLevel2CardName
+            // 
+            this.LblLevel2CardName.AutoSize = true;
+            this.LblLevel2CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel2CardName.Name = "LblLevel2CardName";
+            this.LblLevel2CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel2CardName.TabIndex = 7;
+            this.LblLevel2CardName.Text = "Card Name:";
+            // 
+            // LBLevel2Cards
+            // 
+            this.LBLevel2Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel2Cards.FormattingEnabled = true;
+            this.LBLevel2Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel2Cards.Name = "LBLevel2Cards";
+            this.LBLevel2Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel2Cards.TabIndex = 6;
+            this.LBLevel2Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel2Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel3
             // 
             this.TPCharacterSheetLevel3.Controls.Add(this.TCCharacterSheetLevel3);
@@ -1575,6 +1725,7 @@
             // 
             this.TCCharacterSheetLevel3.Controls.Add(this.TPCharacterSheetLevel3Miscellaneous);
             this.TCCharacterSheetLevel3.Controls.Add(this.TPCharacterSheetLevel3Missions);
+            this.TCCharacterSheetLevel3.Controls.Add(this.TPCharacterSheetLevel3Cards);
             this.TCCharacterSheetLevel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel3.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel3.Name = "TCCharacterSheetLevel3";
@@ -1897,6 +2048,59 @@
             this.LBLevel3Missions.TabIndex = 1;
             this.LBLevel3Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel3Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel3Cards
+            // 
+            this.TPCharacterSheetLevel3Cards.Controls.Add(this.CBLevel3CardCollected);
+            this.TPCharacterSheetLevel3Cards.Controls.Add(this.TxtLevel3CardName);
+            this.TPCharacterSheetLevel3Cards.Controls.Add(this.LblLevel3CardName);
+            this.TPCharacterSheetLevel3Cards.Controls.Add(this.LBLevel3Cards);
+            this.TPCharacterSheetLevel3Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel3Cards.Name = "TPCharacterSheetLevel3Cards";
+            this.TPCharacterSheetLevel3Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel3Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel3Cards.Text = "Cards";
+            this.TPCharacterSheetLevel3Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel3CardCollected
+            // 
+            this.CBLevel3CardCollected.AutoSize = true;
+            this.CBLevel3CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel3CardCollected.Name = "CBLevel3CardCollected";
+            this.CBLevel3CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel3CardCollected.TabIndex = 9;
+            this.CBLevel3CardCollected.Text = "Collected";
+            this.CBLevel3CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel3CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel3CardCollected_CheckedChanged);
+            // 
+            // TxtLevel3CardName
+            // 
+            this.TxtLevel3CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel3CardName.MaxLength = 16;
+            this.TxtLevel3CardName.Name = "TxtLevel3CardName";
+            this.TxtLevel3CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel3CardName.TabIndex = 8;
+            this.TxtLevel3CardName.TextChanged += new System.EventHandler(this.TxtLevel3CardName_TextChanged);
+            // 
+            // LblLevel3CardName
+            // 
+            this.LblLevel3CardName.AutoSize = true;
+            this.LblLevel3CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel3CardName.Name = "LblLevel3CardName";
+            this.LblLevel3CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel3CardName.TabIndex = 7;
+            this.LblLevel3CardName.Text = "Card Name:";
+            // 
+            // LBLevel3Cards
+            // 
+            this.LBLevel3Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel3Cards.FormattingEnabled = true;
+            this.LBLevel3Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel3Cards.Name = "LBLevel3Cards";
+            this.LBLevel3Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel3Cards.TabIndex = 6;
+            this.LBLevel3Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel3Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel4
             // 
             this.TPCharacterSheetLevel4.Controls.Add(this.TCCharacterSheetLevel4);
@@ -1911,6 +2115,7 @@
             // 
             this.TCCharacterSheetLevel4.Controls.Add(this.TPCharacterSheetLevel4Miscellaneous);
             this.TCCharacterSheetLevel4.Controls.Add(this.TPCharacterSheetLevel4Missions);
+            this.TCCharacterSheetLevel4.Controls.Add(this.TPCharacterSheetLevel4Cards);
             this.TCCharacterSheetLevel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel4.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel4.Name = "TCCharacterSheetLevel4";
@@ -2233,6 +2438,59 @@
             this.LBLevel4Missions.TabIndex = 1;
             this.LBLevel4Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel4Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel4Cards
+            // 
+            this.TPCharacterSheetLevel4Cards.Controls.Add(this.CBLevel4CardCollected);
+            this.TPCharacterSheetLevel4Cards.Controls.Add(this.TxtLevel4CardName);
+            this.TPCharacterSheetLevel4Cards.Controls.Add(this.LblLevel4CardName);
+            this.TPCharacterSheetLevel4Cards.Controls.Add(this.LBLevel4Cards);
+            this.TPCharacterSheetLevel4Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel4Cards.Name = "TPCharacterSheetLevel4Cards";
+            this.TPCharacterSheetLevel4Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel4Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel4Cards.Text = "Cards";
+            this.TPCharacterSheetLevel4Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel4CardCollected
+            // 
+            this.CBLevel4CardCollected.AutoSize = true;
+            this.CBLevel4CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel4CardCollected.Name = "CBLevel4CardCollected";
+            this.CBLevel4CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel4CardCollected.TabIndex = 9;
+            this.CBLevel4CardCollected.Text = "Collected";
+            this.CBLevel4CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel4CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel4CardCollected_CheckedChanged);
+            // 
+            // TxtLevel4CardName
+            // 
+            this.TxtLevel4CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel4CardName.MaxLength = 16;
+            this.TxtLevel4CardName.Name = "TxtLevel4CardName";
+            this.TxtLevel4CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel4CardName.TabIndex = 8;
+            this.TxtLevel4CardName.TextChanged += new System.EventHandler(this.TxtLevel4CardName_TextChanged);
+            // 
+            // LblLevel4CardName
+            // 
+            this.LblLevel4CardName.AutoSize = true;
+            this.LblLevel4CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel4CardName.Name = "LblLevel4CardName";
+            this.LblLevel4CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel4CardName.TabIndex = 7;
+            this.LblLevel4CardName.Text = "Card Name:";
+            // 
+            // LBLevel4Cards
+            // 
+            this.LBLevel4Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel4Cards.FormattingEnabled = true;
+            this.LBLevel4Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel4Cards.Name = "LBLevel4Cards";
+            this.LBLevel4Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel4Cards.TabIndex = 6;
+            this.LBLevel4Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel4Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel5
             // 
             this.TPCharacterSheetLevel5.Controls.Add(this.TCCharacterSheetLevel5);
@@ -2247,6 +2505,7 @@
             // 
             this.TCCharacterSheetLevel5.Controls.Add(this.TPCharacterSheetLevel5Miscellaneous);
             this.TCCharacterSheetLevel5.Controls.Add(this.TPCharacterSheetLevel5Missions);
+            this.TCCharacterSheetLevel5.Controls.Add(this.TPCharacterSheetLevel5Cards);
             this.TCCharacterSheetLevel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel5.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel5.Name = "TCCharacterSheetLevel5";
@@ -2569,6 +2828,59 @@
             this.LBLevel5Missions.TabIndex = 1;
             this.LBLevel5Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel5Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel5Cards
+            // 
+            this.TPCharacterSheetLevel5Cards.Controls.Add(this.CBLevel5CardCollected);
+            this.TPCharacterSheetLevel5Cards.Controls.Add(this.TxtLevel5CardName);
+            this.TPCharacterSheetLevel5Cards.Controls.Add(this.LblLevel5CardName);
+            this.TPCharacterSheetLevel5Cards.Controls.Add(this.LBLevel5Cards);
+            this.TPCharacterSheetLevel5Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel5Cards.Name = "TPCharacterSheetLevel5Cards";
+            this.TPCharacterSheetLevel5Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel5Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel5Cards.Text = "Cards";
+            this.TPCharacterSheetLevel5Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel5CardCollected
+            // 
+            this.CBLevel5CardCollected.AutoSize = true;
+            this.CBLevel5CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel5CardCollected.Name = "CBLevel5CardCollected";
+            this.CBLevel5CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel5CardCollected.TabIndex = 9;
+            this.CBLevel5CardCollected.Text = "Collected";
+            this.CBLevel5CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel5CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel5CardCollected_CheckedChanged);
+            // 
+            // TxtLevel5CardName
+            // 
+            this.TxtLevel5CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel5CardName.MaxLength = 16;
+            this.TxtLevel5CardName.Name = "TxtLevel5CardName";
+            this.TxtLevel5CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel5CardName.TabIndex = 8;
+            this.TxtLevel5CardName.TextChanged += new System.EventHandler(this.TxtLevel5CardName_TextChanged);
+            // 
+            // LblLevel5CardName
+            // 
+            this.LblLevel5CardName.AutoSize = true;
+            this.LblLevel5CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel5CardName.Name = "LblLevel5CardName";
+            this.LblLevel5CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel5CardName.TabIndex = 7;
+            this.LblLevel5CardName.Text = "Card Name:";
+            // 
+            // LBLevel5Cards
+            // 
+            this.LBLevel5Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel5Cards.FormattingEnabled = true;
+            this.LBLevel5Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel5Cards.Name = "LBLevel5Cards";
+            this.LBLevel5Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel5Cards.TabIndex = 6;
+            this.LBLevel5Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel5Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel6
             // 
             this.TPCharacterSheetLevel6.Controls.Add(this.TCCharacterSheetLevel6);
@@ -2583,6 +2895,7 @@
             // 
             this.TCCharacterSheetLevel6.Controls.Add(this.TPCharacterSheetLevel6Miscellaneous);
             this.TCCharacterSheetLevel6.Controls.Add(this.TPCharacterSheetLevel6Missions);
+            this.TCCharacterSheetLevel6.Controls.Add(this.TPCharacterSheetLevel6Cards);
             this.TCCharacterSheetLevel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel6.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel6.Name = "TCCharacterSheetLevel6";
@@ -2905,6 +3218,59 @@
             this.LBLevel6Missions.TabIndex = 1;
             this.LBLevel6Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel6Missions_SelectedIndexChanged);
             // 
+            // TPCharacterSheetLevel6Cards
+            // 
+            this.TPCharacterSheetLevel6Cards.Controls.Add(this.CBLevel6CardCollected);
+            this.TPCharacterSheetLevel6Cards.Controls.Add(this.TxtLevel6CardName);
+            this.TPCharacterSheetLevel6Cards.Controls.Add(this.LblLevel6CardName);
+            this.TPCharacterSheetLevel6Cards.Controls.Add(this.LBLevel6Cards);
+            this.TPCharacterSheetLevel6Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel6Cards.Name = "TPCharacterSheetLevel6Cards";
+            this.TPCharacterSheetLevel6Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel6Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel6Cards.Text = "Cards";
+            this.TPCharacterSheetLevel6Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel6CardCollected
+            // 
+            this.CBLevel6CardCollected.AutoSize = true;
+            this.CBLevel6CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel6CardCollected.Name = "CBLevel6CardCollected";
+            this.CBLevel6CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel6CardCollected.TabIndex = 9;
+            this.CBLevel6CardCollected.Text = "Collected";
+            this.CBLevel6CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel6CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel6CardCollected_CheckedChanged);
+            // 
+            // TxtLevel6CardName
+            // 
+            this.TxtLevel6CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel6CardName.MaxLength = 16;
+            this.TxtLevel6CardName.Name = "TxtLevel6CardName";
+            this.TxtLevel6CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel6CardName.TabIndex = 8;
+            this.TxtLevel6CardName.TextChanged += new System.EventHandler(this.TxtLevel6CardName_TextChanged);
+            // 
+            // LblLevel6CardName
+            // 
+            this.LblLevel6CardName.AutoSize = true;
+            this.LblLevel6CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel6CardName.Name = "LblLevel6CardName";
+            this.LblLevel6CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel6CardName.TabIndex = 7;
+            this.LblLevel6CardName.Text = "Card Name:";
+            // 
+            // LBLevel6Cards
+            // 
+            this.LBLevel6Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel6Cards.FormattingEnabled = true;
+            this.LBLevel6Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel6Cards.Name = "LBLevel6Cards";
+            this.LBLevel6Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel6Cards.TabIndex = 6;
+            this.LBLevel6Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel6Cards_SelectedIndexChanged);
+            // 
             // TPCharacterSheetLevel7
             // 
             this.TPCharacterSheetLevel7.Controls.Add(this.TCCharacterSheetLevel7);
@@ -2919,6 +3285,7 @@
             // 
             this.TCCharacterSheetLevel7.Controls.Add(this.TPCharacterSheetLevel7Miscellaneous);
             this.TCCharacterSheetLevel7.Controls.Add(this.TPCharacterSheetLevel7Missions);
+            this.TCCharacterSheetLevel7.Controls.Add(this.TPCharacterSheetLevel7Cards);
             this.TCCharacterSheetLevel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCCharacterSheetLevel7.Location = new System.Drawing.Point(0, 0);
             this.TCCharacterSheetLevel7.Name = "TCCharacterSheetLevel7";
@@ -3240,6 +3607,59 @@
             this.LBLevel7Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel7Missions.TabIndex = 1;
             this.LBLevel7Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel7Missions_SelectedIndexChanged);
+            // 
+            // TPCharacterSheetLevel7Cards
+            // 
+            this.TPCharacterSheetLevel7Cards.Controls.Add(this.CBLevel7CardCollected);
+            this.TPCharacterSheetLevel7Cards.Controls.Add(this.TxtLevel7CardName);
+            this.TPCharacterSheetLevel7Cards.Controls.Add(this.LblLevel7CardName);
+            this.TPCharacterSheetLevel7Cards.Controls.Add(this.LBLevel7Cards);
+            this.TPCharacterSheetLevel7Cards.Location = new System.Drawing.Point(4, 22);
+            this.TPCharacterSheetLevel7Cards.Name = "TPCharacterSheetLevel7Cards";
+            this.TPCharacterSheetLevel7Cards.Size = new System.Drawing.Size(752, 333);
+            this.TPCharacterSheetLevel7Cards.TabIndex = 2;
+            this.TPCharacterSheetLevel7Cards.Text = "Cards";
+            this.TPCharacterSheetLevel7Cards.UseVisualStyleBackColor = true;
+            // 
+            // CBLevel7CardCollected
+            // 
+            this.CBLevel7CardCollected.AutoSize = true;
+            this.CBLevel7CardCollected.Location = new System.Drawing.Point(267, 46);
+            this.CBLevel7CardCollected.Name = "CBLevel7CardCollected";
+            this.CBLevel7CardCollected.Size = new System.Drawing.Size(70, 17);
+            this.CBLevel7CardCollected.TabIndex = 9;
+            this.CBLevel7CardCollected.Text = "Collected";
+            this.CBLevel7CardCollected.UseVisualStyleBackColor = true;
+            this.CBLevel7CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel7CardCollected_CheckedChanged);
+            // 
+            // TxtLevel7CardName
+            // 
+            this.TxtLevel7CardName.Location = new System.Drawing.Point(267, 20);
+            this.TxtLevel7CardName.MaxLength = 16;
+            this.TxtLevel7CardName.Name = "TxtLevel7CardName";
+            this.TxtLevel7CardName.Size = new System.Drawing.Size(275, 20);
+            this.TxtLevel7CardName.TabIndex = 8;
+            this.TxtLevel7CardName.TextChanged += new System.EventHandler(this.TxtLevel7CardName_TextChanged);
+            // 
+            // LblLevel7CardName
+            // 
+            this.LblLevel7CardName.AutoSize = true;
+            this.LblLevel7CardName.Location = new System.Drawing.Point(264, 4);
+            this.LblLevel7CardName.Name = "LblLevel7CardName";
+            this.LblLevel7CardName.Size = new System.Drawing.Size(63, 13);
+            this.LblLevel7CardName.TabIndex = 7;
+            this.LblLevel7CardName.Text = "Card Name:";
+            // 
+            // LBLevel7Cards
+            // 
+            this.LBLevel7Cards.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBLevel7Cards.FormattingEnabled = true;
+            this.LBLevel7Cards.Location = new System.Drawing.Point(8, 8);
+            this.LBLevel7Cards.Name = "LBLevel7Cards";
+            this.LBLevel7Cards.Size = new System.Drawing.Size(250, 316);
+            this.LBLevel7Cards.TabIndex = 6;
+            this.LBLevel7Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel7Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetCars
             // 
@@ -3956,6 +4376,8 @@
             this.TPCharacterSheetLevel1Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel1BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel1NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel1Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel1Cards.PerformLayout();
             this.TPCharacterSheetLevel2.ResumeLayout(false);
             this.TCCharacterSheetLevel2.ResumeLayout(false);
             this.TPCharacterSheetLevel2Miscellaneous.ResumeLayout(false);
@@ -3967,6 +4389,8 @@
             this.TPCharacterSheetLevel2Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel2BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel2NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel2Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel2Cards.PerformLayout();
             this.TPCharacterSheetLevel3.ResumeLayout(false);
             this.TCCharacterSheetLevel3.ResumeLayout(false);
             this.TPCharacterSheetLevel3Miscellaneous.ResumeLayout(false);
@@ -3978,6 +4402,8 @@
             this.TPCharacterSheetLevel3Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel3BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel3NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel3Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel3Cards.PerformLayout();
             this.TPCharacterSheetLevel4.ResumeLayout(false);
             this.TCCharacterSheetLevel4.ResumeLayout(false);
             this.TPCharacterSheetLevel4Miscellaneous.ResumeLayout(false);
@@ -3989,6 +4415,8 @@
             this.TPCharacterSheetLevel4Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel4BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel4NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel4Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel4Cards.PerformLayout();
             this.TPCharacterSheetLevel5.ResumeLayout(false);
             this.TCCharacterSheetLevel5.ResumeLayout(false);
             this.TPCharacterSheetLevel5Miscellaneous.ResumeLayout(false);
@@ -4000,6 +4428,8 @@
             this.TPCharacterSheetLevel5Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel5BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel5NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel5Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel5Cards.PerformLayout();
             this.TPCharacterSheetLevel6.ResumeLayout(false);
             this.TCCharacterSheetLevel6.ResumeLayout(false);
             this.TPCharacterSheetLevel6Miscellaneous.ResumeLayout(false);
@@ -4011,6 +4441,8 @@
             this.TPCharacterSheetLevel6Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel6BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel6NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel6Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel6Cards.PerformLayout();
             this.TPCharacterSheetLevel7.ResumeLayout(false);
             this.TCCharacterSheetLevel7.ResumeLayout(false);
             this.TPCharacterSheetLevel7Miscellaneous.ResumeLayout(false);
@@ -4022,6 +4454,8 @@
             this.TPCharacterSheetLevel7Missions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel7BestTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDLevel7NumAttempts)).EndInit();
+            this.TPCharacterSheetLevel7Cards.ResumeLayout(false);
+            this.TPCharacterSheetLevel7Cards.PerformLayout();
             this.TPCharacterSheetCars.ResumeLayout(false);
             this.TPCharacterSheetCars.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUDCounter)).EndInit();
@@ -4350,6 +4784,41 @@
         private System.Windows.Forms.NumericUpDown NUDLevel7BestTime;
         private System.Windows.Forms.Label LblLevel7BestTime;
         private System.Windows.Forms.CheckBox CBLevel7SkippedMission;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel1Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel2Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel3Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel4Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel5Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel6Cards;
+        private System.Windows.Forms.TabPage TPCharacterSheetLevel7Cards;
+        private System.Windows.Forms.CheckBox CBLevel1CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel1CardName;
+        private System.Windows.Forms.Label LblLevel1CardName;
+        private System.Windows.Forms.ListBox LBLevel1Cards;
+        private System.Windows.Forms.CheckBox CBLevel2CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel2CardName;
+        private System.Windows.Forms.Label LblLevel2CardName;
+        private System.Windows.Forms.ListBox LBLevel2Cards;
+        private System.Windows.Forms.CheckBox CBLevel3CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel3CardName;
+        private System.Windows.Forms.Label LblLevel3CardName;
+        private System.Windows.Forms.ListBox LBLevel3Cards;
+        private System.Windows.Forms.CheckBox CBLevel4CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel4CardName;
+        private System.Windows.Forms.Label LblLevel4CardName;
+        private System.Windows.Forms.ListBox LBLevel4Cards;
+        private System.Windows.Forms.CheckBox CBLevel5CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel5CardName;
+        private System.Windows.Forms.Label LblLevel5CardName;
+        private System.Windows.Forms.ListBox LBLevel5Cards;
+        private System.Windows.Forms.CheckBox CBLevel6CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel6CardName;
+        private System.Windows.Forms.Label LblLevel6CardName;
+        private System.Windows.Forms.ListBox LBLevel6Cards;
+        private System.Windows.Forms.CheckBox CBLevel7CardCollected;
+        private System.Windows.Forms.TextBox TxtLevel7CardName;
+        private System.Windows.Forms.Label LblLevel7CardName;
+        private System.Windows.Forms.ListBox LBLevel7Cards;
     }
 }
 
