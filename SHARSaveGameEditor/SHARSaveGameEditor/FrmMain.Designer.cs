@@ -725,7 +725,7 @@
             this.CLBPersistentObjectStates.FormattingEnabled = true;
             this.CLBPersistentObjectStates.Location = new System.Drawing.Point(12, 247);
             this.CLBPersistentObjectStates.Name = "CLBPersistentObjectStates";
-            this.CLBPersistentObjectStates.Size = new System.Drawing.Size(275, 124);
+            this.CLBPersistentObjectStates.Size = new System.Drawing.Size(550, 124);
             this.CLBPersistentObjectStates.TabIndex = 18;
             this.CLBPersistentObjectStates.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBPersistentObjectStates_ItemCheck);
             // 

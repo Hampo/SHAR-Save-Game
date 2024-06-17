@@ -96,9 +96,11 @@ namespace SHARSaveGameEditor
             CBHighestMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
             CBHighestMissionInfoMission.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Missions));
 
-            foreach (var value in Names.PersistentObjectStateSectors)
+            foreach (var value in Names.PersistentObjectStates)
+                CLBPersistentObjectStates.Items.Add(value);
+            /*foreach (var value in Names.PersistentObjectStateSectors)
                 for (int i = 0; i < 16 * 8; i++)
-                    CLBPersistentObjectStates.Items.Add($"Sector: {value} | Persistent Object: {i}");
+                    CLBPersistentObjectStates.Items.Add($"Sector: {value} | Persistent Object: {i}");*/
             /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
                 CLBPersistentObjectStates.Items.Add($"Persistent Object {i}");*/
             /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
@@ -291,7 +293,7 @@ namespace SHARSaveGameEditor
             CBItchyScratchyTicket.Checked = characterSheet.ItchyScratchyTicket;
             CLBPersistentObjectStates.BeginUpdate();
             for (int i = 0; i < characterSheet.PersistentObjectStates.Length; i++)
-                CLBPersistentObjectStates.SetItemChecked(i, characterSheet.PersistentObjectStates[i]);
+                CLBPersistentObjectStates.SetItemChecked(i, !characterSheet.PersistentObjectStates[i]);
             CLBPersistentObjectStates.EndUpdate();
             /*LVPersistentObjectStates.BeginUpdate();
             for (int i = 0; i < characterSheet.PersistentObjectStates.Length; i++)
@@ -701,7 +703,7 @@ namespace SHARSaveGameEditor
         private void CLBPersistentObjectStates_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.PersistentObjectStates[e.Index] = e.NewValue == CheckState.Checked;
+            SaveGame.CharacterSheet.PersistentObjectStates[e.Index] = e.NewValue != CheckState.Checked;
         }
 
         private void TSMIPersistentObjectStatesSelectAll_Click(object sender, EventArgs e)
