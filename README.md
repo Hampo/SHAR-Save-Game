@@ -66,14 +66,14 @@ A library for handling SHAR save games
 - `Custom Save Data` - Currently just shows the size. The data added by Lucas' Simpsons Hit & Run Mod Launcher.
   - Hopefully will be able to manipulate this in a future version.
 
-## Overall File Structure
+# Overall File Structure
 A valid save file starts with a magic number and is composed of various sections, each corresponding to a specific part of the game state. The expected size for a vanilla save file is 7194 bytes.
 
-### Save File Header
+## Save File Header
 - **Magic Number** (`ushort`, 2 bytes): Must be `1978`.
 - **SaveGameInfo**: General information about the save.
 
-### Sections
+## Sections
 1. **InputManager**
 2. **CharacterSheet**
 3. **SoundSettings**
@@ -85,7 +85,7 @@ A valid save file starts with a magic number and is composed of various sections
 
 ## Save File Components
 
-### SaveGameInfo
+## SaveGameInfo
 Contains general information about the save file.
 - **SaveDate** (`8 bytes`)
   - **Year** (`ushort`, 2 bytes)
@@ -99,11 +99,11 @@ Contains general information about the save file.
 - **DisplayMission** (`byte`, 1 byte)
 - **FileSize** (`uint`, 4 bytes)
 
-### InputManager
+## InputManager
 Handles input settings.
 - **IsRumbleEnabled** (`bool`, 1 byte)
 
-### CharacterSheet
+## CharacterSheet
 Represents the player's progress and state.
 - **PlayerName** (`string`, 16 bytes): Null-terminated string of 16 bytes.
 - **Levels** (`Level[7]`, 4340 bytes): An array of 7 levels, each containing specific progress data.
@@ -117,7 +117,7 @@ Represents the player's progress and state.
 - **States** (`byte[1]`): Additional states data.
 - **Padding** (`byte[3]`): Reserved bytes for alignment.
 
-#### Level
+### Level
 Represents a specific level's data.
 - **Cards** (`Card[7]`, 119 bytes): An array of 7 collectible cards.
 - **Padding** (`byte`, 1 byte): Reserved byte for alignment.
@@ -136,12 +136,12 @@ Represents a specific level's data.
 - **GagsCompleted** (`bool[32]`): An array of 32 booleans.
 - **PurchasedRewards** (`bool[12]`): An array of 12 booleans.
 
-#### Card
+### Card
 Represents a collectible card.
 - **Name** (`string`, 16 bytes): Null-terminated string of 16 bytes.
 - **Collected** (`bool`, 1 byte)
 
-#### MissionRecord
+### MissionRecord
 Represents the record for a mission.
 - **Name** (`string`, 16 bytes): Null-terminated string of 16 bytes.
 - **Completed** (`bool`, 1 byte)
@@ -152,23 +152,23 @@ Represents the record for a mission.
 - **Padding** (`byte[3]`): Reserved bytes for alignment.
 - **BestTime** (`int`, 4 bytes)
 
-#### CurrentMission
+### CurrentMission
 Represents the current mission's progress.
 - **Level** (`uint`, 4 bytes)
 - **Mission** (`uint`, 4 bytes)
 
-#### CarInventory
+### CarInventory
 Represents the player's car inventory.
 - **Cars** (`Car[]`, 1440 bytes): An array of cars.
 - **Counter** (`int`, 4 bytes): The number of cars in the inventory.
 
-##### Car
+#### Car
 Represents a car.
 - **Name** (`string`, 16 bytes): Null-terminated string of 16 bytes.
 - **CurrentHealth** (`float`, 4 bytes)
 - **MaxHealth** (`float`, 4 bytes)
 
-### SoundSettings
+## SoundSettings
 Stores volume and audio settings.
 - **MusicVolume** (`float`, 4 bytes)
 - **SFXVolume** (`float`, 4 bytes)
@@ -177,14 +177,14 @@ Stores volume and audio settings.
 - **IsSurround** (`bool`, 1 byte)
 - **Padding** (`byte[3]`): Reserved bytes for alignment.
 
-### SuperCamCentral
+## SuperCamCentral
 Handles camera settings.
 - **Bitmask** (`byte`)
   - **JumpCamsEnabled** (`bool`, `Bitmask & 0x01`)
   - **IsInvertedCameraEnabled** (`bool`, `Bitmask & 0x02`)
   - **PreferredFollowCam** (`PreferredFollowCams`, `Bitmask  >> 2`)
 
-#### PreferredFollowCams
+### PreferredFollowCams
 - Default
 - Follow
 - Near Follow
@@ -212,27 +212,27 @@ Handles camera settings.
 - On Foot
 - PC
 
-### TutorialManager
+## TutorialManager
 Manages tutorial events.
 - **EnableTutorialEvents** (`bool`, 1 byte)
 - **TutorialsSeen** (`int`, 4 bytes)
 
-### GUISystem
+## GUISystem
 Handles GUI settings.
 - **IsRadarEnabled** (`bool`, 1 byte)
 
-### CardGallery
+## CardGallery
 Represents the collectible card gallery.
 - **Data** (`byte[7]`): The data representing the card gallery.
   - Each bit lines up with a card ID. `1` if collected, `0` if not.
 
-### CustomSaveData
+## CustomSaveData
 Stores any additional custom data.
 - **Data** (`byte[]`): The custom data.
 
-## Binary Structure
+# Binary Structure
 
-### Reading a Save File
+## Reading a Save File
 1. **Magic Number**: Read `ushort` (2 bytes).
 2. **SaveGameInfo**: Read `SaveGameInfo` (14 bytes).
 3. **InputManager**: Read `InputManager` (1 byte).
@@ -244,7 +244,7 @@ Stores any additional custom data.
 9. **CardGallery**: Read `CardGallery` (7 bytes).
 10. **CustomSaveData**: Read remaining bytes as `CustomSaveData`.
 
-### Writing a Save File
+## Writing a Save File
 1. **Magic Number**: Write `ushort` (2 bytes).
 2. **SaveGameInfo**: Write `SaveGameInfo` (14 bytes).
 3. **InputManager**: Write `InputManager` (1 byte).
