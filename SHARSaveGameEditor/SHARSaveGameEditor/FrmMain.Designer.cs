@@ -3311,7 +3311,7 @@
             0,
             0});
             this.NUDMaxHealth.Minimum = new decimal(new int[] {
-            10000,
+            1,
             0,
             0,
             -2147483648});
@@ -3319,7 +3319,7 @@
             this.NUDMaxHealth.Size = new System.Drawing.Size(275, 20);
             this.NUDMaxHealth.TabIndex = 10;
             this.NUDMaxHealth.Value = new decimal(new int[] {
-            100,
+            1,
             0,
             0,
             -2147483648});
@@ -3330,9 +3330,9 @@
             this.LblMaxHealth.AutoSize = true;
             this.LblMaxHealth.Location = new System.Drawing.Point(262, 97);
             this.LblMaxHealth.Name = "LblMaxHealth";
-            this.LblMaxHealth.Size = new System.Drawing.Size(81, 13);
+            this.LblMaxHealth.Size = new System.Drawing.Size(64, 13);
             this.LblMaxHealth.TabIndex = 9;
-            this.LblMaxHealth.Text = "Max Health (%):";
+            this.LblMaxHealth.Text = "Max Health:";
             // 
             // NUDCurrentHealth
             // 

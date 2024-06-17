@@ -1762,7 +1762,7 @@ namespace SHARSaveGameEditor
                 TxtCarName.Enabled = true;
                 NUDCurrentHealth.Value = (decimal)(car.CurrentHealth * 100d);
                 NUDCurrentHealth.Enabled = true;
-                NUDMaxHealth.Value = (decimal)(car.MaxHealth * 100d);
+                NUDMaxHealth.Value = (decimal)car.MaxHealth;
                 NUDMaxHealth.Enabled = true;
             }
             UpdatingCars = false;
@@ -1792,7 +1792,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Cars.Cars[LBCars.SelectedIndex].MaxHealth = (float)(NUDMaxHealth.Value / 100);
+            SaveGame.CharacterSheet.Cars.Cars[LBCars.SelectedIndex].MaxHealth = (float)(NUDMaxHealth.Value);
         }
 
         private void NUDCounter_ValueChanged(object sender, EventArgs e)
