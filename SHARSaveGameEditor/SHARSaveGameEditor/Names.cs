@@ -548,6 +548,7 @@ namespace SHARSaveGameEditor
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
         };
+
         public static readonly string[] PersistentObjectStateSectors =
         {
             "l1r1.p3d",
