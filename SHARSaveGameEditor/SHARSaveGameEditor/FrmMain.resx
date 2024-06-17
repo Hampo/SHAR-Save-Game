@@ -120,9 +120,82 @@
   <metadata name="MSMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>180, 17</value>
   </metadata>
+  <metadata name="TTSettingInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>278, 17</value>
+  </metadata>
   <metadata name="CMSCheckedListBox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="CLBLevel1PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel1PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel2PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel2PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel3PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel3PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel4PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel4PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel5PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel5PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel6PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel6PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="CLBLevel7PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
+  <data name="LblLevel7PurchasedRewards.ToolTip" xml:space="preserve">
+    <value>The possible rewards in the level. If checked, the reward is unlocked.
+The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
+Names in brackets are the vanilla rewards.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

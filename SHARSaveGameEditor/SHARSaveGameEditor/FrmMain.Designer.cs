@@ -356,6 +356,7 @@
             this.LblCustomSaveData = new System.Windows.Forms.Label();
             this.CHPersistentObjectStatesIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHPersistentObjectStatesValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.TTSettingInfo = new System.Windows.Forms.ToolTip(this.components);
             this.MSMain.SuspendLayout();
             this.TCMain.SuspendLayout();
             this.TPSaveGameInfo.SuspendLayout();
@@ -577,6 +578,9 @@
             this.NUDDisplayMission.Name = "NUDDisplayMission";
             this.NUDDisplayMission.Size = new System.Drawing.Size(275, 20);
             this.NUDDisplayMission.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.NUDDisplayMission, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
+        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
+        "aunch another.");
             this.NUDDisplayMission.ValueChanged += new System.EventHandler(this.NUDDisplayMission_ValueChanged);
             // 
             // LblDisplayMission
@@ -587,6 +591,9 @@
             this.LblDisplayMission.Size = new System.Drawing.Size(82, 13);
             this.LblDisplayMission.TabIndex = 5;
             this.LblDisplayMission.Text = "Display Mission:";
+            this.TTSettingInfo.SetToolTip(this.LblDisplayMission, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
+        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
+        "aunch another.");
             // 
             // NUDDisplayLevel
             // 
@@ -604,6 +611,9 @@
             this.NUDDisplayLevel.Name = "NUDDisplayLevel";
             this.NUDDisplayLevel.Size = new System.Drawing.Size(275, 20);
             this.NUDDisplayLevel.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.NUDDisplayLevel, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
+        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
+        "aunch another.");
             this.NUDDisplayLevel.Value = new decimal(new int[] {
             1,
             0,
@@ -619,6 +629,9 @@
             this.LblDisplayLevel.Size = new System.Drawing.Size(73, 13);
             this.LblDisplayLevel.TabIndex = 3;
             this.LblDisplayLevel.Text = "Display Level:";
+            this.TTSettingInfo.SetToolTip(this.LblDisplayLevel, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
+        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
+        "aunch another.");
             // 
             // CBAutoSaveDate
             // 
@@ -628,6 +641,9 @@
             this.CBAutoSaveDate.Size = new System.Drawing.Size(84, 17);
             this.CBAutoSaveDate.TabIndex = 2;
             this.CBAutoSaveDate.Text = "Auto update";
+            this.TTSettingInfo.SetToolTip(this.CBAutoSaveDate, "The last saved date of the file. Displays in the Load Game and Save Game screens." +
+        "\r\nIf \"Auto update\" is checked, this will auto update to the current time on save" +
+        ".");
             this.CBAutoSaveDate.UseVisualStyleBackColor = true;
             this.CBAutoSaveDate.CheckedChanged += new System.EventHandler(this.CBAutoSaveDate_CheckedChanged);
             // 
@@ -639,6 +655,9 @@
             this.DTPSaveDate.Name = "DTPSaveDate";
             this.DTPSaveDate.Size = new System.Drawing.Size(275, 20);
             this.DTPSaveDate.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.DTPSaveDate, "The last saved date of the file. Displays in the Load Game and Save Game screens." +
+        "\r\nIf \"Auto update\" is checked, this will auto update to the current time on save" +
+        ".");
             this.DTPSaveDate.ValueChanged += new System.EventHandler(this.DTPSaveDate_ValueChanged);
             // 
             // LblSaveDate
@@ -649,6 +668,9 @@
             this.LblSaveDate.Size = new System.Drawing.Size(61, 13);
             this.LblSaveDate.TabIndex = 0;
             this.LblSaveDate.Text = "Save Date:";
+            this.TTSettingInfo.SetToolTip(this.LblSaveDate, "The last saved date of the file. Displays in the Load Game and Save Game screens." +
+        "\r\nIf \"Auto update\" is checked, this will auto update to the current time on save" +
+        ".");
             // 
             // TPInputManager
             // 
@@ -668,6 +690,7 @@
             this.CBIsRumbleEnabled.Size = new System.Drawing.Size(115, 17);
             this.CBIsRumbleEnabled.TabIndex = 0;
             this.CBIsRumbleEnabled.Text = "Is Rumble Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsRumbleEnabled, "If controller rumble is enabled.");
             this.CBIsRumbleEnabled.UseVisualStyleBackColor = true;
             this.CBIsRumbleEnabled.CheckedChanged += new System.EventHandler(this.CBIsRumbleEnabled_CheckedChanged);
             // 
@@ -727,6 +750,8 @@
             this.CLBPersistentObjectStates.Name = "CLBPersistentObjectStates";
             this.CLBPersistentObjectStates.Size = new System.Drawing.Size(550, 124);
             this.CLBPersistentObjectStates.TabIndex = 18;
+            this.TTSettingInfo.SetToolTip(this.CLBPersistentObjectStates, "Breaksable objects, world coins and wasps.\r\nNames in brackets are the vanilla gam" +
+        "e objects.");
             this.CLBPersistentObjectStates.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBPersistentObjectStates_ItemCheck);
             // 
             // CMSCheckedListBox
@@ -759,6 +784,8 @@
             this.LblPersistentObjectStates.Size = new System.Drawing.Size(123, 13);
             this.LblPersistentObjectStates.TabIndex = 17;
             this.LblPersistentObjectStates.Text = "Persistent Object States:";
+            this.TTSettingInfo.SetToolTip(this.LblPersistentObjectStates, "Breaksable objects, world coins and wasps.\r\nNames in brackets are the vanilla gam" +
+        "e objects.");
             // 
             // CBItchyScratchyTicket
             // 
@@ -768,6 +795,7 @@
             this.CBItchyScratchyTicket.Size = new System.Drawing.Size(127, 17);
             this.CBItchyScratchyTicket.TabIndex = 13;
             this.CBItchyScratchyTicket.Text = "Itchy Scratchy Ticket";
+            this.TTSettingInfo.SetToolTip(this.CBItchyScratchyTicket, "Related to Comic Book Guy to get the movie ticket after collecting all cards.");
             this.CBItchyScratchyTicket.UseVisualStyleBackColor = true;
             this.CBItchyScratchyTicket.CheckedChanged += new System.EventHandler(this.CBItchyScratchyTicket_CheckedChanged);
             // 
@@ -779,6 +807,7 @@
             this.CBItchyScratchyCBGFirst.Size = new System.Drawing.Size(141, 17);
             this.CBItchyScratchyCBGFirst.TabIndex = 12;
             this.CBItchyScratchyCBGFirst.Text = "Itchy Scratchy CBG First";
+            this.TTSettingInfo.SetToolTip(this.CBItchyScratchyCBGFirst, "Related to Comic Book Guy to get the movie ticket after collecting all cards.");
             this.CBItchyScratchyCBGFirst.UseVisualStyleBackColor = true;
             this.CBItchyScratchyCBGFirst.CheckedChanged += new System.EventHandler(this.CBItchyScratchyCBGFirst_CheckedChanged);
             // 
@@ -799,6 +828,7 @@
             this.NUDCoins.Size = new System.Drawing.Size(275, 20);
             this.NUDCoins.TabIndex = 11;
             this.NUDCoins.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDCoins, "The number of coins the character currently has.");
             this.NUDCoins.ValueChanged += new System.EventHandler(this.NUDCoins_ValueChanged);
             // 
             // LblCoins
@@ -809,6 +839,7 @@
             this.LblCoins.Size = new System.Drawing.Size(36, 13);
             this.LblCoins.TabIndex = 10;
             this.LblCoins.Text = "Coins:";
+            this.TTSettingInfo.SetToolTip(this.LblCoins, "The number of coins the character currently has.");
             // 
             // CBIsNavSystemEnabled
             // 
@@ -818,6 +849,7 @@
             this.CBIsNavSystemEnabled.Size = new System.Drawing.Size(136, 17);
             this.CBIsNavSystemEnabled.TabIndex = 9;
             this.CBIsNavSystemEnabled.Text = "Is Nav System Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsNavSystemEnabled, "Enables/Disables navigation road arrows.");
             this.CBIsNavSystemEnabled.UseVisualStyleBackColor = true;
             this.CBIsNavSystemEnabled.CheckedChanged += new System.EventHandler(this.CBIsNavSystemEnabled_CheckedChanged);
             // 
@@ -831,6 +863,8 @@
             this.CBHighestMissionInfoMission.Name = "CBHighestMissionInfoMission";
             this.CBHighestMissionInfoMission.Size = new System.Drawing.Size(132, 21);
             this.CBHighestMissionInfoMission.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.CBHighestMissionInfoMission, "The last unlocked mission. All missions up to and including this one will be avai" +
+        "lable for mission warping.");
             this.CBHighestMissionInfoMission.SelectedIndexChanged += new System.EventHandler(this.CBHighestMissionInfoMission_SelectedIndexChanged);
             // 
             // CBHighestMissionInfoLevel
@@ -843,6 +877,8 @@
             this.CBHighestMissionInfoLevel.Name = "CBHighestMissionInfoLevel";
             this.CBHighestMissionInfoLevel.Size = new System.Drawing.Size(132, 21);
             this.CBHighestMissionInfoLevel.TabIndex = 7;
+            this.TTSettingInfo.SetToolTip(this.CBHighestMissionInfoLevel, "The last unlocked mission. All missions up to and including this one will be avai" +
+        "lable for mission warping.");
             this.CBHighestMissionInfoLevel.SelectedIndexChanged += new System.EventHandler(this.CBHighestMissionInfoLevel_SelectedIndexChanged);
             // 
             // LblHighestMissionInfo
@@ -853,6 +889,8 @@
             this.LblHighestMissionInfo.Size = new System.Drawing.Size(105, 13);
             this.LblHighestMissionInfo.TabIndex = 6;
             this.LblHighestMissionInfo.Text = "Highest Mission Info:";
+            this.TTSettingInfo.SetToolTip(this.LblHighestMissionInfo, "The last unlocked mission. All missions up to and including this one will be avai" +
+        "lable for mission warping.");
             // 
             // CBCurrentMissionInfoMission
             // 
@@ -864,6 +902,7 @@
             this.CBCurrentMissionInfoMission.Name = "CBCurrentMissionInfoMission";
             this.CBCurrentMissionInfoMission.Size = new System.Drawing.Size(132, 21);
             this.CBCurrentMissionInfoMission.TabIndex = 5;
+            this.TTSettingInfo.SetToolTip(this.CBCurrentMissionInfoMission, "The mission to launch on \"Resume Game\".");
             this.CBCurrentMissionInfoMission.SelectedIndexChanged += new System.EventHandler(this.CBCurrentMissionInfoMission_SelectedIndexChanged);
             // 
             // CBCurrentMissionInfoLevel
@@ -876,6 +915,7 @@
             this.CBCurrentMissionInfoLevel.Name = "CBCurrentMissionInfoLevel";
             this.CBCurrentMissionInfoLevel.Size = new System.Drawing.Size(132, 21);
             this.CBCurrentMissionInfoLevel.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.CBCurrentMissionInfoLevel, "The mission to launch on \"Resume Game\".");
             this.CBCurrentMissionInfoLevel.SelectedIndexChanged += new System.EventHandler(this.CBCurrentMissionInfoLevel_SelectedIndexChanged);
             // 
             // LblCurrentMissionInfo
@@ -886,6 +926,7 @@
             this.LblCurrentMissionInfo.Size = new System.Drawing.Size(103, 13);
             this.LblCurrentMissionInfo.TabIndex = 3;
             this.LblCurrentMissionInfo.Text = "Current Mission Info:";
+            this.TTSettingInfo.SetToolTip(this.LblCurrentMissionInfo, "The mission to launch on \"Resume Game\".");
             // 
             // TxtPlayerName
             // 
@@ -894,6 +935,8 @@
             this.TxtPlayerName.Name = "TxtPlayerName";
             this.TxtPlayerName.Size = new System.Drawing.Size(275, 20);
             this.TxtPlayerName.TabIndex = 2;
+            this.TTSettingInfo.SetToolTip(this.TxtPlayerName, "Entirely useless, game always set it to \"Player 1\".\r\nProbably a relic from when t" +
+        "he game supported split screen in story mode.");
             this.TxtPlayerName.TextChanged += new System.EventHandler(this.TxtPlayerName_TextChanged);
             // 
             // LblPlayerName
@@ -904,6 +947,8 @@
             this.LblPlayerName.Size = new System.Drawing.Size(70, 13);
             this.LblPlayerName.TabIndex = 1;
             this.LblPlayerName.Text = "Player Name:";
+            this.TTSettingInfo.SetToolTip(this.LblPlayerName, "Entirely useless, game always set it to \"Player 1\".\r\nProbably a relic from when t" +
+        "he game supported split screen in story mode.");
             // 
             // TPCharacterSheetLevels
             // 
@@ -986,6 +1031,7 @@
             this.CLBLevel1PurchasedRewards.Name = "CLBLevel1PurchasedRewards";
             this.CLBLevel1PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel1PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel1PurchasedRewards, resources.GetString("CLBLevel1PurchasedRewards.ToolTip"));
             this.CLBLevel1PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel1PurchasedRewards_ItemCheck);
             // 
             // LblLevel1PurchasedRewards
@@ -996,6 +1042,7 @@
             this.LblLevel1PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel1PurchasedRewards.TabIndex = 24;
             this.LblLevel1PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1PurchasedRewards, resources.GetString("LblLevel1PurchasedRewards.ToolTip"));
             // 
             // CLBLevel1Gags
             // 
@@ -1007,6 +1054,7 @@
             this.CLBLevel1Gags.Name = "CLBLevel1Gags";
             this.CLBLevel1Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel1Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel1Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel1Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel1Gags_ItemCheck);
             // 
             // LblLevel1Gags
@@ -1017,6 +1065,7 @@
             this.LblLevel1Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel1Gags.TabIndex = 22;
             this.LblLevel1Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel1CurrentSkin
             // 
@@ -1031,6 +1080,7 @@
             this.CBLevel1CurrentSkin.Name = "CBLevel1CurrentSkin";
             this.CBLevel1CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel1CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel1CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel1CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel1CurrentSkin_TextChanged);
             // 
             // LblLevel1CurrentSkin
@@ -1041,6 +1091,7 @@
             this.LblLevel1CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel1CurrentSkin.TabIndex = 20;
             this.LblLevel1CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel1WaspsDestroyed
             // 
@@ -1059,6 +1110,7 @@
             this.NUDLevel1WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel1WaspsDestroyed.TabIndex = 17;
             this.NUDLevel1WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel1WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel1WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel1WaspsDestroyed_ValueChanged);
             // 
             // LblLevel1WaspsDestroyed
@@ -1069,6 +1121,7 @@
             this.LblLevel1WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel1WaspsDestroyed.TabIndex = 16;
             this.LblLevel1WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel1NumSkinsPurchased
             // 
@@ -1087,6 +1140,7 @@
             this.NUDLevel1NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel1NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel1NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel1NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel1NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel1NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel1NumSkinsPurchased
@@ -1097,6 +1151,7 @@
             this.LblLevel1NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel1NumSkinsPurchased.TabIndex = 14;
             this.LblLevel1NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel1NumCarsPurchased
             // 
@@ -1115,6 +1170,7 @@
             this.NUDLevel1NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel1NumCarsPurchased.TabIndex = 13;
             this.NUDLevel1NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel1NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel1NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel1NumCarsPurchased_ValueChanged);
             // 
             // LblLevel1NumCarsPurchased
@@ -1125,6 +1181,7 @@
             this.LblLevel1NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel1NumCarsPurchased.TabIndex = 12;
             this.LblLevel1NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel1FMVUnlocked
             // 
@@ -1134,6 +1191,8 @@
             this.CBLevel1FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel1FMVUnlocked.TabIndex = 2;
             this.CBLevel1FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel1FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel1FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel1FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel1FMVUnlocked_CheckedChanged);
             // 
@@ -1173,6 +1232,7 @@
             this.NUDLevel1BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel1BestTime.TabIndex = 17;
             this.NUDLevel1BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel1BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel1BestTime.ValueChanged += new System.EventHandler(this.NUDLevel1BestTime_ValueChanged);
             // 
             // LblLevel1BestTime
@@ -1183,6 +1243,7 @@
             this.LblLevel1BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel1BestTime.TabIndex = 16;
             this.LblLevel1BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel1SkippedMission
             // 
@@ -1192,6 +1253,7 @@
             this.CBLevel1SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel1SkippedMission.TabIndex = 9;
             this.CBLevel1SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel1SkippedMission, "If the mission was skipped.");
             this.CBLevel1SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel1SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel1SkippedMission_CheckedChanged);
             // 
@@ -1206,6 +1268,7 @@
             this.NUDLevel1NumAttempts.Name = "NUDLevel1NumAttempts";
             this.NUDLevel1NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel1NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel1NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel1NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel1NumAttempts_ValueChanged);
             // 
             // LblLevel1NumAttempts
@@ -1216,6 +1279,7 @@
             this.LblLevel1NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel1NumAttempts.TabIndex = 7;
             this.LblLevel1NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel1BonusObjective
             // 
@@ -1225,6 +1289,8 @@
             this.CBLevel1BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel1BonusObjective.TabIndex = 6;
             this.CBLevel1BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel1BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel1BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel1BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel1BonusObjective_CheckedChanged);
             // 
@@ -1236,6 +1302,7 @@
             this.CBLevel1Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel1Completed.TabIndex = 5;
             this.CBLevel1Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel1Completed, "If the mission has been completed.");
             this.CBLevel1Completed.UseVisualStyleBackColor = true;
             this.CBLevel1Completed.CheckedChanged += new System.EventHandler(this.CBLevel1Completed_CheckedChanged);
             // 
@@ -1246,6 +1313,7 @@
             this.TxtLevel1MissionName.Name = "TxtLevel1MissionName";
             this.TxtLevel1MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel1MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel1MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel1MissionName.TextChanged += new System.EventHandler(this.TxtLevel1MissionName_TextChanged);
             // 
             // LblLevel1MissionName
@@ -1256,6 +1324,7 @@
             this.LblLevel1MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel1MissionName.TabIndex = 3;
             this.LblLevel1MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel1Missions
             // 
@@ -1266,6 +1335,8 @@
             this.LBLevel1Missions.Name = "LBLevel1Missions";
             this.LBLevel1Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel1Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel1Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel1Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel1Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel1Cards
@@ -1289,6 +1360,8 @@
             this.CBLevel1CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel1CardCollected.TabIndex = 9;
             this.CBLevel1CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel1CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel1CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel1CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel1CardCollected_CheckedChanged);
             // 
@@ -1299,6 +1372,7 @@
             this.TxtLevel1CardName.Name = "TxtLevel1CardName";
             this.TxtLevel1CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel1CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel1CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel1CardName.TextChanged += new System.EventHandler(this.TxtLevel1CardName_TextChanged);
             // 
             // LblLevel1CardName
@@ -1309,6 +1383,7 @@
             this.LblLevel1CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel1CardName.TabIndex = 7;
             this.LblLevel1CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel1CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel1Cards
             // 
@@ -1319,6 +1394,8 @@
             this.LBLevel1Cards.Name = "LBLevel1Cards";
             this.LBLevel1Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel1Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel1Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel1Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel1Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel2
@@ -1376,6 +1453,7 @@
             this.CLBLevel2PurchasedRewards.Name = "CLBLevel2PurchasedRewards";
             this.CLBLevel2PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel2PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel2PurchasedRewards, resources.GetString("CLBLevel2PurchasedRewards.ToolTip"));
             this.CLBLevel2PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel2PurchasedRewards_ItemCheck);
             // 
             // LblLevel2PurchasedRewards
@@ -1386,6 +1464,7 @@
             this.LblLevel2PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel2PurchasedRewards.TabIndex = 24;
             this.LblLevel2PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2PurchasedRewards, resources.GetString("LblLevel2PurchasedRewards.ToolTip"));
             // 
             // CLBLevel2Gags
             // 
@@ -1397,6 +1476,7 @@
             this.CLBLevel2Gags.Name = "CLBLevel2Gags";
             this.CLBLevel2Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel2Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel2Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel2Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel2Gags_ItemCheck);
             // 
             // LblLevel2Gags
@@ -1407,6 +1487,7 @@
             this.LblLevel2Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel2Gags.TabIndex = 22;
             this.LblLevel2Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.\r\n");
             // 
             // CBLevel2CurrentSkin
             // 
@@ -1421,6 +1502,7 @@
             this.CBLevel2CurrentSkin.Name = "CBLevel2CurrentSkin";
             this.CBLevel2CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel2CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel2CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel2CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel2CurrentSkin_TextChanged);
             // 
             // LblLevel2CurrentSkin
@@ -1431,6 +1513,7 @@
             this.LblLevel2CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel2CurrentSkin.TabIndex = 20;
             this.LblLevel2CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel2WaspsDestroyed
             // 
@@ -1449,6 +1532,7 @@
             this.NUDLevel2WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel2WaspsDestroyed.TabIndex = 17;
             this.NUDLevel2WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel2WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel2WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel2WaspsDestroyed_ValueChanged);
             // 
             // LblLevel2WaspsDestroyed
@@ -1459,6 +1543,7 @@
             this.LblLevel2WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel2WaspsDestroyed.TabIndex = 16;
             this.LblLevel2WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel2NumSkinsPurchased
             // 
@@ -1477,6 +1562,7 @@
             this.NUDLevel2NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel2NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel2NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel2NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel2NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel2NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel2NumSkinsPurchased
@@ -1487,6 +1573,7 @@
             this.LblLevel2NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel2NumSkinsPurchased.TabIndex = 14;
             this.LblLevel2NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel2NumCarsPurchased
             // 
@@ -1505,6 +1592,7 @@
             this.NUDLevel2NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel2NumCarsPurchased.TabIndex = 13;
             this.NUDLevel2NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel2NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel2NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel2NumCarsPurchased_ValueChanged);
             // 
             // LblLevel2NumCarsPurchased
@@ -1515,6 +1603,7 @@
             this.LblLevel2NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel2NumCarsPurchased.TabIndex = 12;
             this.LblLevel2NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel2FMVUnlocked
             // 
@@ -1524,6 +1613,8 @@
             this.CBLevel2FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel2FMVUnlocked.TabIndex = 2;
             this.CBLevel2FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel2FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel2FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel2FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel2FMVUnlocked_CheckedChanged);
             // 
@@ -1563,6 +1654,7 @@
             this.NUDLevel2BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel2BestTime.TabIndex = 17;
             this.NUDLevel2BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel2BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel2BestTime.ValueChanged += new System.EventHandler(this.NUDLevel2BestTime_ValueChanged);
             // 
             // LblLevel2BestTime
@@ -1573,6 +1665,7 @@
             this.LblLevel2BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel2BestTime.TabIndex = 16;
             this.LblLevel2BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel2SkippedMission
             // 
@@ -1582,6 +1675,7 @@
             this.CBLevel2SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel2SkippedMission.TabIndex = 9;
             this.CBLevel2SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel2SkippedMission, "If the mission was skipped.");
             this.CBLevel2SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel2SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel2SkippedMission_CheckedChanged);
             // 
@@ -1596,6 +1690,7 @@
             this.NUDLevel2NumAttempts.Name = "NUDLevel2NumAttempts";
             this.NUDLevel2NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel2NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel2NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel2NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel2NumAttempts_ValueChanged);
             // 
             // LblLevel2NumAttempts
@@ -1606,6 +1701,7 @@
             this.LblLevel2NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel2NumAttempts.TabIndex = 7;
             this.LblLevel2NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel2BonusObjective
             // 
@@ -1615,6 +1711,8 @@
             this.CBLevel2BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel2BonusObjective.TabIndex = 6;
             this.CBLevel2BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel2BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel2BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel2BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel2BonusObjective_CheckedChanged);
             // 
@@ -1626,6 +1724,7 @@
             this.CBLevel2Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel2Completed.TabIndex = 5;
             this.CBLevel2Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel2Completed, "If the mission has been completed.");
             this.CBLevel2Completed.UseVisualStyleBackColor = true;
             this.CBLevel2Completed.CheckedChanged += new System.EventHandler(this.CBLevel2Completed_CheckedChanged);
             // 
@@ -1636,6 +1735,7 @@
             this.TxtLevel2MissionName.Name = "TxtLevel2MissionName";
             this.TxtLevel2MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel2MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel2MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel2MissionName.TextChanged += new System.EventHandler(this.TxtLevel2MissionName_TextChanged);
             // 
             // LblLevel2MissionName
@@ -1646,6 +1746,7 @@
             this.LblLevel2MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel2MissionName.TabIndex = 3;
             this.LblLevel2MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel2Missions
             // 
@@ -1656,6 +1757,8 @@
             this.LBLevel2Missions.Name = "LBLevel2Missions";
             this.LBLevel2Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel2Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel2Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel2Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel2Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel2Cards
@@ -1679,6 +1782,8 @@
             this.CBLevel2CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel2CardCollected.TabIndex = 9;
             this.CBLevel2CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel2CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel2CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel2CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel2CardCollected_CheckedChanged);
             // 
@@ -1689,6 +1794,7 @@
             this.TxtLevel2CardName.Name = "TxtLevel2CardName";
             this.TxtLevel2CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel2CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel2CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel2CardName.TextChanged += new System.EventHandler(this.TxtLevel2CardName_TextChanged);
             // 
             // LblLevel2CardName
@@ -1699,6 +1805,7 @@
             this.LblLevel2CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel2CardName.TabIndex = 7;
             this.LblLevel2CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel2CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel2Cards
             // 
@@ -1709,6 +1816,8 @@
             this.LBLevel2Cards.Name = "LBLevel2Cards";
             this.LBLevel2Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel2Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel2Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel2Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel2Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel3
@@ -1766,6 +1875,7 @@
             this.CLBLevel3PurchasedRewards.Name = "CLBLevel3PurchasedRewards";
             this.CLBLevel3PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel3PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel3PurchasedRewards, resources.GetString("CLBLevel3PurchasedRewards.ToolTip"));
             this.CLBLevel3PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel3PurchasedRewards_ItemCheck);
             // 
             // LblLevel3PurchasedRewards
@@ -1776,6 +1886,7 @@
             this.LblLevel3PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel3PurchasedRewards.TabIndex = 24;
             this.LblLevel3PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3PurchasedRewards, resources.GetString("LblLevel3PurchasedRewards.ToolTip"));
             // 
             // CLBLevel3Gags
             // 
@@ -1787,6 +1898,7 @@
             this.CLBLevel3Gags.Name = "CLBLevel3Gags";
             this.CLBLevel3Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel3Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel3Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel3Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel3Gags_ItemCheck);
             // 
             // LblLevel3Gags
@@ -1797,6 +1909,7 @@
             this.LblLevel3Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel3Gags.TabIndex = 22;
             this.LblLevel3Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel3CurrentSkin
             // 
@@ -1811,6 +1924,7 @@
             this.CBLevel3CurrentSkin.Name = "CBLevel3CurrentSkin";
             this.CBLevel3CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel3CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel3CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel3CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel3CurrentSkin_TextChanged);
             // 
             // LblLevel3CurrentSkin
@@ -1821,6 +1935,7 @@
             this.LblLevel3CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel3CurrentSkin.TabIndex = 20;
             this.LblLevel3CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel3WaspsDestroyed
             // 
@@ -1839,6 +1954,7 @@
             this.NUDLevel3WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel3WaspsDestroyed.TabIndex = 17;
             this.NUDLevel3WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel3WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel3WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel3WaspsDestroyed_ValueChanged);
             // 
             // LblLevel3WaspsDestroyed
@@ -1849,6 +1965,7 @@
             this.LblLevel3WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel3WaspsDestroyed.TabIndex = 16;
             this.LblLevel3WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel3NumSkinsPurchased
             // 
@@ -1867,6 +1984,7 @@
             this.NUDLevel3NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel3NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel3NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel3NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel3NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel3NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel3NumSkinsPurchased
@@ -1877,6 +1995,7 @@
             this.LblLevel3NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel3NumSkinsPurchased.TabIndex = 14;
             this.LblLevel3NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel3NumCarsPurchased
             // 
@@ -1895,6 +2014,7 @@
             this.NUDLevel3NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel3NumCarsPurchased.TabIndex = 13;
             this.NUDLevel3NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel3NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel3NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel3NumCarsPurchased_ValueChanged);
             // 
             // LblLevel3NumCarsPurchased
@@ -1905,6 +2025,7 @@
             this.LblLevel3NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel3NumCarsPurchased.TabIndex = 12;
             this.LblLevel3NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel3FMVUnlocked
             // 
@@ -1914,6 +2035,9 @@
             this.CBLevel3FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel3FMVUnlocked.TabIndex = 2;
             this.CBLevel3FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel3FMVUnlocked, "Different to other levels, this is if the Itchy & Scratchy movie has been watched" +
+        ".\r\nRadical did this as this level doesn\'t have another video and they like bodgi" +
+        "ng things.");
             this.CBLevel3FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel3FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel3FMVUnlocked_CheckedChanged);
             // 
@@ -1953,6 +2077,7 @@
             this.NUDLevel3BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel3BestTime.TabIndex = 17;
             this.NUDLevel3BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel3BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel3BestTime.ValueChanged += new System.EventHandler(this.NUDLevel3BestTime_ValueChanged);
             // 
             // LblLevel3BestTime
@@ -1963,6 +2088,7 @@
             this.LblLevel3BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel3BestTime.TabIndex = 16;
             this.LblLevel3BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel3SkippedMission
             // 
@@ -1972,6 +2098,7 @@
             this.CBLevel3SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel3SkippedMission.TabIndex = 9;
             this.CBLevel3SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel3SkippedMission, "If the mission was skipped.");
             this.CBLevel3SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel3SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel3SkippedMission_CheckedChanged);
             // 
@@ -1986,6 +2113,7 @@
             this.NUDLevel3NumAttempts.Name = "NUDLevel3NumAttempts";
             this.NUDLevel3NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel3NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel3NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel3NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel3NumAttempts_ValueChanged);
             // 
             // LblLevel3NumAttempts
@@ -1996,6 +2124,7 @@
             this.LblLevel3NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel3NumAttempts.TabIndex = 7;
             this.LblLevel3NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel3BonusObjective
             // 
@@ -2005,6 +2134,8 @@
             this.CBLevel3BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel3BonusObjective.TabIndex = 6;
             this.CBLevel3BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel3BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel3BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel3BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel3BonusObjective_CheckedChanged);
             // 
@@ -2016,6 +2147,7 @@
             this.CBLevel3Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel3Completed.TabIndex = 5;
             this.CBLevel3Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel3Completed, "If the mission has been completed.");
             this.CBLevel3Completed.UseVisualStyleBackColor = true;
             this.CBLevel3Completed.CheckedChanged += new System.EventHandler(this.CBLevel3Completed_CheckedChanged);
             // 
@@ -2026,6 +2158,7 @@
             this.TxtLevel3MissionName.Name = "TxtLevel3MissionName";
             this.TxtLevel3MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel3MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel3MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel3MissionName.TextChanged += new System.EventHandler(this.TxtLevel3MissionName_TextChanged);
             // 
             // LblLevel3MissionName
@@ -2036,6 +2169,7 @@
             this.LblLevel3MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel3MissionName.TabIndex = 3;
             this.LblLevel3MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel3Missions
             // 
@@ -2046,6 +2180,8 @@
             this.LBLevel3Missions.Name = "LBLevel3Missions";
             this.LBLevel3Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel3Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel3Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel3Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel3Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel3Cards
@@ -2069,6 +2205,8 @@
             this.CBLevel3CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel3CardCollected.TabIndex = 9;
             this.CBLevel3CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel3CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel3CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel3CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel3CardCollected_CheckedChanged);
             // 
@@ -2079,6 +2217,7 @@
             this.TxtLevel3CardName.Name = "TxtLevel3CardName";
             this.TxtLevel3CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel3CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel3CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel3CardName.TextChanged += new System.EventHandler(this.TxtLevel3CardName_TextChanged);
             // 
             // LblLevel3CardName
@@ -2089,6 +2228,7 @@
             this.LblLevel3CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel3CardName.TabIndex = 7;
             this.LblLevel3CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel3CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel3Cards
             // 
@@ -2099,6 +2239,8 @@
             this.LBLevel3Cards.Name = "LBLevel3Cards";
             this.LBLevel3Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel3Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel3Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel3Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel3Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel4
@@ -2156,6 +2298,7 @@
             this.CLBLevel4PurchasedRewards.Name = "CLBLevel4PurchasedRewards";
             this.CLBLevel4PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel4PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel4PurchasedRewards, resources.GetString("CLBLevel4PurchasedRewards.ToolTip"));
             this.CLBLevel4PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel4PurchasedRewards_ItemCheck);
             // 
             // LblLevel4PurchasedRewards
@@ -2166,6 +2309,7 @@
             this.LblLevel4PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel4PurchasedRewards.TabIndex = 24;
             this.LblLevel4PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4PurchasedRewards, resources.GetString("LblLevel4PurchasedRewards.ToolTip"));
             // 
             // CLBLevel4Gags
             // 
@@ -2177,6 +2321,7 @@
             this.CLBLevel4Gags.Name = "CLBLevel4Gags";
             this.CLBLevel4Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel4Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel4Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel4Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel4Gags_ItemCheck);
             // 
             // LblLevel4Gags
@@ -2187,6 +2332,7 @@
             this.LblLevel4Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel4Gags.TabIndex = 22;
             this.LblLevel4Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel4CurrentSkin
             // 
@@ -2201,6 +2347,7 @@
             this.CBLevel4CurrentSkin.Name = "CBLevel4CurrentSkin";
             this.CBLevel4CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel4CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel4CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel4CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel4CurrentSkin_TextChanged);
             // 
             // LblLevel4CurrentSkin
@@ -2211,6 +2358,7 @@
             this.LblLevel4CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel4CurrentSkin.TabIndex = 20;
             this.LblLevel4CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel4WaspsDestroyed
             // 
@@ -2229,6 +2377,7 @@
             this.NUDLevel4WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel4WaspsDestroyed.TabIndex = 17;
             this.NUDLevel4WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel4WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel4WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel4WaspsDestroyed_ValueChanged);
             // 
             // LblLevel4WaspsDestroyed
@@ -2239,6 +2388,7 @@
             this.LblLevel4WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel4WaspsDestroyed.TabIndex = 16;
             this.LblLevel4WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel4NumSkinsPurchased
             // 
@@ -2257,6 +2407,7 @@
             this.NUDLevel4NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel4NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel4NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel4NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel4NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel4NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel4NumSkinsPurchased
@@ -2267,6 +2418,7 @@
             this.LblLevel4NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel4NumSkinsPurchased.TabIndex = 14;
             this.LblLevel4NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel4NumCarsPurchased
             // 
@@ -2285,6 +2437,7 @@
             this.NUDLevel4NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel4NumCarsPurchased.TabIndex = 13;
             this.NUDLevel4NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel4NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel4NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel4NumCarsPurchased_ValueChanged);
             // 
             // LblLevel4NumCarsPurchased
@@ -2295,6 +2448,7 @@
             this.LblLevel4NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel4NumCarsPurchased.TabIndex = 12;
             this.LblLevel4NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel4FMVUnlocked
             // 
@@ -2304,6 +2458,8 @@
             this.CBLevel4FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel4FMVUnlocked.TabIndex = 2;
             this.CBLevel4FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel4FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel4FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel4FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel4FMVUnlocked_CheckedChanged);
             // 
@@ -2343,6 +2499,7 @@
             this.NUDLevel4BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel4BestTime.TabIndex = 17;
             this.NUDLevel4BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel4BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel4BestTime.ValueChanged += new System.EventHandler(this.NUDLevel4BestTime_ValueChanged);
             // 
             // LblLevel4BestTime
@@ -2353,6 +2510,7 @@
             this.LblLevel4BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel4BestTime.TabIndex = 16;
             this.LblLevel4BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel4SkippedMission
             // 
@@ -2362,6 +2520,7 @@
             this.CBLevel4SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel4SkippedMission.TabIndex = 9;
             this.CBLevel4SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel4SkippedMission, "If the mission was skipped.");
             this.CBLevel4SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel4SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel4SkippedMission_CheckedChanged);
             // 
@@ -2376,6 +2535,7 @@
             this.NUDLevel4NumAttempts.Name = "NUDLevel4NumAttempts";
             this.NUDLevel4NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel4NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel4NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel4NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel4NumAttempts_ValueChanged);
             // 
             // LblLevel4NumAttempts
@@ -2386,6 +2546,7 @@
             this.LblLevel4NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel4NumAttempts.TabIndex = 7;
             this.LblLevel4NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel4BonusObjective
             // 
@@ -2395,6 +2556,8 @@
             this.CBLevel4BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel4BonusObjective.TabIndex = 6;
             this.CBLevel4BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel4BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel4BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel4BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel4BonusObjective_CheckedChanged);
             // 
@@ -2406,6 +2569,7 @@
             this.CBLevel4Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel4Completed.TabIndex = 5;
             this.CBLevel4Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel4Completed, "If the mission has been completed.");
             this.CBLevel4Completed.UseVisualStyleBackColor = true;
             this.CBLevel4Completed.CheckedChanged += new System.EventHandler(this.CBLevel4Completed_CheckedChanged);
             // 
@@ -2416,6 +2580,7 @@
             this.TxtLevel4MissionName.Name = "TxtLevel4MissionName";
             this.TxtLevel4MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel4MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel4MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel4MissionName.TextChanged += new System.EventHandler(this.TxtLevel4MissionName_TextChanged);
             // 
             // LblLevel4MissionName
@@ -2426,6 +2591,7 @@
             this.LblLevel4MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel4MissionName.TabIndex = 3;
             this.LblLevel4MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel4Missions
             // 
@@ -2436,6 +2602,8 @@
             this.LBLevel4Missions.Name = "LBLevel4Missions";
             this.LBLevel4Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel4Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel4Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel4Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel4Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel4Cards
@@ -2459,6 +2627,8 @@
             this.CBLevel4CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel4CardCollected.TabIndex = 9;
             this.CBLevel4CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel4CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel4CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel4CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel4CardCollected_CheckedChanged);
             // 
@@ -2469,6 +2639,7 @@
             this.TxtLevel4CardName.Name = "TxtLevel4CardName";
             this.TxtLevel4CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel4CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel4CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel4CardName.TextChanged += new System.EventHandler(this.TxtLevel4CardName_TextChanged);
             // 
             // LblLevel4CardName
@@ -2479,6 +2650,7 @@
             this.LblLevel4CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel4CardName.TabIndex = 7;
             this.LblLevel4CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel4CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel4Cards
             // 
@@ -2489,6 +2661,8 @@
             this.LBLevel4Cards.Name = "LBLevel4Cards";
             this.LBLevel4Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel4Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel4Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel4Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel4Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel5
@@ -2546,6 +2720,7 @@
             this.CLBLevel5PurchasedRewards.Name = "CLBLevel5PurchasedRewards";
             this.CLBLevel5PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel5PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel5PurchasedRewards, resources.GetString("CLBLevel5PurchasedRewards.ToolTip"));
             this.CLBLevel5PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel5PurchasedRewards_ItemCheck);
             // 
             // LblLevel5PurchasedRewards
@@ -2556,6 +2731,7 @@
             this.LblLevel5PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel5PurchasedRewards.TabIndex = 24;
             this.LblLevel5PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5PurchasedRewards, resources.GetString("LblLevel5PurchasedRewards.ToolTip"));
             // 
             // CLBLevel5Gags
             // 
@@ -2567,6 +2743,7 @@
             this.CLBLevel5Gags.Name = "CLBLevel5Gags";
             this.CLBLevel5Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel5Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel5Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel5Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel5Gags_ItemCheck);
             // 
             // LblLevel5Gags
@@ -2577,6 +2754,7 @@
             this.LblLevel5Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel5Gags.TabIndex = 22;
             this.LblLevel5Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel5CurrentSkin
             // 
@@ -2591,6 +2769,7 @@
             this.CBLevel5CurrentSkin.Name = "CBLevel5CurrentSkin";
             this.CBLevel5CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel5CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel5CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel5CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel5CurrentSkin_TextChanged);
             // 
             // LblLevel5CurrentSkin
@@ -2601,6 +2780,7 @@
             this.LblLevel5CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel5CurrentSkin.TabIndex = 20;
             this.LblLevel5CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel5WaspsDestroyed
             // 
@@ -2619,6 +2799,7 @@
             this.NUDLevel5WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel5WaspsDestroyed.TabIndex = 17;
             this.NUDLevel5WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel5WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel5WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel5WaspsDestroyed_ValueChanged);
             // 
             // LblLevel5WaspsDestroyed
@@ -2629,6 +2810,7 @@
             this.LblLevel5WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel5WaspsDestroyed.TabIndex = 16;
             this.LblLevel5WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel5NumSkinsPurchased
             // 
@@ -2647,6 +2829,7 @@
             this.NUDLevel5NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel5NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel5NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel5NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel5NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel5NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel5NumSkinsPurchased
@@ -2657,6 +2840,7 @@
             this.LblLevel5NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel5NumSkinsPurchased.TabIndex = 14;
             this.LblLevel5NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel5NumCarsPurchased
             // 
@@ -2675,6 +2859,7 @@
             this.NUDLevel5NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel5NumCarsPurchased.TabIndex = 13;
             this.NUDLevel5NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel5NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel5NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel5NumCarsPurchased_ValueChanged);
             // 
             // LblLevel5NumCarsPurchased
@@ -2685,6 +2870,7 @@
             this.LblLevel5NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel5NumCarsPurchased.TabIndex = 12;
             this.LblLevel5NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel5FMVUnlocked
             // 
@@ -2694,6 +2880,8 @@
             this.CBLevel5FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel5FMVUnlocked.TabIndex = 2;
             this.CBLevel5FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel5FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel5FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel5FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel5FMVUnlocked_CheckedChanged);
             // 
@@ -2733,6 +2921,7 @@
             this.NUDLevel5BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel5BestTime.TabIndex = 17;
             this.NUDLevel5BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel5BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel5BestTime.ValueChanged += new System.EventHandler(this.NUDLevel5BestTime_ValueChanged);
             // 
             // LblLevel5BestTime
@@ -2743,6 +2932,7 @@
             this.LblLevel5BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel5BestTime.TabIndex = 16;
             this.LblLevel5BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel5SkippedMission
             // 
@@ -2752,6 +2942,7 @@
             this.CBLevel5SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel5SkippedMission.TabIndex = 9;
             this.CBLevel5SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel5SkippedMission, "If the mission was skipped.");
             this.CBLevel5SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel5SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel5SkippedMission_CheckedChanged);
             // 
@@ -2766,6 +2957,7 @@
             this.NUDLevel5NumAttempts.Name = "NUDLevel5NumAttempts";
             this.NUDLevel5NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel5NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel5NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel5NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel5NumAttempts_ValueChanged);
             // 
             // LblLevel5NumAttempts
@@ -2776,6 +2968,7 @@
             this.LblLevel5NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel5NumAttempts.TabIndex = 7;
             this.LblLevel5NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel5BonusObjective
             // 
@@ -2785,6 +2978,8 @@
             this.CBLevel5BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel5BonusObjective.TabIndex = 6;
             this.CBLevel5BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel5BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel5BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel5BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel5BonusObjective_CheckedChanged);
             // 
@@ -2796,6 +2991,7 @@
             this.CBLevel5Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel5Completed.TabIndex = 5;
             this.CBLevel5Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel5Completed, "If the mission has been completed.");
             this.CBLevel5Completed.UseVisualStyleBackColor = true;
             this.CBLevel5Completed.CheckedChanged += new System.EventHandler(this.CBLevel5Completed_CheckedChanged);
             // 
@@ -2806,6 +3002,7 @@
             this.TxtLevel5MissionName.Name = "TxtLevel5MissionName";
             this.TxtLevel5MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel5MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel5MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel5MissionName.TextChanged += new System.EventHandler(this.TxtLevel5MissionName_TextChanged);
             // 
             // LblLevel5MissionName
@@ -2816,6 +3013,7 @@
             this.LblLevel5MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel5MissionName.TabIndex = 3;
             this.LblLevel5MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel5Missions
             // 
@@ -2826,6 +3024,8 @@
             this.LBLevel5Missions.Name = "LBLevel5Missions";
             this.LBLevel5Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel5Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel5Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel5Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel5Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel5Cards
@@ -2849,6 +3049,8 @@
             this.CBLevel5CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel5CardCollected.TabIndex = 9;
             this.CBLevel5CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel5CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel5CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel5CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel5CardCollected_CheckedChanged);
             // 
@@ -2859,6 +3061,7 @@
             this.TxtLevel5CardName.Name = "TxtLevel5CardName";
             this.TxtLevel5CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel5CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel5CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel5CardName.TextChanged += new System.EventHandler(this.TxtLevel5CardName_TextChanged);
             // 
             // LblLevel5CardName
@@ -2869,6 +3072,7 @@
             this.LblLevel5CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel5CardName.TabIndex = 7;
             this.LblLevel5CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel5CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel5Cards
             // 
@@ -2879,6 +3083,8 @@
             this.LBLevel5Cards.Name = "LBLevel5Cards";
             this.LBLevel5Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel5Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel5Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel5Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel5Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel6
@@ -2936,6 +3142,7 @@
             this.CLBLevel6PurchasedRewards.Name = "CLBLevel6PurchasedRewards";
             this.CLBLevel6PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel6PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel6PurchasedRewards, resources.GetString("CLBLevel6PurchasedRewards.ToolTip"));
             this.CLBLevel6PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel6PurchasedRewards_ItemCheck);
             // 
             // LblLevel6PurchasedRewards
@@ -2946,6 +3153,7 @@
             this.LblLevel6PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel6PurchasedRewards.TabIndex = 24;
             this.LblLevel6PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6PurchasedRewards, resources.GetString("LblLevel6PurchasedRewards.ToolTip"));
             // 
             // CLBLevel6Gags
             // 
@@ -2957,6 +3165,7 @@
             this.CLBLevel6Gags.Name = "CLBLevel6Gags";
             this.CLBLevel6Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel6Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel6Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel6Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel6Gags_ItemCheck);
             // 
             // LblLevel6Gags
@@ -2967,6 +3176,7 @@
             this.LblLevel6Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel6Gags.TabIndex = 22;
             this.LblLevel6Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel6CurrentSkin
             // 
@@ -2981,6 +3191,7 @@
             this.CBLevel6CurrentSkin.Name = "CBLevel6CurrentSkin";
             this.CBLevel6CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel6CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel6CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel6CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel6CurrentSkin_TextChanged);
             // 
             // LblLevel6CurrentSkin
@@ -2991,6 +3202,7 @@
             this.LblLevel6CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel6CurrentSkin.TabIndex = 20;
             this.LblLevel6CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel6WaspsDestroyed
             // 
@@ -3009,6 +3221,7 @@
             this.NUDLevel6WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel6WaspsDestroyed.TabIndex = 17;
             this.NUDLevel6WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel6WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel6WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel6WaspsDestroyed_ValueChanged);
             // 
             // LblLevel6WaspsDestroyed
@@ -3019,6 +3232,7 @@
             this.LblLevel6WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel6WaspsDestroyed.TabIndex = 16;
             this.LblLevel6WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel6NumSkinsPurchased
             // 
@@ -3037,6 +3251,7 @@
             this.NUDLevel6NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel6NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel6NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel6NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel6NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel6NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel6NumSkinsPurchased
@@ -3047,6 +3262,7 @@
             this.LblLevel6NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel6NumSkinsPurchased.TabIndex = 14;
             this.LblLevel6NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel6NumCarsPurchased
             // 
@@ -3065,6 +3281,7 @@
             this.NUDLevel6NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel6NumCarsPurchased.TabIndex = 13;
             this.NUDLevel6NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel6NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel6NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel6NumCarsPurchased_ValueChanged);
             // 
             // LblLevel6NumCarsPurchased
@@ -3075,6 +3292,7 @@
             this.LblLevel6NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel6NumCarsPurchased.TabIndex = 12;
             this.LblLevel6NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel6FMVUnlocked
             // 
@@ -3084,6 +3302,8 @@
             this.CBLevel6FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel6FMVUnlocked.TabIndex = 2;
             this.CBLevel6FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel6FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel6FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel6FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel6FMVUnlocked_CheckedChanged);
             // 
@@ -3123,6 +3343,7 @@
             this.NUDLevel6BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel6BestTime.TabIndex = 17;
             this.NUDLevel6BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel6BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel6BestTime.ValueChanged += new System.EventHandler(this.NUDLevel6BestTime_ValueChanged);
             // 
             // LblLevel6BestTime
@@ -3133,6 +3354,7 @@
             this.LblLevel6BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel6BestTime.TabIndex = 16;
             this.LblLevel6BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel6SkippedMission
             // 
@@ -3142,6 +3364,7 @@
             this.CBLevel6SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel6SkippedMission.TabIndex = 9;
             this.CBLevel6SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel6SkippedMission, "If the mission was skipped.");
             this.CBLevel6SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel6SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel6SkippedMission_CheckedChanged);
             // 
@@ -3156,6 +3379,7 @@
             this.NUDLevel6NumAttempts.Name = "NUDLevel6NumAttempts";
             this.NUDLevel6NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel6NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel6NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel6NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel6NumAttempts_ValueChanged);
             // 
             // LblLevel6NumAttempts
@@ -3166,6 +3390,7 @@
             this.LblLevel6NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel6NumAttempts.TabIndex = 7;
             this.LblLevel6NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel6BonusObjective
             // 
@@ -3175,6 +3400,8 @@
             this.CBLevel6BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel6BonusObjective.TabIndex = 6;
             this.CBLevel6BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel6BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel6BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel6BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel6BonusObjective_CheckedChanged);
             // 
@@ -3186,6 +3413,7 @@
             this.CBLevel6Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel6Completed.TabIndex = 5;
             this.CBLevel6Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel6Completed, "If the mission has been completed.");
             this.CBLevel6Completed.UseVisualStyleBackColor = true;
             this.CBLevel6Completed.CheckedChanged += new System.EventHandler(this.CBLevel6Completed_CheckedChanged);
             // 
@@ -3196,6 +3424,7 @@
             this.TxtLevel6MissionName.Name = "TxtLevel6MissionName";
             this.TxtLevel6MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel6MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel6MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel6MissionName.TextChanged += new System.EventHandler(this.TxtLevel6MissionName_TextChanged);
             // 
             // LblLevel6MissionName
@@ -3206,6 +3435,7 @@
             this.LblLevel6MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel6MissionName.TabIndex = 3;
             this.LblLevel6MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel6Missions
             // 
@@ -3216,6 +3446,8 @@
             this.LBLevel6Missions.Name = "LBLevel6Missions";
             this.LBLevel6Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel6Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel6Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel6Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel6Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel6Cards
@@ -3239,6 +3471,8 @@
             this.CBLevel6CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel6CardCollected.TabIndex = 9;
             this.CBLevel6CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel6CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel6CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel6CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel6CardCollected_CheckedChanged);
             // 
@@ -3249,6 +3483,7 @@
             this.TxtLevel6CardName.Name = "TxtLevel6CardName";
             this.TxtLevel6CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel6CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel6CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel6CardName.TextChanged += new System.EventHandler(this.TxtLevel6CardName_TextChanged);
             // 
             // LblLevel6CardName
@@ -3259,6 +3494,7 @@
             this.LblLevel6CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel6CardName.TabIndex = 7;
             this.LblLevel6CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel6CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel6Cards
             // 
@@ -3269,6 +3505,8 @@
             this.LBLevel6Cards.Name = "LBLevel6Cards";
             this.LBLevel6Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel6Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel6Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel6Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel6Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel7
@@ -3326,6 +3564,7 @@
             this.CLBLevel7PurchasedRewards.Name = "CLBLevel7PurchasedRewards";
             this.CLBLevel7PurchasedRewards.Size = new System.Drawing.Size(275, 124);
             this.CLBLevel7PurchasedRewards.TabIndex = 25;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel7PurchasedRewards, resources.GetString("CLBLevel7PurchasedRewards.ToolTip"));
             this.CLBLevel7PurchasedRewards.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel7PurchasedRewards_ItemCheck);
             // 
             // LblLevel7PurchasedRewards
@@ -3336,6 +3575,7 @@
             this.LblLevel7PurchasedRewards.Size = new System.Drawing.Size(106, 13);
             this.LblLevel7PurchasedRewards.TabIndex = 24;
             this.LblLevel7PurchasedRewards.Text = "Purchased Rewards:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7PurchasedRewards, resources.GetString("LblLevel7PurchasedRewards.ToolTip"));
             // 
             // CLBLevel7Gags
             // 
@@ -3347,6 +3587,7 @@
             this.CLBLevel7Gags.Name = "CLBLevel7Gags";
             this.CLBLevel7Gags.Size = new System.Drawing.Size(275, 304);
             this.CLBLevel7Gags.TabIndex = 23;
+            this.TTSettingInfo.SetToolTip(this.CLBLevel7Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             this.CLBLevel7Gags.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBLevel7Gags_ItemCheck);
             // 
             // LblLevel7Gags
@@ -3357,6 +3598,7 @@
             this.LblLevel7Gags.Size = new System.Drawing.Size(73, 13);
             this.LblLevel7Gags.TabIndex = 22;
             this.LblLevel7Gags.Text = "Gags Viewed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7Gags, "The gags in current level.\r\nThe names in brackets are the vanilla game gags.");
             // 
             // CBLevel7CurrentSkin
             // 
@@ -3371,6 +3613,7 @@
             this.CBLevel7CurrentSkin.Name = "CBLevel7CurrentSkin";
             this.CBLevel7CurrentSkin.Size = new System.Drawing.Size(275, 21);
             this.CBLevel7CurrentSkin.TabIndex = 21;
+            this.TTSettingInfo.SetToolTip(this.CBLevel7CurrentSkin, "The current skin/costume in the level.");
             this.CBLevel7CurrentSkin.TextChanged += new System.EventHandler(this.CBLevel7CurrentSkin_TextChanged);
             // 
             // LblLevel7CurrentSkin
@@ -3381,6 +3624,7 @@
             this.LblLevel7CurrentSkin.Size = new System.Drawing.Size(68, 13);
             this.LblLevel7CurrentSkin.TabIndex = 20;
             this.LblLevel7CurrentSkin.Text = "Current Skin:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7CurrentSkin, "The current skin/costume in the level.");
             // 
             // NUDLevel7WaspsDestroyed
             // 
@@ -3399,6 +3643,7 @@
             this.NUDLevel7WaspsDestroyed.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel7WaspsDestroyed.TabIndex = 17;
             this.NUDLevel7WaspsDestroyed.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel7WaspsDestroyed, "The number of wasps destroyed in the level.");
             this.NUDLevel7WaspsDestroyed.ValueChanged += new System.EventHandler(this.NUDLevel7WaspsDestroyed_ValueChanged);
             // 
             // LblLevel7WaspsDestroyed
@@ -3409,6 +3654,7 @@
             this.LblLevel7WaspsDestroyed.Size = new System.Drawing.Size(94, 13);
             this.LblLevel7WaspsDestroyed.TabIndex = 16;
             this.LblLevel7WaspsDestroyed.Text = "Wasps Destroyed:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7WaspsDestroyed, "The number of wasps destroyed in the level.");
             // 
             // NUDLevel7NumSkinsPurchased
             // 
@@ -3427,6 +3673,7 @@
             this.NUDLevel7NumSkinsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel7NumSkinsPurchased.TabIndex = 15;
             this.NUDLevel7NumSkinsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel7NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             this.NUDLevel7NumSkinsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel7NumSkinsPurchased_ValueChanged);
             // 
             // LblLevel7NumSkinsPurchased
@@ -3437,6 +3684,7 @@
             this.LblLevel7NumSkinsPurchased.Size = new System.Drawing.Size(115, 13);
             this.LblLevel7NumSkinsPurchased.TabIndex = 14;
             this.LblLevel7NumSkinsPurchased.Text = "Num Skins Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7NumSkinsPurchased, "The number of \"Purchased Rewards\" that are costumes/skins.");
             // 
             // NUDLevel7NumCarsPurchased
             // 
@@ -3455,6 +3703,7 @@
             this.NUDLevel7NumCarsPurchased.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel7NumCarsPurchased.TabIndex = 13;
             this.NUDLevel7NumCarsPurchased.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel7NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             this.NUDLevel7NumCarsPurchased.ValueChanged += new System.EventHandler(this.NUDLevel7NumCarsPurchased_ValueChanged);
             // 
             // LblLevel7NumCarsPurchased
@@ -3465,6 +3714,7 @@
             this.LblLevel7NumCarsPurchased.Size = new System.Drawing.Size(110, 13);
             this.LblLevel7NumCarsPurchased.TabIndex = 12;
             this.LblLevel7NumCarsPurchased.Text = "Num Cars Purchased:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7NumCarsPurchased, "The number of \"Purchased Rewards\" that are cars.");
             // 
             // CBLevel7FMVUnlocked
             // 
@@ -3474,6 +3724,8 @@
             this.CBLevel7FMVUnlocked.Size = new System.Drawing.Size(97, 17);
             this.CBLevel7FMVUnlocked.TabIndex = 2;
             this.CBLevel7FMVUnlocked.Text = "FMV Unlocked";
+            this.TTSettingInfo.SetToolTip(this.CBLevel7FMVUnlocked, "If the level\'s video has been watched. If checked, you\'re able to skip the video " +
+        "playback in the level.");
             this.CBLevel7FMVUnlocked.UseVisualStyleBackColor = true;
             this.CBLevel7FMVUnlocked.CheckedChanged += new System.EventHandler(this.CBLevel7FMVUnlocked_CheckedChanged);
             // 
@@ -3513,6 +3765,7 @@
             this.NUDLevel7BestTime.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel7BestTime.TabIndex = 17;
             this.NUDLevel7BestTime.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel7BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             this.NUDLevel7BestTime.ValueChanged += new System.EventHandler(this.NUDLevel7BestTime_ValueChanged);
             // 
             // LblLevel7BestTime
@@ -3523,6 +3776,7 @@
             this.LblLevel7BestTime.Size = new System.Drawing.Size(57, 13);
             this.LblLevel7BestTime.TabIndex = 16;
             this.LblLevel7BestTime.Text = "Best Time:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7BestTime, "Really only used by \"Race 1 (Time Trial)\". The best time fo the trial.");
             // 
             // CBLevel7SkippedMission
             // 
@@ -3532,6 +3786,7 @@
             this.CBLevel7SkippedMission.Size = new System.Drawing.Size(103, 17);
             this.CBLevel7SkippedMission.TabIndex = 9;
             this.CBLevel7SkippedMission.Text = "Skipped Mission";
+            this.TTSettingInfo.SetToolTip(this.CBLevel7SkippedMission, "If the mission was skipped.");
             this.CBLevel7SkippedMission.UseVisualStyleBackColor = true;
             this.CBLevel7SkippedMission.CheckedChanged += new System.EventHandler(this.CBLevel7SkippedMission_CheckedChanged);
             // 
@@ -3546,6 +3801,7 @@
             this.NUDLevel7NumAttempts.Name = "NUDLevel7NumAttempts";
             this.NUDLevel7NumAttempts.Size = new System.Drawing.Size(275, 20);
             this.NUDLevel7NumAttempts.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDLevel7NumAttempts, "The number of times the mission was attempted prior to completion.");
             this.NUDLevel7NumAttempts.ValueChanged += new System.EventHandler(this.NUDLevel7NumAttempts_ValueChanged);
             // 
             // LblLevel7NumAttempts
@@ -3556,6 +3812,7 @@
             this.LblLevel7NumAttempts.Size = new System.Drawing.Size(76, 13);
             this.LblLevel7NumAttempts.TabIndex = 7;
             this.LblLevel7NumAttempts.Text = "Num Attempts:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7NumAttempts, "The number of times the mission was attempted prior to completion.");
             // 
             // CBLevel7BonusObjective
             // 
@@ -3565,6 +3822,8 @@
             this.CBLevel7BonusObjective.Size = new System.Drawing.Size(104, 17);
             this.CBLevel7BonusObjective.TabIndex = 6;
             this.CBLevel7BonusObjective.Text = "Bonus Objective";
+            this.TTSettingInfo.SetToolTip(this.CBLevel7BonusObjective, "If the bonus objective of the mission has been completed.\r\nThis is unused in the " +
+        "vanilla game, but can be added with the \"AddBonusObjective\" MFK function.");
             this.CBLevel7BonusObjective.UseVisualStyleBackColor = true;
             this.CBLevel7BonusObjective.CheckedChanged += new System.EventHandler(this.CBLevel7BonusObjective_CheckedChanged);
             // 
@@ -3576,6 +3835,7 @@
             this.CBLevel7Completed.Size = new System.Drawing.Size(76, 17);
             this.CBLevel7Completed.TabIndex = 5;
             this.CBLevel7Completed.Text = "Completed";
+            this.TTSettingInfo.SetToolTip(this.CBLevel7Completed, "If the mission has been completed.");
             this.CBLevel7Completed.UseVisualStyleBackColor = true;
             this.CBLevel7Completed.CheckedChanged += new System.EventHandler(this.CBLevel7Completed_CheckedChanged);
             // 
@@ -3586,6 +3846,7 @@
             this.TxtLevel7MissionName.Name = "TxtLevel7MissionName";
             this.TxtLevel7MissionName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel7MissionName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel7MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             this.TxtLevel7MissionName.TextChanged += new System.EventHandler(this.TxtLevel7MissionName_TextChanged);
             // 
             // LblLevel7MissionName
@@ -3596,6 +3857,7 @@
             this.LblLevel7MissionName.Size = new System.Drawing.Size(76, 13);
             this.LblLevel7MissionName.TabIndex = 3;
             this.LblLevel7MissionName.Text = "Mission Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7MissionName, "The internal name of the mission.\r\nDetermined by the \"AddMission\" MFK function.");
             // 
             // LBLevel7Missions
             // 
@@ -3606,6 +3868,8 @@
             this.LBLevel7Missions.Name = "LBLevel7Missions";
             this.LBLevel7Missions.Size = new System.Drawing.Size(250, 316);
             this.LBLevel7Missions.TabIndex = 1;
+            this.TTSettingInfo.SetToolTip(this.LBLevel7Missions, "The list of missions in the level.\r\nThe names in brackets are the vanilla game mi" +
+        "ssions.");
             this.LBLevel7Missions.SelectedIndexChanged += new System.EventHandler(this.LBLevel7Missions_SelectedIndexChanged);
             // 
             // TPCharacterSheetLevel7Cards
@@ -3629,6 +3893,8 @@
             this.CBLevel7CardCollected.Size = new System.Drawing.Size(70, 17);
             this.CBLevel7CardCollected.TabIndex = 9;
             this.CBLevel7CardCollected.Text = "Collected";
+            this.TTSettingInfo.SetToolTip(this.CBLevel7CardCollected, "If the card has been collected.\r\nUpdating this will also update the Card Gallery." +
+        "");
             this.CBLevel7CardCollected.UseVisualStyleBackColor = true;
             this.CBLevel7CardCollected.CheckedChanged += new System.EventHandler(this.CBLevel7CardCollected_CheckedChanged);
             // 
@@ -3639,6 +3905,7 @@
             this.TxtLevel7CardName.Name = "TxtLevel7CardName";
             this.TxtLevel7CardName.Size = new System.Drawing.Size(275, 20);
             this.TxtLevel7CardName.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TxtLevel7CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             this.TxtLevel7CardName.TextChanged += new System.EventHandler(this.TxtLevel7CardName_TextChanged);
             // 
             // LblLevel7CardName
@@ -3649,6 +3916,7 @@
             this.LblLevel7CardName.Size = new System.Drawing.Size(63, 13);
             this.LblLevel7CardName.TabIndex = 7;
             this.LblLevel7CardName.Text = "Card Name:";
+            this.TTSettingInfo.SetToolTip(this.LblLevel7CardName, "Unused by the game. Hardcodedly set to \"Cardx\".");
             // 
             // LBLevel7Cards
             // 
@@ -3659,6 +3927,8 @@
             this.LBLevel7Cards.Name = "LBLevel7Cards";
             this.LBLevel7Cards.Size = new System.Drawing.Size(250, 316);
             this.LBLevel7Cards.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.LBLevel7Cards, "The list of cards in the level.\r\nThe names in brackets are the vanilla game cards" +
+        ".");
             this.LBLevel7Cards.SelectedIndexChanged += new System.EventHandler(this.LBLevel7Cards_SelectedIndexChanged);
             // 
             // TPCharacterSheetCars
@@ -3691,6 +3961,8 @@
             this.NUDCounter.Size = new System.Drawing.Size(275, 20);
             this.NUDCounter.TabIndex = 12;
             this.NUDCounter.ThousandsSeparator = true;
+            this.TTSettingInfo.SetToolTip(this.NUDCounter, "The number of cars in the inventory.\r\nThis should equal the number of cars with n" +
+        "ames that aren\'t \"n/a\", but this isn\'t enforced.");
             this.NUDCounter.ValueChanged += new System.EventHandler(this.NUDCounter_ValueChanged);
             // 
             // LblCounter
@@ -3702,6 +3974,8 @@
             this.LblCounter.Size = new System.Drawing.Size(47, 13);
             this.LblCounter.TabIndex = 1;
             this.LblCounter.Text = "Counter:";
+            this.TTSettingInfo.SetToolTip(this.LblCounter, "The number of cars in the inventory.\r\nThis should equal the number of cars with n" +
+        "ames that aren\'t \"n/a\", but this isn\'t enforced.");
             // 
             // GBCars
             // 
@@ -3738,6 +4012,7 @@
             this.NUDMaxHealth.Name = "NUDMaxHealth";
             this.NUDMaxHealth.Size = new System.Drawing.Size(275, 20);
             this.NUDMaxHealth.TabIndex = 10;
+            this.TTSettingInfo.SetToolTip(this.NUDMaxHealth, "Unusued by the game. Should be the car\'s max hit points.");
             this.NUDMaxHealth.Value = new decimal(new int[] {
             1,
             0,
@@ -3753,6 +4028,7 @@
             this.LblMaxHealth.Size = new System.Drawing.Size(64, 13);
             this.LblMaxHealth.TabIndex = 9;
             this.LblMaxHealth.Text = "Max Health:";
+            this.TTSettingInfo.SetToolTip(this.LblMaxHealth, "Unusued by the game. Should be the car\'s max hit points.");
             // 
             // NUDCurrentHealth
             // 
@@ -3771,6 +4047,7 @@
             this.NUDCurrentHealth.Name = "NUDCurrentHealth";
             this.NUDCurrentHealth.Size = new System.Drawing.Size(275, 20);
             this.NUDCurrentHealth.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDCurrentHealth, "The current health the car has, as a percentage.");
             this.NUDCurrentHealth.Value = new decimal(new int[] {
             100,
             0,
@@ -3786,6 +4063,7 @@
             this.LblCurrentHealth.Size = new System.Drawing.Size(95, 13);
             this.LblCurrentHealth.TabIndex = 7;
             this.LblCurrentHealth.Text = "Current Health (%):";
+            this.TTSettingInfo.SetToolTip(this.LblCurrentHealth, "The current health the car has, as a percentage.");
             // 
             // TxtCarName
             // 
@@ -3794,6 +4072,7 @@
             this.TxtCarName.Name = "TxtCarName";
             this.TxtCarName.Size = new System.Drawing.Size(275, 20);
             this.TxtCarName.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.TxtCarName, "The car name. Must match the Composite Drawable name of the Pure3D file.");
             this.TxtCarName.TextChanged += new System.EventHandler(this.TxtCarName_TextChanged);
             // 
             // LblCarName
@@ -3804,6 +4083,7 @@
             this.LblCarName.Size = new System.Drawing.Size(38, 13);
             this.LblCarName.TabIndex = 3;
             this.LblCarName.Text = "Name:";
+            this.TTSettingInfo.SetToolTip(this.LblCarName, "The car name. Must match the Composite Drawable name of the Pure3D file.");
             // 
             // LBCars
             // 
@@ -3814,6 +4094,7 @@
             this.LBCars.Name = "LBCars";
             this.LBCars.Size = new System.Drawing.Size(250, 303);
             this.LBCars.TabIndex = 0;
+            this.TTSettingInfo.SetToolTip(this.LBCars, "The list of card in the inventory.");
             this.LBCars.SelectedIndexChanged += new System.EventHandler(this.LBCars_SelectedIndexChanged);
             // 
             // TPSoundSettings
@@ -3846,6 +4127,8 @@
             this.CBIsSurround.Size = new System.Drawing.Size(80, 17);
             this.CBIsSurround.TabIndex = 12;
             this.CBIsSurround.Text = "Is Surround";
+            this.TTSettingInfo.SetToolTip(this.CBIsSurround, "If the game should use surround sound.\r\nIf checked, the game audio will use surro" +
+        "und sound. If unchecked, the game audio will be in stereo.");
             this.CBIsSurround.UseVisualStyleBackColor = true;
             // 
             // TBDialogVolume
@@ -3856,6 +4139,7 @@
             this.TBDialogVolume.Name = "TBDialogVolume";
             this.TBDialogVolume.Size = new System.Drawing.Size(275, 45);
             this.TBDialogVolume.TabIndex = 11;
+            this.TTSettingInfo.SetToolTip(this.TBDialogVolume, "The dialog volume level.");
             this.TBDialogVolume.ValueChanged += new System.EventHandler(this.TBDialogVolume_ValueChanged);
             // 
             // LblDialogVolumeValue
@@ -3866,6 +4150,7 @@
             this.LblDialogVolumeValue.Size = new System.Drawing.Size(13, 13);
             this.LblDialogVolumeValue.TabIndex = 10;
             this.LblDialogVolumeValue.Text = "0";
+            this.TTSettingInfo.SetToolTip(this.LblDialogVolumeValue, "The dialog volume level.");
             // 
             // LblDialogVolume
             // 
@@ -3875,6 +4160,7 @@
             this.LblDialogVolume.Size = new System.Drawing.Size(78, 13);
             this.LblDialogVolume.TabIndex = 9;
             this.LblDialogVolume.Text = "Dialog Volume:";
+            this.TTSettingInfo.SetToolTip(this.LblDialogVolume, "The dialog volume level.");
             // 
             // TBCarVolume
             // 
@@ -3884,6 +4170,7 @@
             this.TBCarVolume.Name = "TBCarVolume";
             this.TBCarVolume.Size = new System.Drawing.Size(275, 45);
             this.TBCarVolume.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.TBCarVolume, "The car volume level.");
             this.TBCarVolume.ValueChanged += new System.EventHandler(this.TBCarVolume_ValueChanged);
             // 
             // LblCarVolumeValue
@@ -3894,6 +4181,7 @@
             this.LblCarVolumeValue.Size = new System.Drawing.Size(13, 13);
             this.LblCarVolumeValue.TabIndex = 7;
             this.LblCarVolumeValue.Text = "0";
+            this.TTSettingInfo.SetToolTip(this.LblCarVolumeValue, "The car volume level.");
             // 
             // LblCarVolume
             // 
@@ -3903,6 +4191,7 @@
             this.LblCarVolume.Size = new System.Drawing.Size(64, 13);
             this.LblCarVolume.TabIndex = 6;
             this.LblCarVolume.Text = "Car Volume:";
+            this.TTSettingInfo.SetToolTip(this.LblCarVolume, "The car volume level.");
             // 
             // TBSFXVolume
             // 
@@ -3912,6 +4201,7 @@
             this.TBSFXVolume.Name = "TBSFXVolume";
             this.TBSFXVolume.Size = new System.Drawing.Size(275, 45);
             this.TBSFXVolume.TabIndex = 5;
+            this.TTSettingInfo.SetToolTip(this.TBSFXVolume, "The SFX volume level.");
             this.TBSFXVolume.ValueChanged += new System.EventHandler(this.TBSFXVolume_ValueChanged);
             // 
             // LblSFXVolumeValue
@@ -3922,6 +4212,7 @@
             this.LblSFXVolumeValue.Size = new System.Drawing.Size(13, 13);
             this.LblSFXVolumeValue.TabIndex = 4;
             this.LblSFXVolumeValue.Text = "0";
+            this.TTSettingInfo.SetToolTip(this.LblSFXVolumeValue, "The SFX volume level.");
             // 
             // LblSFXVolume
             // 
@@ -3931,6 +4222,7 @@
             this.LblSFXVolume.Size = new System.Drawing.Size(68, 13);
             this.LblSFXVolume.TabIndex = 3;
             this.LblSFXVolume.Text = "SFX Volume:";
+            this.TTSettingInfo.SetToolTip(this.LblSFXVolume, "The SFX volume level.");
             // 
             // TBMusicVolume
             // 
@@ -3940,6 +4232,7 @@
             this.TBMusicVolume.Name = "TBMusicVolume";
             this.TBMusicVolume.Size = new System.Drawing.Size(275, 45);
             this.TBMusicVolume.TabIndex = 2;
+            this.TTSettingInfo.SetToolTip(this.TBMusicVolume, "The music volume level.");
             this.TBMusicVolume.ValueChanged += new System.EventHandler(this.TBMusicVolume_ValueChanged);
             // 
             // LblMusicVolumeValue
@@ -3950,6 +4243,7 @@
             this.LblMusicVolumeValue.Size = new System.Drawing.Size(13, 13);
             this.LblMusicVolumeValue.TabIndex = 1;
             this.LblMusicVolumeValue.Text = "0";
+            this.TTSettingInfo.SetToolTip(this.LblMusicVolumeValue, "The music volume level.");
             // 
             // LblMusicVolume
             // 
@@ -3959,6 +4253,7 @@
             this.LblMusicVolume.Size = new System.Drawing.Size(76, 13);
             this.LblMusicVolume.TabIndex = 0;
             this.LblMusicVolume.Text = "Music Volume:";
+            this.TTSettingInfo.SetToolTip(this.LblMusicVolume, "The music volume level.");
             // 
             // TPSuperCamCentral
             // 
@@ -3996,6 +4291,7 @@
             this.CBPreferredFollowCam4.Name = "CBPreferredFollowCam4";
             this.CBPreferredFollowCam4.Size = new System.Drawing.Size(260, 21);
             this.CBPreferredFollowCam4.TabIndex = 3;
+            this.TTSettingInfo.SetToolTip(this.CBPreferredFollowCam4, "The preferred/default camera angle in the bonus game.");
             this.CBPreferredFollowCam4.SelectedIndexChanged += new System.EventHandler(this.CBPreferredFollowCam4_SelectedIndexChanged);
             // 
             // CBIsInvertedCameraEnabled4
@@ -4006,6 +4302,8 @@
             this.CBIsInvertedCameraEnabled4.Size = new System.Drawing.Size(157, 17);
             this.CBIsInvertedCameraEnabled4.TabIndex = 2;
             this.CBIsInvertedCameraEnabled4.Text = "Is Inverted Camera Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsInvertedCameraEnabled4, "If the camera should be inverted when using first person camera in the bonus game" +
+        ".");
             this.CBIsInvertedCameraEnabled4.UseVisualStyleBackColor = true;
             this.CBIsInvertedCameraEnabled4.CheckedChanged += new System.EventHandler(this.CBIsInvertedCameraEnabled4_CheckedChanged);
             // 
@@ -4017,6 +4315,7 @@
             this.CBJumpCamsEnabled4.Size = new System.Drawing.Size(122, 17);
             this.CBJumpCamsEnabled4.TabIndex = 1;
             this.CBJumpCamsEnabled4.Text = "Jump Cams Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBJumpCamsEnabled4, "If the camera angle should change when going over a jump in the bonus game.");
             this.CBJumpCamsEnabled4.UseVisualStyleBackColor = true;
             this.CBJumpCamsEnabled4.CheckedChanged += new System.EventHandler(this.CBJumpCamsEnabled4_CheckedChanged);
             // 
@@ -4028,6 +4327,7 @@
             this.LblPreferredFollowCam4.Size = new System.Drawing.Size(110, 13);
             this.LblPreferredFollowCam4.TabIndex = 0;
             this.LblPreferredFollowCam4.Text = "Preferred Follow Cam:";
+            this.TTSettingInfo.SetToolTip(this.LblPreferredFollowCam4, "The preferred/default camera angle in the bonus game.");
             // 
             // GBSuperCamCentral3
             // 
@@ -4052,6 +4352,7 @@
             this.CBPreferredFollowCam3.Name = "CBPreferredFollowCam3";
             this.CBPreferredFollowCam3.Size = new System.Drawing.Size(260, 21);
             this.CBPreferredFollowCam3.TabIndex = 3;
+            this.TTSettingInfo.SetToolTip(this.CBPreferredFollowCam3, "The preferred/default camera angle in the bonus game.");
             this.CBPreferredFollowCam3.SelectedIndexChanged += new System.EventHandler(this.CBPreferredFollowCam3_SelectedIndexChanged);
             // 
             // CBIsInvertedCameraEnabled3
@@ -4062,6 +4363,8 @@
             this.CBIsInvertedCameraEnabled3.Size = new System.Drawing.Size(157, 17);
             this.CBIsInvertedCameraEnabled3.TabIndex = 2;
             this.CBIsInvertedCameraEnabled3.Text = "Is Inverted Camera Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsInvertedCameraEnabled3, "If the camera should be inverted when using first person camera in the bonus game" +
+        ".");
             this.CBIsInvertedCameraEnabled3.UseVisualStyleBackColor = true;
             this.CBIsInvertedCameraEnabled3.CheckedChanged += new System.EventHandler(this.CBIsInvertedCameraEnabled3_CheckedChanged);
             // 
@@ -4073,6 +4376,7 @@
             this.CBJumpCamsEnabled3.Size = new System.Drawing.Size(122, 17);
             this.CBJumpCamsEnabled3.TabIndex = 1;
             this.CBJumpCamsEnabled3.Text = "Jump Cams Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBJumpCamsEnabled3, "If the camera angle should change when going over a jump in the bonus game.");
             this.CBJumpCamsEnabled3.UseVisualStyleBackColor = true;
             this.CBJumpCamsEnabled3.CheckedChanged += new System.EventHandler(this.CBJumpCamsEnabled3_CheckedChanged);
             // 
@@ -4084,6 +4388,7 @@
             this.LblPreferredFollowCam3.Size = new System.Drawing.Size(110, 13);
             this.LblPreferredFollowCam3.TabIndex = 0;
             this.LblPreferredFollowCam3.Text = "Preferred Follow Cam:";
+            this.TTSettingInfo.SetToolTip(this.LblPreferredFollowCam3, "The preferred/default camera angle in the bonus game.");
             // 
             // GBSuperCamCentral2
             // 
@@ -4108,6 +4413,7 @@
             this.CBPreferredFollowCam2.Name = "CBPreferredFollowCam2";
             this.CBPreferredFollowCam2.Size = new System.Drawing.Size(260, 21);
             this.CBPreferredFollowCam2.TabIndex = 3;
+            this.TTSettingInfo.SetToolTip(this.CBPreferredFollowCam2, "The preferred/default camera angle in the bonus game.");
             this.CBPreferredFollowCam2.SelectedIndexChanged += new System.EventHandler(this.CBPreferredFollowCam2_SelectedIndexChanged);
             // 
             // CBIsInvertedCameraEnabled2
@@ -4118,6 +4424,8 @@
             this.CBIsInvertedCameraEnabled2.Size = new System.Drawing.Size(157, 17);
             this.CBIsInvertedCameraEnabled2.TabIndex = 2;
             this.CBIsInvertedCameraEnabled2.Text = "Is Inverted Camera Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsInvertedCameraEnabled2, "If the camera should be inverted when using first person camera in the bonus game" +
+        ".");
             this.CBIsInvertedCameraEnabled2.UseVisualStyleBackColor = true;
             this.CBIsInvertedCameraEnabled2.CheckedChanged += new System.EventHandler(this.CBIsInvertedCameraEnabled2_CheckedChanged);
             // 
@@ -4129,6 +4437,7 @@
             this.CBJumpCamsEnabled2.Size = new System.Drawing.Size(122, 17);
             this.CBJumpCamsEnabled2.TabIndex = 1;
             this.CBJumpCamsEnabled2.Text = "Jump Cams Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBJumpCamsEnabled2, "If the camera angle should change when going over a jump in the bonus game.");
             this.CBJumpCamsEnabled2.UseVisualStyleBackColor = true;
             this.CBJumpCamsEnabled2.CheckedChanged += new System.EventHandler(this.CBJumpCamsEnabled2_CheckedChanged);
             // 
@@ -4140,6 +4449,7 @@
             this.LblPreferredFollowCam2.Size = new System.Drawing.Size(110, 13);
             this.LblPreferredFollowCam2.TabIndex = 0;
             this.LblPreferredFollowCam2.Text = "Preferred Follow Cam:";
+            this.TTSettingInfo.SetToolTip(this.LblPreferredFollowCam2, "The preferred/default camera angle in the bonus game.");
             // 
             // GBSuperCamCentral1
             // 
@@ -4164,6 +4474,7 @@
             this.CBPreferredFollowCam1.Name = "CBPreferredFollowCam1";
             this.CBPreferredFollowCam1.Size = new System.Drawing.Size(260, 21);
             this.CBPreferredFollowCam1.TabIndex = 3;
+            this.TTSettingInfo.SetToolTip(this.CBPreferredFollowCam1, "The preferred/default camera angle in the bonus game.");
             this.CBPreferredFollowCam1.SelectedIndexChanged += new System.EventHandler(this.CBPreferredFollowCam1_SelectedIndexChanged);
             // 
             // CBIsInvertedCameraEnabled1
@@ -4174,6 +4485,8 @@
             this.CBIsInvertedCameraEnabled1.Size = new System.Drawing.Size(157, 17);
             this.CBIsInvertedCameraEnabled1.TabIndex = 2;
             this.CBIsInvertedCameraEnabled1.Text = "Is Inverted Camera Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsInvertedCameraEnabled1, "If the camera should be inverted when using first person camera in the bonus game" +
+        ".");
             this.CBIsInvertedCameraEnabled1.UseVisualStyleBackColor = true;
             this.CBIsInvertedCameraEnabled1.CheckedChanged += new System.EventHandler(this.CBIsInvertedCameraEnabled1_CheckedChanged);
             // 
@@ -4185,6 +4498,7 @@
             this.CBJumpCamsEnabled1.Size = new System.Drawing.Size(122, 17);
             this.CBJumpCamsEnabled1.TabIndex = 1;
             this.CBJumpCamsEnabled1.Text = "Jump Cams Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBJumpCamsEnabled1, "If the camera angle should change when going over a jump in the bonus game.");
             this.CBJumpCamsEnabled1.UseVisualStyleBackColor = true;
             this.CBJumpCamsEnabled1.CheckedChanged += new System.EventHandler(this.CBJumpCamsEnabled1_CheckedChanged);
             // 
@@ -4196,6 +4510,7 @@
             this.LblPreferredFollowCam1.Size = new System.Drawing.Size(110, 13);
             this.LblPreferredFollowCam1.TabIndex = 0;
             this.LblPreferredFollowCam1.Text = "Preferred Follow Cam:";
+            this.TTSettingInfo.SetToolTip(this.LblPreferredFollowCam1, "The preferred/default camera angle in the bonus game.");
             // 
             // TPTutorialManager
             // 
@@ -4218,6 +4533,7 @@
             this.CLBTutorialsSeen.Name = "CLBTutorialsSeen";
             this.CLBTutorialsSeen.Size = new System.Drawing.Size(275, 364);
             this.CLBTutorialsSeen.TabIndex = 3;
+            this.TTSettingInfo.SetToolTip(this.CLBTutorialsSeen, "The different tutorials available.");
             this.CLBTutorialsSeen.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBTutorialsSeen_ItemCheck);
             // 
             // LblTutorialsSeen
@@ -4228,6 +4544,7 @@
             this.LblTutorialsSeen.Size = new System.Drawing.Size(78, 13);
             this.LblTutorialsSeen.TabIndex = 2;
             this.LblTutorialsSeen.Text = "Tutorials Seen:";
+            this.TTSettingInfo.SetToolTip(this.LblTutorialsSeen, "The different tutorials available.");
             // 
             // CBEnableTutorialEvents
             // 
@@ -4237,6 +4554,7 @@
             this.CBEnableTutorialEvents.Size = new System.Drawing.Size(133, 17);
             this.CBEnableTutorialEvents.TabIndex = 1;
             this.CBEnableTutorialEvents.Text = "Enable Tutorial Events";
+            this.TTSettingInfo.SetToolTip(this.CBEnableTutorialEvents, "Should the tutorial events be shown.");
             this.CBEnableTutorialEvents.UseVisualStyleBackColor = true;
             this.CBEnableTutorialEvents.CheckedChanged += new System.EventHandler(this.CBEnableTutorialEvents_CheckedChanged);
             // 
@@ -4258,6 +4576,7 @@
             this.CBIsRadarEnabled.Size = new System.Drawing.Size(108, 17);
             this.CBIsRadarEnabled.TabIndex = 1;
             this.CBIsRadarEnabled.Text = "Is Radar Enabled";
+            this.TTSettingInfo.SetToolTip(this.CBIsRadarEnabled, "If the radar should be shown in-game.");
             this.CBIsRadarEnabled.UseVisualStyleBackColor = true;
             this.CBIsRadarEnabled.CheckedChanged += new System.EventHandler(this.CBIsRadarEnabled_CheckedChanged);
             // 
@@ -4282,6 +4601,8 @@
             this.CLBCollectedCardIDs.Name = "CLBCollectedCardIDs";
             this.CLBCollectedCardIDs.Size = new System.Drawing.Size(275, 379);
             this.CLBCollectedCardIDs.TabIndex = 4;
+            this.TTSettingInfo.SetToolTip(this.CLBCollectedCardIDs, "A list of all cards available in the game.\r\nThe names in brackets are the vanilla" +
+        " card names.");
             this.CLBCollectedCardIDs.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBCollectedCardIDs_ItemCheck);
             // 
             // LblCollectedCardIDs
@@ -4292,6 +4613,8 @@
             this.LblCollectedCardIDs.Size = new System.Drawing.Size(98, 13);
             this.LblCollectedCardIDs.TabIndex = 0;
             this.LblCollectedCardIDs.Text = "Collected Card IDs:";
+            this.TTSettingInfo.SetToolTip(this.LblCollectedCardIDs, "A list of all cards available in the game.\r\nThe names in brackets are the vanilla" +
+        " card names.");
             // 
             // TPCustomSaveData
             // 
@@ -4312,6 +4635,9 @@
             this.LblCustomSaveDataLength.Size = new System.Drawing.Size(41, 13);
             this.LblCustomSaveDataLength.TabIndex = 1;
             this.LblCustomSaveDataLength.Text = "0 bytes";
+            this.TTSettingInfo.SetToolTip(this.LblCustomSaveDataLength, "The custom save data added by Lucas\' Simpsons Hit & Run Mod Launcher.\r\nCurrently " +
+        "just shows the size of the data, but a future update should add the functionalit" +
+        "y to manipulate this data.");
             // 
             // LblCustomSaveData
             // 
@@ -4321,6 +4647,9 @@
             this.LblCustomSaveData.Size = new System.Drawing.Size(99, 13);
             this.LblCustomSaveData.TabIndex = 0;
             this.LblCustomSaveData.Text = "Custom Save Data:";
+            this.TTSettingInfo.SetToolTip(this.LblCustomSaveData, "The custom save data added by Lucas\' Simpsons Hit & Run Mod Launcher.\r\nCurrently " +
+        "just shows the size of the data, but a future update should add the functionalit" +
+        "y to manipulate this data.");
             // 
             // CHPersistentObjectStatesIndex
             // 
@@ -4329,6 +4658,15 @@
             // CHPersistentObjectStatesValue
             // 
             this.CHPersistentObjectStatesValue.Text = "Value";
+            // 
+            // TTSettingInfo
+            // 
+            this.TTSettingInfo.AutoPopDelay = 25000;
+            this.TTSettingInfo.InitialDelay = 500;
+            this.TTSettingInfo.ReshowDelay = 100;
+            this.TTSettingInfo.ShowAlways = true;
+            this.TTSettingInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.TTSettingInfo.ToolTipTitle = "Setting information";
             // 
             // FrmMain
             // 
@@ -4820,6 +5158,7 @@
         private System.Windows.Forms.TextBox TxtLevel7CardName;
         private System.Windows.Forms.Label LblLevel7CardName;
         private System.Windows.Forms.ListBox LBLevel7Cards;
+        private System.Windows.Forms.ToolTip TTSettingInfo;
     }
 }
 
