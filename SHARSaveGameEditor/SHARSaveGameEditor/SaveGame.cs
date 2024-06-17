@@ -176,7 +176,7 @@ namespace SHARSaveGameEditor
             Cars = new CarInventory();
 
             for (int i = 0; i < PersistentObjectStates.Length; i++)
-                PersistentObjectStates[i] = false;
+                PersistentObjectStates[i] = true;
             /*for (int i = 0; i < PersistentObjectStates.Length; i++)
                 PersistentObjectStates[i] = 0;*/
 
