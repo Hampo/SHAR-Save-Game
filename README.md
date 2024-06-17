@@ -1,5 +1,5 @@
 # SHAR-Save-Game
-A library for handling SHAR save games
+A library for handling SHAR save games.
 
 # SHAR Save Game Editor
 ## Save Game Info
@@ -8,7 +8,7 @@ A library for handling SHAR save games
 - `Display Level`/`Display Mission` - The Level/Mission to show in the `Load Game` and `Save Game` screens.
   - This is different from `Character Sheet`->`Current Mission Info`. You can display one mission and launch another. :WoahRadical: 
 ## Input Manager
-- `Is Rumble Enabled` - Controller rumble
+- `Is Rumble Enabled` - Controller rumble.
 ## Character Sheet
 ### Miscellaneous
 - `Player Name` - Entirely useless, game always sets it to `Player1`. Probably a relic of when the game supported split screen in story mode.
