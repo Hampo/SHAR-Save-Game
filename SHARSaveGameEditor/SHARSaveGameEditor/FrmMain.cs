@@ -106,6 +106,7 @@ namespace SHARSaveGameEditor
             LBLevel1Missions.SelectedIndex = 0;
             for (int i = 0; i < 7; i++)
                 LBLevel1Cards.Items.Add(Names.Cards[i]);
+            LBLevel1Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level2PurchasedRewards)
                 CLBLevel2PurchasedRewards.Items.Add(value);
@@ -116,6 +117,7 @@ namespace SHARSaveGameEditor
             LBLevel2Missions.SelectedIndex = 0;
             for (int i = 8; i < 15; i++)
                 LBLevel2Cards.Items.Add(Names.Cards[i]);
+            LBLevel2Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level3PurchasedRewards)
                 CLBLevel3PurchasedRewards.Items.Add(value);
@@ -126,6 +128,7 @@ namespace SHARSaveGameEditor
             LBLevel3Missions.SelectedIndex = 0;
             for (int i = 16; i < 23; i++)
                 LBLevel3Cards.Items.Add(Names.Cards[i]);
+            LBLevel3Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level4PurchasedRewards)
                 CLBLevel4PurchasedRewards.Items.Add(value);
@@ -136,6 +139,7 @@ namespace SHARSaveGameEditor
             LBLevel4Missions.SelectedIndex = 0;
             for (int i = 24; i < 31; i++)
                 LBLevel4Cards.Items.Add(Names.Cards[i]);
+            LBLevel4Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level5PurchasedRewards)
                 CLBLevel5PurchasedRewards.Items.Add(value);
@@ -146,6 +150,7 @@ namespace SHARSaveGameEditor
             LBLevel5Missions.SelectedIndex = 0;
             for (int i = 32; i < 39; i++)
                 LBLevel5Cards.Items.Add(Names.Cards[i]);
+            LBLevel5Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level6PurchasedRewards)
                 CLBLevel6PurchasedRewards.Items.Add(value);
@@ -156,6 +161,7 @@ namespace SHARSaveGameEditor
             LBLevel6Missions.SelectedIndex = 0;
             for (int i = 40; i < 47; i++)
                 LBLevel6Cards.Items.Add(Names.Cards[i]);
+            LBLevel6Cards.SelectedIndex = 0;
 
             foreach (var value in Names.Level7PurchasedRewards)
                 CLBLevel7PurchasedRewards.Items.Add(value);
@@ -166,6 +172,7 @@ namespace SHARSaveGameEditor
             LBLevel7Missions.SelectedIndex = 0;
             for (int i = 48; i < 55; i++)
                 LBLevel7Cards.Items.Add(Names.Cards[i]);
+            LBLevel7Cards.SelectedIndex = 0;
 
             CBPreferredFollowCam1.DataSource = Enum.GetValues(typeof(SuperCamCentral.PreferredFollowCams));
             CBPreferredFollowCam2.DataSource = Enum.GetValues(typeof(SuperCamCentral.PreferredFollowCams));
