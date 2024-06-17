@@ -524,7 +524,7 @@ namespace SHARSaveGameEditor
                 }
             }
 
-            using (var ofd = new OpenFileDialog() { Title = "Open Save File" })
+            using (var ofd = new OpenFileDialog() { Title = "Open Save File", Filter = "Save files (Save1; Save2; Save3; Save4; Save5; Save6; Save7; Save8)|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files (*.*)|*.*" })
             {
                 if (ofd.ShowDialog() != DialogResult.OK)
                     return;
@@ -556,7 +556,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            using (var sfd = new SaveFileDialog() { Title = "Save File", FileName = "Save1" })
+            using (var sfd = new SaveFileDialog() { Title = "Save File", FileName = "Save1", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" })
             {
                 if (sfd.ShowDialog() != DialogResult.OK)
                     return;
@@ -582,7 +582,7 @@ namespace SHARSaveGameEditor
             if (!ConfirmPurchaseTotals())
                 return;
 
-            using (var sfd = new SaveFileDialog() { Title = "Save File" })
+            using (var sfd = new SaveFileDialog() { Title = "Save File", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" })
             {
                 if (string.IsNullOrEmpty(LastPath))
                 {
