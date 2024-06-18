@@ -822,7 +822,7 @@ namespace SHARSaveGameEditor
 
         public CustomSaveData(BinaryReader br)
         {
-            Data = br.ReadBytes((int)(br.BaseStream.Length - br.BaseStream.Position));
+            byte[] Data = br.ReadBytes((int)(br.BaseStream.Length - br.BaseStream.Position));
 
             if (Data.Length >= 16)
             {
@@ -843,6 +843,10 @@ namespace SHARSaveGameEditor
                 byte[] data = new byte[size];
                 Array.Copy(Data, pos, data, 0, size);
                 LucasModLauncherData = new LMLD(data);
+            }
+            else
+            {
+                this.Data = Data;
             }
         }
 

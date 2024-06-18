@@ -533,7 +533,114 @@ namespace SHARSaveGameEditor
             CLBCollectedCardIDs.EndUpdate();
 
             CustomSaveData customSaveData = SaveGame.CustomSaveData;
-            LblCustomSaveDataLength.Text = $"{customSaveData.Data.Length} bytes";
+            CustomSaveData.LMLD lucasModLauncherData = customSaveData.LucasModLauncherData;
+            CustomSaveData.LMLD.Section merchandiseSection = null;
+            LBCustomSaveDataSectors.Items.Clear();
+            if (lucasModLauncherData == null)
+            {
+                LblCustomSaveData.Text = "Custom Save Data:";
+                LblCustomSaveDataLength.Visible = true;
+                LblCustomSaveDataLength.Text = $"{customSaveData.Data.Length} bytes";
+
+                LBCustomSaveDataSectors.Visible = false;
+
+                LblSectorValue.Visible = false;
+                TxtSectorValue.Visible = false;
+                TxtSectorValue.Text = string.Empty;
+                TCCustomSaveDataSubItems.Visible = false;
+                TCCustomSaveDataSubItems.TabPages.Clear();
+            }
+            else
+            {
+                LblCustomSaveData.Text = "Sectors:";
+                LblCustomSaveDataLength.Visible = false;
+
+                LblSectorValue.Visible = true;
+                TxtSectorValue.Visible = true;
+                TCCustomSaveDataSubItems.Visible = true;
+
+                LBCustomSaveDataSectors.Visible = true;
+                LBCustomSaveDataSectors.BeginUpdate();
+                foreach (var sector in lucasModLauncherData.Sections)
+                {
+                    LBCustomSaveDataSectors.Items.Add(sector.Name);
+                    if (sector.Name == "Merchandise")
+                        merchandiseSection = sector;
+                }
+                if (LBCustomSaveDataSectors.Items.Count > 0)
+                    LBCustomSaveDataSectors.SelectedIndex = 0;
+                LBCustomSaveDataSectors.EndUpdate();
+            }
+            CLBLevel1PurchasedRewards.BeginUpdate();
+            CLBLevel2PurchasedRewards.BeginUpdate();
+            CLBLevel3PurchasedRewards.BeginUpdate();
+            CLBLevel4PurchasedRewards.BeginUpdate();
+            CLBLevel5PurchasedRewards.BeginUpdate();
+            CLBLevel6PurchasedRewards.BeginUpdate();
+            CLBLevel7PurchasedRewards.BeginUpdate();
+            for (int i = 0; i < Names.Level1PurchasedRewards.Length; i++)
+                CLBLevel1PurchasedRewards.Items[i] = Names.Level1PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level2PurchasedRewards.Length; i++)
+                CLBLevel2PurchasedRewards.Items[i] = Names.Level2PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level3PurchasedRewards.Length; i++)
+                CLBLevel3PurchasedRewards.Items[i] = Names.Level3PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level4PurchasedRewards.Length; i++)
+                CLBLevel4PurchasedRewards.Items[i] = Names.Level4PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level5PurchasedRewards.Length; i++)
+                CLBLevel5PurchasedRewards.Items[i] = Names.Level5PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level6PurchasedRewards.Length; i++)
+                CLBLevel6PurchasedRewards.Items[i] = Names.Level6PurchasedRewards[i];
+
+            for (int i = 0; i < Names.Level7PurchasedRewards.Length; i++)
+                CLBLevel7PurchasedRewards.Items[i] = Names.Level7PurchasedRewards[i];
+            if (merchandiseSection != null)
+            {
+                CustomSaveData.LMLD.Section.SubItem namesSubItem = null;
+                foreach (var subItem in merchandiseSection.SubItems)
+                {
+                    if (subItem.Name == "Names")
+                    {
+                        namesSubItem = subItem;
+                        break;
+                    }
+                }
+
+                if (namesSubItem != null && namesSubItem.Values.Count == 7)
+                {
+                    for (int i = 0; i < namesSubItem.Values[0].Count; i++)
+                        CLBLevel1PurchasedRewards.Items[i] += $" [{namesSubItem.Values[0][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[1].Count; i++)
+                        CLBLevel2PurchasedRewards.Items[i] += $" [{namesSubItem.Values[1][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[2].Count; i++)
+                        CLBLevel3PurchasedRewards.Items[i] += $" [{namesSubItem.Values[2][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[3].Count; i++)
+                        CLBLevel4PurchasedRewards.Items[i] += $" [{namesSubItem.Values[3][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[4].Count; i++)
+                        CLBLevel5PurchasedRewards.Items[i] += $" [{namesSubItem.Values[4][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[5].Count; i++)
+                        CLBLevel6PurchasedRewards.Items[i] += $" [{namesSubItem.Values[5][i]}]";
+
+                    for (int i = 0; i < namesSubItem.Values[6].Count; i++)
+                        CLBLevel7PurchasedRewards.Items[i] += $" [{namesSubItem.Values[6][i]}]";
+                }
+            }
+            CLBLevel1PurchasedRewards.EndUpdate();
+            CLBLevel2PurchasedRewards.EndUpdate();
+            CLBLevel3PurchasedRewards.EndUpdate();
+            CLBLevel4PurchasedRewards.EndUpdate();
+            CLBLevel5PurchasedRewards.EndUpdate();
+            CLBLevel6PurchasedRewards.EndUpdate();
+            CLBLevel7PurchasedRewards.EndUpdate();
 
             TCMain.Enabled = true;
             UnsavedChanges = false;
@@ -603,6 +710,8 @@ namespace SHARSaveGameEditor
 
             using (var ofd = new OpenFileDialog() { Title = "Open Save File", Filter = "Save files (Save1; Save2; Save3; Save4; Save5; Save6; Save7; Save8)|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files (*.*)|*.*" })
             {
+                if (!string.IsNullOrEmpty(LastPath))
+                    ofd.InitialDirectory = Path.GetDirectoryName(LastPath);
                 if (ofd.ShowDialog() != DialogResult.OK)
                     return;
 
@@ -2544,6 +2653,76 @@ namespace SHARSaveGameEditor
             for (int i = 0; i < clb.Items.Count; i++)
                 clb.SetItemChecked(i, false);
             clb.EndUpdate();
+        }
+
+        private bool UpdatingCustomSaveDataSector = false;
+        private void LBCustomSaveDataSectors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdatingCustomSaveDataSector = true;
+            int index = LBCustomSaveDataSectors.SelectedIndex;
+            TCCustomSaveDataSubItems.TabPages.Clear();
+            if (index == -1)
+            {
+                TxtSectorValue.Text = string.Empty;
+                TxtSectorValue.Enabled = false;
+
+                UpdatingCustomSaveDataSector = false;
+                return;
+            }
+
+            var sector = SaveGame.CustomSaveData.LucasModLauncherData.Sections[LBCustomSaveDataSectors.SelectedIndex];
+
+            TxtSectorValue.Text = sector.Value;
+            TxtSectorValue.Enabled = true;
+
+            if (sector.SubItems.Count == 0)
+            {
+                TCCustomSaveDataSubItems.Visible = false;
+            }
+            else
+            {
+                TCCustomSaveDataSubItems.SuspendLayout();
+                foreach (var subItem in sector.SubItems)
+                {
+                    TabPage tp = new TabPage(subItem.Name);
+                    TCCustomSaveDataSubItems.TabPages.Add(tp);
+
+                    if (subItem.Values.Count == 0)
+                    {
+                        Label lbl = new Label()
+                        {
+                            Text = "No values",
+                            Location = new System.Drawing.Point(9, 4)
+                        };
+                        tp.Controls.Add(lbl);
+                    }
+                    else
+                    {
+                        TabControl tc = new TabControl()
+                        {
+                            Dock = DockStyle.Fill,
+                        };
+                        tp.Controls.Add(tc);
+
+                        for (int i = 0; i < subItem.Values.Count; i++)
+                        {
+                            TabPage tp2 = new TabPage($"Array {i}");
+                            tc.TabPages.Add(tp2);
+
+                            ListBox lb = new ListBox()
+                            {
+                                Dock = DockStyle.Fill,
+                            };
+                            lb.Items.AddRange(subItem.Values[i].ToArray());
+                            tp2.Controls.Add(lb);
+                        }
+                    }
+                }
+                TCCustomSaveDataSubItems.ResumeLayout(true);
+                TCCustomSaveDataSubItems.Visible = true;
+            }
+
+            UpdatingCustomSaveDataSector = false;
         }
     }
 }

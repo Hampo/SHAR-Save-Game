@@ -360,11 +360,15 @@
             this.CLBCollectedCardIDs = new System.Windows.Forms.CheckedListBox();
             this.LblCollectedCardIDs = new System.Windows.Forms.Label();
             this.TPCustomSaveData = new System.Windows.Forms.TabPage();
-            this.LblCustomSaveDataLength = new System.Windows.Forms.Label();
             this.LblCustomSaveData = new System.Windows.Forms.Label();
             this.CHPersistentObjectStatesIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHPersistentObjectStatesValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TTSettingInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.TxtSectorValue = new System.Windows.Forms.TextBox();
+            this.LblSectorValue = new System.Windows.Forms.Label();
+            this.LBCustomSaveDataSectors = new System.Windows.Forms.ListBox();
+            this.LblCustomSaveDataLength = new System.Windows.Forms.Label();
+            this.TCCustomSaveDataSubItems = new System.Windows.Forms.TabControl();
             this.MSMain.SuspendLayout();
             this.TCMain.SuspendLayout();
             this.TPSaveGameInfo.SuspendLayout();
@@ -4726,6 +4730,10 @@
             // 
             // TPCustomSaveData
             // 
+            this.TPCustomSaveData.Controls.Add(this.TCCustomSaveDataSubItems);
+            this.TPCustomSaveData.Controls.Add(this.TxtSectorValue);
+            this.TPCustomSaveData.Controls.Add(this.LblSectorValue);
+            this.TPCustomSaveData.Controls.Add(this.LBCustomSaveDataSectors);
             this.TPCustomSaveData.Controls.Add(this.LblCustomSaveDataLength);
             this.TPCustomSaveData.Controls.Add(this.LblCustomSaveData);
             this.TPCustomSaveData.Location = new System.Drawing.Point(4, 22);
@@ -4734,18 +4742,6 @@
             this.TPCustomSaveData.TabIndex = 8;
             this.TPCustomSaveData.Text = "Custom Save Data";
             this.TPCustomSaveData.UseVisualStyleBackColor = true;
-            // 
-            // LblCustomSaveDataLength
-            // 
-            this.LblCustomSaveDataLength.AutoSize = true;
-            this.LblCustomSaveDataLength.Location = new System.Drawing.Point(9, 19);
-            this.LblCustomSaveDataLength.Name = "LblCustomSaveDataLength";
-            this.LblCustomSaveDataLength.Size = new System.Drawing.Size(41, 13);
-            this.LblCustomSaveDataLength.TabIndex = 1;
-            this.LblCustomSaveDataLength.Text = "0 bytes";
-            this.TTSettingInfo.SetToolTip(this.LblCustomSaveDataLength, "The custom save data added by Lucas\' Simpsons Hit & Run Mod Launcher.\r\nCurrently " +
-        "just shows the size of the data, but a future update should add the functionalit" +
-        "y to manipulate this data.");
             // 
             // LblCustomSaveData
             // 
@@ -4775,6 +4771,59 @@
             this.TTSettingInfo.ShowAlways = true;
             this.TTSettingInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.TTSettingInfo.ToolTipTitle = "Setting information";
+            // 
+            // TxtSectorValue
+            // 
+            this.TxtSectorValue.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtSectorValue.Location = new System.Drawing.Point(271, 32);
+            this.TxtSectorValue.MaxLength = 255;
+            this.TxtSectorValue.Name = "TxtSectorValue";
+            this.TxtSectorValue.ReadOnly = true;
+            this.TxtSectorValue.Size = new System.Drawing.Size(275, 20);
+            this.TxtSectorValue.TabIndex = 7;
+            // 
+            // LblSectorValue
+            // 
+            this.LblSectorValue.AutoSize = true;
+            this.LblSectorValue.Location = new System.Drawing.Point(268, 16);
+            this.LblSectorValue.Name = "LblSectorValue";
+            this.LblSectorValue.Size = new System.Drawing.Size(37, 13);
+            this.LblSectorValue.TabIndex = 6;
+            this.LblSectorValue.Text = "Value:";
+            // 
+            // LBCustomSaveDataSectors
+            // 
+            this.LBCustomSaveDataSectors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LBCustomSaveDataSectors.FormattingEnabled = true;
+            this.LBCustomSaveDataSectors.Location = new System.Drawing.Point(12, 20);
+            this.LBCustomSaveDataSectors.Name = "LBCustomSaveDataSectors";
+            this.LBCustomSaveDataSectors.Size = new System.Drawing.Size(250, 381);
+            this.LBCustomSaveDataSectors.TabIndex = 5;
+            this.LBCustomSaveDataSectors.SelectedIndexChanged += new System.EventHandler(this.LBCustomSaveDataSectors_SelectedIndexChanged);
+            // 
+            // LblCustomSaveDataLength
+            // 
+            this.LblCustomSaveDataLength.AutoSize = true;
+            this.LblCustomSaveDataLength.Location = new System.Drawing.Point(103, 4);
+            this.LblCustomSaveDataLength.Name = "LblCustomSaveDataLength";
+            this.LblCustomSaveDataLength.Size = new System.Drawing.Size(41, 13);
+            this.LblCustomSaveDataLength.TabIndex = 1;
+            this.LblCustomSaveDataLength.Text = "0 bytes";
+            this.TTSettingInfo.SetToolTip(this.LblCustomSaveDataLength, "The custom save data added by Lucas\' Simpsons Hit & Run Mod Launcher.\r\nCurrently " +
+        "just shows the size of the data, but a future update should add the functionalit" +
+        "y to manipulate this data.");
+            // 
+            // TCCustomSaveDataSubItems
+            // 
+            this.TCCustomSaveDataSubItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TCCustomSaveDataSubItems.Location = new System.Drawing.Point(271, 58);
+            this.TCCustomSaveDataSubItems.Name = "TCCustomSaveDataSubItems";
+            this.TCCustomSaveDataSubItems.SelectedIndex = 0;
+            this.TCCustomSaveDataSubItems.Size = new System.Drawing.Size(497, 343);
+            this.TCCustomSaveDataSubItems.TabIndex = 8;
             // 
             // FrmMain
             // 
@@ -5007,7 +5056,6 @@
         private System.Windows.Forms.CheckBox CBIsRadarEnabled;
         private System.Windows.Forms.CheckedListBox CLBCollectedCardIDs;
         private System.Windows.Forms.Label LblCollectedCardIDs;
-        private System.Windows.Forms.Label LblCustomSaveDataLength;
         private System.Windows.Forms.Label LblCustomSaveData;
         private System.Windows.Forms.CheckBox CBIsSurround;
         private System.Windows.Forms.TabControl TCCharacterSheet;
@@ -5278,6 +5326,11 @@
         private System.Windows.Forms.NumericUpDown NUDSaveMinute;
         private System.Windows.Forms.ToolStripMenuItem TSMIRecentFiles;
         private System.Windows.Forms.ToolStripSeparator TSS2;
+        private System.Windows.Forms.TextBox TxtSectorValue;
+        private System.Windows.Forms.Label LblSectorValue;
+        private System.Windows.Forms.ListBox LBCustomSaveDataSectors;
+        private System.Windows.Forms.Label LblCustomSaveDataLength;
+        private System.Windows.Forms.TabControl TCCustomSaveDataSubItems;
     }
 }
 
