@@ -557,7 +557,7 @@ namespace SHARSaveGameEditor
                 {
                     if (CBAutoSaveDate.Checked)
                         DTPSaveDate.Value = DateTime.Now;
-                    using (var fileStream = File.OpenWrite(LastPath))
+                    using (var fileStream = File.Open(LastPath, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
@@ -578,7 +578,7 @@ namespace SHARSaveGameEditor
                 {
                     if (CBAutoSaveDate.Checked)
                         DTPSaveDate.Value = DateTime.Now;
-                    using (var fileStream = File.OpenWrite(sfd.FileName))
+                    using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
@@ -613,7 +613,7 @@ namespace SHARSaveGameEditor
                 {
                     if (CBAutoSaveDate.Checked)
                         DTPSaveDate.Value = SaveGame.SaveGameInfo.SaveDate;
-                    using (var fileStream = File.OpenWrite(sfd.FileName))
+                    using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
