@@ -582,6 +582,7 @@ namespace SHARSaveGameEditor
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
+                    LastPath = sfd.FileName;
                 }
                 catch (Exception ex)
                 {
@@ -617,6 +618,7 @@ namespace SHARSaveGameEditor
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
+                    LastPath = sfd.FileName;
                 }
                 catch (Exception ex)
                 {
