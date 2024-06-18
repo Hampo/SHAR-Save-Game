@@ -37,6 +37,8 @@
             this.TSMISave = new System.Windows.Forms.ToolStripMenuItem();
             this.TSMISaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.TSS1 = new System.Windows.Forms.ToolStripSeparator();
+            this.TSMIRecentFiles = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSS2 = new System.Windows.Forms.ToolStripSeparator();
             this.TSMIExit = new System.Windows.Forms.ToolStripMenuItem();
             this.TCMain = new System.Windows.Forms.TabControl();
             this.TPSaveGameInfo = new System.Windows.Forms.TabPage();
@@ -488,6 +490,8 @@
             this.TSMISave,
             this.TSMISaveAs,
             this.TSS1,
+            this.TSMIRecentFiles,
+            this.TSS2,
             this.TSMIExit});
             this.TSMIFile.Name = "TSMIFile";
             this.TSMIFile.Size = new System.Drawing.Size(37, 20);
@@ -504,7 +508,7 @@
             // 
             // TSMIOpen
             // 
-            this.TSMIOpen.Image = global::SHARSaveGameEditor.Properties.Resources.OpenFile_16x;
+            this.TSMIOpen.Image = global::SHARSaveGameEditor.Properties.Resources.OpenfileDialog_16x;
             this.TSMIOpen.Name = "TSMIOpen";
             this.TSMIOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.TSMIOpen.Size = new System.Drawing.Size(195, 22);
@@ -534,6 +538,17 @@
             // 
             this.TSS1.Name = "TSS1";
             this.TSS1.Size = new System.Drawing.Size(192, 6);
+            // 
+            // TSMIRecentFiles
+            // 
+            this.TSMIRecentFiles.Name = "TSMIRecentFiles";
+            this.TSMIRecentFiles.Size = new System.Drawing.Size(195, 22);
+            this.TSMIRecentFiles.Text = "Recent Files";
+            // 
+            // TSS2
+            // 
+            this.TSS2.Name = "TSS2";
+            this.TSS2.Size = new System.Drawing.Size(192, 6);
             // 
             // TSMIExit
             // 
@@ -5261,6 +5276,8 @@
         private System.Windows.Forms.NumericUpDown NUDSaveSecond;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown NUDSaveMinute;
+        private System.Windows.Forms.ToolStripMenuItem TSMIRecentFiles;
+        private System.Windows.Forms.ToolStripSeparator TSS2;
     }
 }
 

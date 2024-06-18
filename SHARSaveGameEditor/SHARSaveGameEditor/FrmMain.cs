@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -6,6 +7,9 @@ namespace SHARSaveGameEditor
 {
     public partial class FrmMain : Form
     {
+        private const string RegistrySettings = @"Software\SHARSaveGameEditor";
+        private static readonly Microsoft.Win32.RegistryKey RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(RegistrySettings, Microsoft.Win32.RegistryKeyPermissionCheck.ReadWriteSubTree);
+
         private SaveGame SaveGame = new SaveGame();
         private string LastPath = string.Empty;
         private string _Text = string.Empty;
@@ -28,6 +32,7 @@ namespace SHARSaveGameEditor
                     Text = _Text;
             }
         }
+        private readonly List<string> RecentFiles = new List<string>();
 
         private bool ConfirmPurchaseTotals()
         {
@@ -49,6 +54,31 @@ namespace SHARSaveGameEditor
                 }
             }
             return true;
+        }
+
+        private void AddRecentFile(string filePath)
+        {
+            int index = RecentFiles.IndexOf(filePath);
+            if (index != -1)
+                RecentFiles.RemoveAt(index);
+            RecentFiles.Insert(0, Path.GetFullPath(filePath));
+            while (RecentFiles.Count > 10)
+                RecentFiles.RemoveAt(RecentFiles.Count - 1);
+            TSMIRecentFiles.DropDownItems.Clear();
+            foreach (var recentFile in RecentFiles)
+            {
+                var tsmi = TSMIRecentFiles.DropDownItems.Add(recentFile);
+                tsmi.Click += TSMIRecentFile_Click;
+                tsmi.Image = Properties.Resources.OpenFile_16x;
+            }
+            RegistryKey?.SetValue("RecentFiles", RecentFiles.ToArray(), Microsoft.Win32.RegistryValueKind.MultiString);
+        }
+
+        private void TSMIRecentFile_Click(object sender, EventArgs e)
+        {
+            if (!(sender is ToolStripItem menuItem))
+                return;
+            LoadSave(menuItem.Text);
         }
 
         private CharacterSheet.Level.MissionRecord GetMissionRecordFromIndex(CharacterSheet.Level level, int index)
@@ -89,7 +119,31 @@ namespace SHARSaveGameEditor
                 version = version.Substring(0, version.Length - 2);
             _Text = $"{Text} - v{version}";
 
-            CBAutoSaveDate.Checked = true;
+            if (RegistryKey != null)
+            {
+                string[] names = RegistryKey.GetValueNames();
+
+                if (Array.IndexOf(names, "AutoUpdateSaveDate") >= 0 && RegistryKey.GetValueKind("AutoUpdateSaveDate") == Microsoft.Win32.RegistryValueKind.DWord)
+                {
+                    CBAutoSaveDate.Checked = (int)RegistryKey.GetValue("AutoUpdateSaveDate", 1) != 0;
+                }
+
+                if (Array.IndexOf(names, "RecentFiles") >= 0 && RegistryKey.GetValueKind("RecentFiles") == Microsoft.Win32.RegistryValueKind.MultiString)
+                {
+                    RecentFiles.AddRange((string[])RegistryKey.GetValue("RecentFiles"));
+
+                    foreach (var recentFile in RecentFiles)
+                    {
+                        var tsmi = TSMIRecentFiles.DropDownItems.Add(recentFile);
+                        tsmi.Click += TSMIRecentFile_Click;
+                        tsmi.Image = Properties.Resources.OpenFile_16x;
+                    }
+                }
+            }
+            else
+            {
+                CBAutoSaveDate.Checked = true;
+            }
 
             CBCurrentMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
             CBCurrentMissionInfoMission.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Missions));
@@ -262,6 +316,12 @@ namespace SHARSaveGameEditor
 
         private void LoadSave(string filePath)
         {
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show($"Could not find save file: {filePath}", "Error opening file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
                 using (var fileStream = File.OpenRead(filePath))
@@ -271,6 +331,7 @@ namespace SHARSaveGameEditor
                     SaveGame = saveGame;
                     LastPath = filePath;
                     PopulateData();
+                    AddRecentFile(LastPath);
                 }
             }
             catch (Exception ex)
@@ -662,6 +723,8 @@ namespace SHARSaveGameEditor
             NUDSaveHour.Enabled = enabled;
             NUDSaveMinute.Enabled = enabled;
             NUDSaveSecond.Enabled = enabled;
+
+            RegistryKey?.SetValue("AutoUpdateSaveDate", CBAutoSaveDate.Checked ? 1 : 0, Microsoft.Win32.RegistryValueKind.DWord);
         }
 
         private void DTPSaveDate_ValueChanged(object sender, EventArgs e)
