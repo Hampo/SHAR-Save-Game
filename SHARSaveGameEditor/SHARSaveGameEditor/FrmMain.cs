@@ -606,6 +606,8 @@ namespace SHARSaveGameEditor
                 {
                     sfd.InitialDirectory = Path.GetDirectoryName(LastPath);
                     sfd.FileName = Path.GetFileName(LastPath);
+                    if (Path.GetExtension(LastPath).Length > 0)
+                        sfd.FilterIndex = 2;
                 }
                 if (sfd.ShowDialog() != DialogResult.OK)
                     return;
