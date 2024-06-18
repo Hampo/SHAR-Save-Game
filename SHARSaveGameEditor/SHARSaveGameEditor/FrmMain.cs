@@ -82,7 +82,7 @@ namespace SHARSaveGameEditor
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void FrmMain_Load(object sender, EventArgs e)
         {
             string version = Application.ProductVersion;
             while (version.EndsWith(".0"))

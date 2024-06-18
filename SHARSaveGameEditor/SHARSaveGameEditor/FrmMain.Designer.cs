@@ -4683,7 +4683,7 @@
             this.Name = "FrmMain";
             this.Text = "SHAR Save Game Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmMain_DragEnter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMain_KeyDown);
