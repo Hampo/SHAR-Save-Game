@@ -768,6 +768,7 @@ namespace SHARSaveGameEditor
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
                     LastPath = sfd.FileName;
+                    AddRecentFile(LastPath);
                 }
                 catch (Exception ex)
                 {
@@ -812,6 +813,7 @@ namespace SHARSaveGameEditor
                         SaveGame.Write(binaryWriter);
                     UnsavedChanges = false;
                     LastPath = sfd.FileName;
+                    AddRecentFile(LastPath);
                 }
                 catch (Exception ex)
                 {
