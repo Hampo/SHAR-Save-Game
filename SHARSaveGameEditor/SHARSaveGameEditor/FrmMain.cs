@@ -194,6 +194,16 @@ namespace SHARSaveGameEditor
             foreach (var card in Names.Cards)
                 CLBCollectedCardIDs.Items.Add(card);
 
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
+            {
+                string file = args[1];
+                if (File.Exists(file))
+                {
+                    LoadSave(file);
+                }
+            }
+
             PopulateData();
         }
 
