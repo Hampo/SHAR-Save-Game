@@ -40,6 +40,12 @@
             this.TSMIExit = new System.Windows.Forms.ToolStripMenuItem();
             this.TCMain = new System.Windows.Forms.TabControl();
             this.TPSaveGameInfo = new System.Windows.Forms.TabPage();
+            this.NUDSaveSecond = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.NUDSaveMinute = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.NUDSaveHour = new System.Windows.Forms.NumericUpDown();
+            this.LblSaveTime = new System.Windows.Forms.Label();
             this.NUDDisplayMission = new System.Windows.Forms.NumericUpDown();
             this.LblDisplayMission = new System.Windows.Forms.Label();
             this.NUDDisplayLevel = new System.Windows.Forms.NumericUpDown();
@@ -360,6 +366,9 @@
             this.MSMain.SuspendLayout();
             this.TCMain.SuspendLayout();
             this.TPSaveGameInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveSecond)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveMinute)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDDisplayMission)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDDisplayLevel)).BeginInit();
             this.TPInputManager.SuspendLayout();
@@ -556,6 +565,12 @@
             // 
             // TPSaveGameInfo
             // 
+            this.TPSaveGameInfo.Controls.Add(this.NUDSaveSecond);
+            this.TPSaveGameInfo.Controls.Add(this.label2);
+            this.TPSaveGameInfo.Controls.Add(this.NUDSaveMinute);
+            this.TPSaveGameInfo.Controls.Add(this.label1);
+            this.TPSaveGameInfo.Controls.Add(this.NUDSaveHour);
+            this.TPSaveGameInfo.Controls.Add(this.LblSaveTime);
             this.TPSaveGameInfo.Controls.Add(this.NUDDisplayMission);
             this.TPSaveGameInfo.Controls.Add(this.LblDisplayMission);
             this.TPSaveGameInfo.Controls.Add(this.NUDDisplayLevel);
@@ -570,53 +585,131 @@
             this.TPSaveGameInfo.Text = "Save Game Info";
             this.TPSaveGameInfo.UseVisualStyleBackColor = true;
             // 
+            // NUDSaveSecond
+            // 
+            this.NUDSaveSecond.Location = new System.Drawing.Point(114, 59);
+            this.NUDSaveSecond.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveSecond.Name = "NUDSaveSecond";
+            this.NUDSaveSecond.Size = new System.Drawing.Size(38, 20);
+            this.NUDSaveSecond.TabIndex = 12;
+            this.TTSettingInfo.SetToolTip(this.NUDSaveSecond, resources.GetString("NUDSaveSecond.ToolTip"));
+            this.NUDSaveSecond.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveSecond.ValueChanged += new System.EventHandler(this.NUDSaveSecond_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(102, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 20);
+            this.label2.TabIndex = 11;
+            this.label2.Text = ":";
+            this.TTSettingInfo.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            // 
+            // NUDSaveMinute
+            // 
+            this.NUDSaveMinute.Location = new System.Drawing.Point(64, 59);
+            this.NUDSaveMinute.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveMinute.Name = "NUDSaveMinute";
+            this.NUDSaveMinute.Size = new System.Drawing.Size(38, 20);
+            this.NUDSaveMinute.TabIndex = 10;
+            this.TTSettingInfo.SetToolTip(this.NUDSaveMinute, resources.GetString("NUDSaveMinute.ToolTip"));
+            this.NUDSaveMinute.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveMinute.ValueChanged += new System.EventHandler(this.NUDSaveMinute_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(51, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = ":";
+            this.TTSettingInfo.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            // 
+            // NUDSaveHour
+            // 
+            this.NUDSaveHour.Location = new System.Drawing.Point(12, 59);
+            this.NUDSaveHour.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveHour.Name = "NUDSaveHour";
+            this.NUDSaveHour.Size = new System.Drawing.Size(38, 20);
+            this.NUDSaveHour.TabIndex = 8;
+            this.TTSettingInfo.SetToolTip(this.NUDSaveHour, resources.GetString("NUDSaveHour.ToolTip"));
+            this.NUDSaveHour.Value = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.NUDSaveHour.ValueChanged += new System.EventHandler(this.NUDSaveHour_ValueChanged);
+            // 
+            // LblSaveTime
+            // 
+            this.LblSaveTime.AutoSize = true;
+            this.LblSaveTime.Location = new System.Drawing.Point(9, 43);
+            this.LblSaveTime.Name = "LblSaveTime";
+            this.LblSaveTime.Size = new System.Drawing.Size(61, 13);
+            this.LblSaveTime.TabIndex = 7;
+            this.LblSaveTime.Text = "Save Time:";
+            this.TTSettingInfo.SetToolTip(this.LblSaveTime, resources.GetString("LblSaveTime.ToolTip"));
+            // 
             // NUDDisplayMission
             // 
-            this.NUDDisplayMission.Location = new System.Drawing.Point(12, 98);
+            this.NUDDisplayMission.Location = new System.Drawing.Point(12, 137);
             this.NUDDisplayMission.Maximum = new decimal(new int[] {
-            8,
+            255,
             0,
             0,
             0});
             this.NUDDisplayMission.Name = "NUDDisplayMission";
             this.NUDDisplayMission.Size = new System.Drawing.Size(275, 20);
             this.NUDDisplayMission.TabIndex = 6;
-            this.TTSettingInfo.SetToolTip(this.NUDDisplayMission, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
-        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
-        "aunch another.");
+            this.TTSettingInfo.SetToolTip(this.NUDDisplayMission, resources.GetString("NUDDisplayMission.ToolTip"));
             this.NUDDisplayMission.ValueChanged += new System.EventHandler(this.NUDDisplayMission_ValueChanged);
             // 
             // LblDisplayMission
             // 
             this.LblDisplayMission.AutoSize = true;
-            this.LblDisplayMission.Location = new System.Drawing.Point(9, 82);
+            this.LblDisplayMission.Location = new System.Drawing.Point(9, 121);
             this.LblDisplayMission.Name = "LblDisplayMission";
             this.LblDisplayMission.Size = new System.Drawing.Size(82, 13);
             this.LblDisplayMission.TabIndex = 5;
             this.LblDisplayMission.Text = "Display Mission:";
-            this.TTSettingInfo.SetToolTip(this.LblDisplayMission, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
-        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
-        "aunch another.");
+            this.TTSettingInfo.SetToolTip(this.LblDisplayMission, resources.GetString("LblDisplayMission.ToolTip"));
             // 
             // NUDDisplayLevel
             // 
-            this.NUDDisplayLevel.Location = new System.Drawing.Point(12, 59);
+            this.NUDDisplayLevel.Location = new System.Drawing.Point(12, 98);
             this.NUDDisplayLevel.Maximum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-            this.NUDDisplayLevel.Minimum = new decimal(new int[] {
-            1,
+            255,
             0,
             0,
             0});
             this.NUDDisplayLevel.Name = "NUDDisplayLevel";
             this.NUDDisplayLevel.Size = new System.Drawing.Size(275, 20);
             this.NUDDisplayLevel.TabIndex = 4;
-            this.TTSettingInfo.SetToolTip(this.NUDDisplayLevel, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
-        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
-        "aunch another.");
+            this.TTSettingInfo.SetToolTip(this.NUDDisplayLevel, resources.GetString("NUDDisplayLevel.ToolTip"));
             this.NUDDisplayLevel.Value = new decimal(new int[] {
             1,
             0,
@@ -627,14 +720,12 @@
             // LblDisplayLevel
             // 
             this.LblDisplayLevel.AutoSize = true;
-            this.LblDisplayLevel.Location = new System.Drawing.Point(9, 43);
+            this.LblDisplayLevel.Location = new System.Drawing.Point(9, 82);
             this.LblDisplayLevel.Name = "LblDisplayLevel";
             this.LblDisplayLevel.Size = new System.Drawing.Size(73, 13);
             this.LblDisplayLevel.TabIndex = 3;
             this.LblDisplayLevel.Text = "Display Level:";
-            this.TTSettingInfo.SetToolTip(this.LblDisplayLevel, "The Level/Mission to show in the Load Game and Save Game screens.\r\nThis is separa" +
-        "te from Character Sheet->Current Mission Info. You can display one mission and l" +
-        "aunch another.");
+            this.TTSettingInfo.SetToolTip(this.LblDisplayLevel, resources.GetString("LblDisplayLevel.ToolTip"));
             // 
             // CBAutoSaveDate
             // 
@@ -653,7 +744,6 @@
             // DTPSaveDate
             // 
             this.DTPSaveDate.CustomFormat = "dd MMM yyyy - HH:mm:ss";
-            this.DTPSaveDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DTPSaveDate.Location = new System.Drawing.Point(12, 20);
             this.DTPSaveDate.Name = "DTPSaveDate";
             this.DTPSaveDate.Size = new System.Drawing.Size(275, 20);
@@ -4695,6 +4785,9 @@
             this.TCMain.ResumeLayout(false);
             this.TPSaveGameInfo.ResumeLayout(false);
             this.TPSaveGameInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveSecond)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveMinute)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NUDSaveHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDDisplayMission)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NUDDisplayLevel)).EndInit();
             this.TPInputManager.ResumeLayout(false);
@@ -5162,6 +5255,12 @@
         private System.Windows.Forms.Label LblLevel7CardName;
         private System.Windows.Forms.ListBox LBLevel7Cards;
         private System.Windows.Forms.ToolTip TTSettingInfo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown NUDSaveHour;
+        private System.Windows.Forms.Label LblSaveTime;
+        private System.Windows.Forms.NumericUpDown NUDSaveSecond;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown NUDSaveMinute;
     }
 }
 

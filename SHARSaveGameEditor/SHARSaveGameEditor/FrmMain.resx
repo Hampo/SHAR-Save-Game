@@ -120,9 +120,66 @@
   <metadata name="MSMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>180, 17</value>
   </metadata>
-  <metadata name="TTSettingInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>278, 17</value>
-  </metadata>
+  <data name="NUDSaveSecond.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="NUDSaveMinute.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="NUDSaveHour.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="LblSaveTime.ToolTip" xml:space="preserve">
+    <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
+If "Auto update" is checked, this will auto update to the current time on save.
+The game has no validation and will just blindly display these values.
+</value>
+  </data>
+  <data name="NUDDisplayMission.ToolTip" xml:space="preserve">
+    <value>The Level/Mission to show in the Load Game and Save Game screens.
+This is separate from Character Sheet-&gt;Current Mission Info. You can display one mission and launch another.
+The game has no validation and will just blindly display these values.
+Level 1 Mission 0 will display as "TUT".</value>
+  </data>
+  <data name="LblDisplayMission.ToolTip" xml:space="preserve">
+    <value>The Level/Mission to show in the Load Game and Save Game screens.
+This is separate from Character Sheet-&gt;Current Mission Info. You can display one mission and launch another.
+The game has no validation and will just blindly display these values.
+Level 1 Mission 0 will display as "TUT".</value>
+  </data>
+  <data name="NUDDisplayLevel.ToolTip" xml:space="preserve">
+    <value>The Level/Mission to show in the Load Game and Save Game screens.
+This is separate from Character Sheet-&gt;Current Mission Info. You can display one mission and launch another.
+The game has no validation and will just blindly display these values.
+Level 1 Mission 0 will display as "TUT".</value>
+  </data>
+  <data name="LblDisplayLevel.ToolTip" xml:space="preserve">
+    <value>The Level/Mission to show in the Load Game and Save Game screens.
+This is separate from Character Sheet-&gt;Current Mission Info. You can display one mission and launch another.
+The game has no validation and will just blindly display these values.
+Level 1 Mission 0 will display as "TUT".</value>
+  </data>
   <metadata name="CMSCheckedListBox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

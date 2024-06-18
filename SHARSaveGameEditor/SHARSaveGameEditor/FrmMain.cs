@@ -285,6 +285,9 @@ namespace SHARSaveGameEditor
 
             SaveGameInfo saveGameInfo = SaveGame.SaveGameInfo;
             DTPSaveDate.Value = saveGameInfo.SaveDate;
+            NUDSaveHour.Value = saveGameInfo.Hour;
+            NUDSaveMinute.Value = saveGameInfo.Minute;
+            NUDSaveSecond.Value = saveGameInfo.Second;
             NUDDisplayLevel.Value = saveGameInfo.DisplayLevel;
             NUDDisplayMission.Value = saveGameInfo.DisplayMission;
 
@@ -556,7 +559,13 @@ namespace SHARSaveGameEditor
                 try
                 {
                     if (CBAutoSaveDate.Checked)
-                        DTPSaveDate.Value = DateTime.Now;
+                    {
+                        var now = DateTime.Now;
+                        DTPSaveDate.Value = now;
+                        NUDSaveHour.Value = now.Hour;
+                        NUDSaveMinute.Value = now.Minute;
+                        NUDSaveSecond.Value = now.Second;
+                    }
                     using (var fileStream = File.Open(LastPath, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
@@ -577,7 +586,13 @@ namespace SHARSaveGameEditor
                 try
                 {
                     if (CBAutoSaveDate.Checked)
-                        DTPSaveDate.Value = DateTime.Now;
+                    {
+                        var now = DateTime.Now;
+                        DTPSaveDate.Value = now;
+                        NUDSaveHour.Value = now.Hour;
+                        NUDSaveMinute.Value = now.Minute;
+                        NUDSaveSecond.Value = now.Second;
+                    }
                     using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
@@ -615,7 +630,13 @@ namespace SHARSaveGameEditor
                 try
                 {
                     if (CBAutoSaveDate.Checked)
-                        DTPSaveDate.Value = SaveGame.SaveGameInfo.SaveDate;
+                    {
+                        var now = DateTime.Now;
+                        DTPSaveDate.Value = now;
+                        NUDSaveHour.Value = now.Hour;
+                        NUDSaveMinute.Value = now.Minute;
+                        NUDSaveSecond.Value = now.Second;
+                    }
                     using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var binaryWriter = new BinaryWriter(fileStream))
                         SaveGame.Write(binaryWriter);
@@ -636,13 +657,35 @@ namespace SHARSaveGameEditor
 
         private void CBAutoSaveDate_CheckedChanged(object sender, EventArgs e)
         {
-            DTPSaveDate.Enabled = !CBAutoSaveDate.Checked;
+            bool enabled = !CBAutoSaveDate.Checked;
+            DTPSaveDate.Enabled = enabled;
+            NUDSaveHour.Enabled = enabled;
+            NUDSaveMinute.Enabled = enabled;
+            NUDSaveSecond.Enabled = enabled;
         }
 
         private void DTPSaveDate_ValueChanged(object sender, EventArgs e)
         {
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.SaveDate = DTPSaveDate.Value;
+        }
+
+        private void NUDSaveHour_ValueChanged(object sender, EventArgs e)
+        {
+            UnsavedChanges = true;
+            SaveGame.SaveGameInfo.Hour = (byte)NUDSaveHour.Value;
+        }
+
+        private void NUDSaveMinute_ValueChanged(object sender, EventArgs e)
+        {
+            UnsavedChanges = true;
+            SaveGame.SaveGameInfo.Minute = (byte)NUDSaveMinute.Value;
+        }
+
+        private void NUDSaveSecond_ValueChanged(object sender, EventArgs e)
+        {
+            UnsavedChanges = true;
+            SaveGame.SaveGameInfo.Second = (byte)NUDSaveSecond.Value;
         }
 
         private void NUDDisplayLevel_ValueChanged(object sender, EventArgs e)

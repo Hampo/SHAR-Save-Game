@@ -74,6 +74,9 @@ namespace SHARSaveGameEditor
     public class SaveGameInfo
     {
         public DateTime SaveDate { get; set; }
+        public byte Hour { get; set; }
+        public byte Minute { get; set; }
+        public byte Second { get; set; }
         public byte DisplayLevel { get; set; }
         public byte DisplayMission { get; set; }
         public uint FileSize { get; set; }
@@ -81,6 +84,9 @@ namespace SHARSaveGameEditor
         public SaveGameInfo()
         {
             SaveDate = DateTime.Now;
+            Hour = (byte)SaveDate.Hour;
+            Minute = (byte)SaveDate.Minute;
+            Second = (byte)SaveDate.Second;
             DisplayLevel = 1;
             DisplayMission = 0;
             FileSize = SaveGame.VanillaFileSize;
@@ -91,21 +97,15 @@ namespace SHARSaveGameEditor
             ushort year = br.ReadUInt16();
             byte month = br.ReadByte();
             byte day = br.ReadByte();
-            byte hour = br.ReadByte();
-            byte minute = br.ReadByte();
-            byte second = br.ReadByte();
+            Hour = br.ReadByte();
+            Minute = br.ReadByte();
+            Second = br.ReadByte();
             _ = br.ReadByte(); // Padding
             month = Math.Max((byte)1, month);
             month = Math.Min((byte)12, month);
             day = Math.Max((byte)1, day);
             day = Math.Min((byte)DateTime.DaysInMonth(year, month), day);
-            hour = Math.Max((byte)0, hour);
-            hour = Math.Min((byte)23, hour);
-            minute = Math.Max((byte)0, minute);
-            minute = Math.Min((byte)59, minute);
-            second = Math.Max((byte)0, second);
-            second = Math.Min((byte)59, second);
-            SaveDate = new DateTime(year, month, day, hour, minute, second);
+            SaveDate = new DateTime(year, month, day);
             
             DisplayLevel = br.ReadByte();
             DisplayMission = br.ReadByte();
@@ -117,9 +117,9 @@ namespace SHARSaveGameEditor
             bw.Write((ushort)SaveDate.Year);
             bw.Write((byte)SaveDate.Month);
             bw.Write((byte)SaveDate.Day);
-            bw.Write((byte)SaveDate.Hour);
-            bw.Write((byte)SaveDate.Minute);
-            bw.Write((byte)SaveDate.Second);
+            bw.Write(Hour);
+            bw.Write(Minute);
+            bw.Write(Second);
             bw.Write((byte)0); // Padding
 
             bw.Write(DisplayLevel);
