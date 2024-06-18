@@ -467,7 +467,7 @@ namespace SHARSaveGameEditor
 
         private void FrmMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Modifiers != Keys.Control)
+            if ((e.Modifiers & Keys.Control) == 0)
                 return;
             switch (e.KeyCode)
             {
@@ -484,7 +484,10 @@ namespace SHARSaveGameEditor
                 case Keys.S:
                     e.SuppressKeyPress = true;
                     e.Handled = true;
-                    TSMISave.PerformClick();
+                    if ((e.Modifiers & Keys.Shift) == 0)
+                        TSMISave.PerformClick();
+                    else
+                        TSMISaveAs.PerformClick();
                     break;
             }
         }

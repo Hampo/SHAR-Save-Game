@@ -489,7 +489,7 @@
             this.TSMINew.Image = global::SHARSaveGameEditor.Properties.Resources.NewFile_16x;
             this.TSMINew.Name = "TSMINew";
             this.TSMINew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.TSMINew.Size = new System.Drawing.Size(146, 22);
+            this.TSMINew.Size = new System.Drawing.Size(195, 22);
             this.TSMINew.Text = "New";
             this.TSMINew.Click += new System.EventHandler(this.TSMINew_Click);
             // 
@@ -498,7 +498,7 @@
             this.TSMIOpen.Image = global::SHARSaveGameEditor.Properties.Resources.OpenFile_16x;
             this.TSMIOpen.Name = "TSMIOpen";
             this.TSMIOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.TSMIOpen.Size = new System.Drawing.Size(146, 22);
+            this.TSMIOpen.Size = new System.Drawing.Size(195, 22);
             this.TSMIOpen.Text = "Open";
             this.TSMIOpen.Click += new System.EventHandler(this.TSMIOpen_Click);
             // 
@@ -507,7 +507,7 @@
             this.TSMISave.Image = global::SHARSaveGameEditor.Properties.Resources.Save_16x;
             this.TSMISave.Name = "TSMISave";
             this.TSMISave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.TSMISave.Size = new System.Drawing.Size(146, 22);
+            this.TSMISave.Size = new System.Drawing.Size(195, 22);
             this.TSMISave.Text = "Save";
             this.TSMISave.Click += new System.EventHandler(this.TSMISave_Click);
             // 
@@ -515,20 +515,23 @@
             // 
             this.TSMISaveAs.Image = global::SHARSaveGameEditor.Properties.Resources.SaveAs_16x;
             this.TSMISaveAs.Name = "TSMISaveAs";
-            this.TSMISaveAs.Size = new System.Drawing.Size(146, 22);
+            this.TSMISaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.TSMISaveAs.Size = new System.Drawing.Size(195, 22);
             this.TSMISaveAs.Text = "Save As...";
             this.TSMISaveAs.Click += new System.EventHandler(this.TSMISaveAs_Click);
             // 
             // TSS1
             // 
             this.TSS1.Name = "TSS1";
-            this.TSS1.Size = new System.Drawing.Size(143, 6);
+            this.TSS1.Size = new System.Drawing.Size(192, 6);
             // 
             // TSMIExit
             // 
             this.TSMIExit.Image = global::SHARSaveGameEditor.Properties.Resources.Exit_16x;
             this.TSMIExit.Name = "TSMIExit";
-            this.TSMIExit.Size = new System.Drawing.Size(146, 22);
+            this.TSMIExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.TSMIExit.Size = new System.Drawing.Size(195, 22);
             this.TSMIExit.Text = "Exit";
             this.TSMIExit.Click += new System.EventHandler(this.TSMIExit_Click);
             // 
