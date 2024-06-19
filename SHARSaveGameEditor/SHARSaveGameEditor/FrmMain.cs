@@ -118,6 +118,7 @@ namespace SHARSaveGameEditor
             while (version.EndsWith(".0"))
                 version = version.Substring(0, version.Length - 2);
             _Text = $"{Text} - v{version}";
+            Text = _Text;
 
             if (RegistryKey != null)
             {
@@ -144,6 +145,8 @@ namespace SHARSaveGameEditor
             {
                 CBAutoSaveDate.Checked = true;
             }
+
+            TCMain.Enabled = false;
 
             CBCurrentMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
             CBCurrentMissionInfoMission.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Missions));
@@ -840,207 +843,216 @@ namespace SHARSaveGameEditor
 
         private void DTPSaveDate_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.SaveDate = DTPSaveDate.Value;
         }
 
         private void NUDSaveHour_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.Hour = (byte)NUDSaveHour.Value;
         }
 
         private void NUDSaveMinute_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.Minute = (byte)NUDSaveMinute.Value;
         }
 
         private void NUDSaveSecond_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.Second = (byte)NUDSaveSecond.Value;
         }
 
         private void NUDDisplayLevel_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.DisplayLevel = (byte)NUDDisplayLevel.Value;
         }
 
         private void NUDDisplayMission_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SaveGameInfo.DisplayMission = (byte)NUDDisplayMission.Value;
         }
 
         private void CBIsRumbleEnabled_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.InputManager.IsRumbleEnabled = CBIsRumbleEnabled.Checked;
         }
 
         private void TxtPlayerName_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.PlayerName = TxtPlayerName.Text;
         }
 
         private void CBCurrentMissionInfoLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.CurrentMissionInfo.Level = (CharacterSheet.CurrentMission.Levels)CBCurrentMissionInfoLevel.SelectedItem;
         }
 
         private void CBCurrentMissionInfoMission_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.CurrentMissionInfo.Mission = (CharacterSheet.CurrentMission.Missions)CBCurrentMissionInfoMission.SelectedItem;
         }
 
         private void CBHighestMissionInfoLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.HighestMissionInfo.Level = (CharacterSheet.CurrentMission.Levels)CBHighestMissionInfoLevel.SelectedItem;
         }
 
         private void CBHighestMissionInfoMission_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.HighestMissionInfo.Mission = (CharacterSheet.CurrentMission.Missions)CBHighestMissionInfoMission.SelectedItem;
         }
 
         private void CBIsNavSystemEnabled_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.IsNavSystemEnabled = CBIsNavSystemEnabled.Checked;
         }
 
         private void NUDCoins_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Coins = (int)NUDCoins.Value;
         }
 
         private void CBItchyScratchyCBGFirst_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.ItchyScratchyCBGFirst = CBItchyScratchyCBGFirst.Checked;
         }
 
         private void CBItchyScratchyTicket_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.ItchyScratchyTicket = CBItchyScratchyTicket.Checked;
         }
 
         private void CLBPersistentObjectStates_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.PersistentObjectStates[e.Index] = e.NewValue != CheckState.Checked;
         }
 
-        /*private void LVPersistentObjectStates_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            ListViewItem lvi = LVPersistentObjectStates.GetItemAt(e.X, e.Y);
-            if (lvi == null)
-                return;
-
-            var bounds = lvi.SubItems[1].Bounds;
-            bounds.X += LVPersistentObjectStates.Location.X;
-            bounds.Y += LVPersistentObjectStates.Location.Y;
-            NUDEditPersistentObjectState.Bounds = bounds;
-            NUDEditPersistentObjectState.Value = byte.Parse(lvi.SubItems[1].Text);
-            NUDEditPersistentObjectState.Visible = true;
-            NUDEditPersistentObjectState.Focus();
-            NUDEditPersistentObjectState.Tag = lvi;
-        }
-
-        private void NUDEditPersistentObjectState_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch (e.KeyCode)
-            {
-                case Keys.Enter:
-                    if (NUDEditPersistentObjectState.Tag is ListViewItem lvi)
-                    {
-                        int index = int.Parse(lvi.SubItems[0].Text);
-                        byte value = (byte)NUDEditPersistentObjectState.Value;
-                        if (value != SaveGame.CharacterSheet.PersistentObjectStates[index])
-                        {
-                            UnsavedChanges = true;
-                            SaveGame.CharacterSheet.PersistentObjectStates[index] = value;
-                            lvi.SubItems[1].Text = value.ToString();
-                        }
-                        NUDEditPersistentObjectState.Visible = false;
-                        LVPersistentObjectStates.Focus();
-                    }
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
-                case Keys.Escape:
-                    NUDEditPersistentObjectState.Visible = false;
-                    LVPersistentObjectStates.Focus();
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                    break;
-            }
-        }
-
-        private void NUDEditPersistentObjectState_Leave(object sender, EventArgs e)
-        {
-            if (NUDEditPersistentObjectState.Tag is ListViewItem lvi)
-            {
-                int index = int.Parse(lvi.SubItems[0].Text);
-                byte value = (byte)NUDEditPersistentObjectState.Value;
-                if (value != SaveGame.CharacterSheet.PersistentObjectStates[index])
-                {
-                    UnsavedChanges = true;
-                    SaveGame.CharacterSheet.PersistentObjectStates[index] = value;
-                    lvi.SubItems[1].Text = value.ToString();
-                }
-                NUDEditPersistentObjectState.Visible = false;
-                LVPersistentObjectStates.Focus();
-            }
-        }*/
-
         private void CBLevel1FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].FMVUnlocked = CBLevel1FMVUnlocked.Checked;
         }
 
         private void NUDLevel1NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].NumCarsPurchased = (int)NUDLevel1NumCarsPurchased.Value;
         }
 
         private void NUDLevel1NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].NumSkinsPurchased = (int)NUDLevel1NumSkinsPurchased.Value;
         }
 
         private void NUDLevel1WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].WaspsDestroyed = (int)NUDLevel1WaspsDestroyed.Value;
         }
 
         private void CBLevel1CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].CurrentSkin = CBLevel1CurrentSkin.Text;
         }
 
         private void CLBLevel1PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[0].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel1Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[0].GagMask |= (uint)(1 << e.Index);
@@ -1092,7 +1104,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel1MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1101,7 +1113,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel1Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1110,7 +1122,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel1BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1119,7 +1131,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel1NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1128,7 +1140,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel1SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1137,7 +1149,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel1BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Missions || LBLevel1Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1172,7 +1184,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel1CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1181,7 +1193,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel1CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel1Cards || LBLevel1Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1191,42 +1203,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel2FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].FMVUnlocked = CBLevel2FMVUnlocked.Checked;
         }
 
         private void NUDLevel2NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].NumCarsPurchased = (int)NUDLevel2NumCarsPurchased.Value;
         }
 
         private void NUDLevel2NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].NumSkinsPurchased = (int)NUDLevel2NumSkinsPurchased.Value;
         }
 
         private void NUDLevel2WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].WaspsDestroyed = (int)NUDLevel2WaspsDestroyed.Value;
         }
 
         private void CBLevel2CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].CurrentSkin = CBLevel2CurrentSkin.Text;
         }
 
         private void CLBLevel2PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[1].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel2Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[1].GagMask |= (uint)(1 << e.Index);
@@ -1278,7 +1311,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel2MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1287,7 +1320,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel2Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions|| LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1296,7 +1329,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel2BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1305,7 +1338,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel2NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1314,7 +1347,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel2SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1323,7 +1356,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel2BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Missions || LBLevel2Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1358,7 +1391,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel2CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1367,7 +1400,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel2CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel2Cards || LBLevel2Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1377,42 +1410,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel3FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].FMVUnlocked = CBLevel3FMVUnlocked.Checked;
         }
 
         private void NUDLevel3NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].NumCarsPurchased = (int)NUDLevel3NumCarsPurchased.Value;
         }
 
         private void NUDLevel3NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].NumSkinsPurchased = (int)NUDLevel3NumSkinsPurchased.Value;
         }
 
         private void NUDLevel3WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].WaspsDestroyed = (int)NUDLevel3WaspsDestroyed.Value;
         }
 
         private void CBLevel3CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].CurrentSkin = CBLevel3CurrentSkin.Text;
         }
 
         private void CLBLevel3PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[2].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel3Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[2].GagMask |= (uint)(1 << e.Index);
@@ -1464,7 +1518,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel3MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1473,7 +1527,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel3Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1482,7 +1536,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel3BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1491,7 +1545,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel3NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1500,7 +1554,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel3SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1509,7 +1563,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel3BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Missions || LBLevel3Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1544,7 +1598,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel3CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1553,7 +1607,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel3CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel3Cards || LBLevel3Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1563,42 +1617,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel4FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].FMVUnlocked = CBLevel4FMVUnlocked.Checked;
         }
 
         private void NUDLevel4NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].NumCarsPurchased = (int)NUDLevel4NumCarsPurchased.Value;
         }
 
         private void NUDLevel4NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].NumSkinsPurchased = (int)NUDLevel4NumSkinsPurchased.Value;
         }
 
         private void NUDLevel4WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].WaspsDestroyed = (int)NUDLevel4WaspsDestroyed.Value;
         }
 
         private void CBLevel4CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].CurrentSkin = CBLevel4CurrentSkin.Text;
         }
 
         private void CLBLevel4PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[3].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel4Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[3].GagMask |= (uint)(1 << e.Index);
@@ -1650,7 +1725,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel4MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1659,7 +1734,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel4Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1668,7 +1743,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel4BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1677,7 +1752,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel4NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1686,7 +1761,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel4SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1695,7 +1770,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel4BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Missions || LBLevel4Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1730,7 +1805,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel4CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1739,7 +1814,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel4CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel4Cards || LBLevel4Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1749,42 +1824,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel5FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].FMVUnlocked = CBLevel5FMVUnlocked.Checked;
         }
 
         private void NUDLevel5NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].NumCarsPurchased = (int)NUDLevel5NumCarsPurchased.Value;
         }
 
         private void NUDLevel5NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].NumSkinsPurchased = (int)NUDLevel5NumSkinsPurchased.Value;
         }
 
         private void NUDLevel5WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].WaspsDestroyed = (int)NUDLevel5WaspsDestroyed.Value;
         }
 
         private void CBLevel5CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].CurrentSkin = CBLevel5CurrentSkin.Text;
         }
 
         private void CLBLevel5PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[4].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel5Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[4].GagMask |= (uint)(1 << e.Index);
@@ -1836,7 +1932,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel5MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1845,7 +1941,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel5Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1854,7 +1950,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel5BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1863,7 +1959,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel5NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1872,7 +1968,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel5SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1881,7 +1977,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel5BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Missions || LBLevel5Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1916,7 +2012,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel5CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1925,7 +2021,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel5CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel5Cards || LBLevel5Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -1935,42 +2031,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel6FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].FMVUnlocked = CBLevel6FMVUnlocked.Checked;
         }
 
         private void NUDLevel6NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].NumCarsPurchased = (int)NUDLevel6NumCarsPurchased.Value;
         }
 
         private void NUDLevel6NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].NumSkinsPurchased = (int)NUDLevel6NumSkinsPurchased.Value;
         }
 
         private void NUDLevel6WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].WaspsDestroyed = (int)NUDLevel6WaspsDestroyed.Value;
         }
 
         private void CBLevel6CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].CurrentSkin = CBLevel6CurrentSkin.Text;
         }
 
         private void CLBLevel6PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[5].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel6Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[5].GagMask |= (uint)(1 << e.Index);
@@ -2022,7 +2139,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel6MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2031,7 +2148,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel6Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2040,7 +2157,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel6BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2049,7 +2166,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel6NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2058,7 +2175,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel6SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2067,7 +2184,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel6BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Missions || LBLevel6Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2102,7 +2219,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel6CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2111,7 +2228,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel6CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel6Cards || LBLevel6Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2121,42 +2238,63 @@ namespace SHARSaveGameEditor
 
         private void CBLevel7FMVUnlocked_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].FMVUnlocked = CBLevel7FMVUnlocked.Checked;
         }
 
         private void NUDLevel7NumCarsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].NumCarsPurchased = (int)NUDLevel7NumCarsPurchased.Value;
         }
 
         private void NUDLevel7NumSkinsPurchased_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].NumSkinsPurchased = (int)NUDLevel7NumSkinsPurchased.Value;
         }
 
         private void NUDLevel7WaspsDestroyed_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].WaspsDestroyed = (int)NUDLevel7WaspsDestroyed.Value;
         }
 
         private void CBLevel7CurrentSkin_TextChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].CurrentSkin = CBLevel7CurrentSkin.Text;
         }
 
         private void CLBLevel7PurchasedRewards_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Levels[6].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
         }
 
         private void CLBLevel7Gags_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CharacterSheet.Levels[6].GagMask |= (uint)(1 << e.Index);
@@ -2208,7 +2346,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel7MissionName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2217,7 +2355,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel7Completed_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2226,7 +2364,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel7BonusObjective_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2235,7 +2373,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel7NumAttempts_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2244,7 +2382,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel7SkippedMission_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2253,7 +2391,7 @@ namespace SHARSaveGameEditor
 
         private void NUDLevel7BestTime_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Missions || LBLevel7Missions.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2288,7 +2426,7 @@ namespace SHARSaveGameEditor
 
         private void TxtLevel7CardName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2297,7 +2435,7 @@ namespace SHARSaveGameEditor
 
         private void CBLevel7CardCollected_CheckedChanged(object sender, EventArgs e)
         {
-            if (UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingLevel7Cards || LBLevel7Cards.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2334,7 +2472,7 @@ namespace SHARSaveGameEditor
 
         private void TxtCarName_TextChanged(object sender, EventArgs e)
         {
-            if (UpdatingCars || LBCars.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingCars || LBCars.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2343,7 +2481,7 @@ namespace SHARSaveGameEditor
 
         private void NUDCurrentHealth_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingCars || LBCars.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingCars || LBCars.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2352,7 +2490,7 @@ namespace SHARSaveGameEditor
 
         private void NUDMaxHealth_ValueChanged(object sender, EventArgs e)
         {
-            if (UpdatingCars || LBCars.SelectedIndex == -1)
+            if (!TCMain.Enabled || UpdatingCars || LBCars.SelectedIndex == -1)
                 return;
 
             UnsavedChanges = true;
@@ -2361,15 +2499,19 @@ namespace SHARSaveGameEditor
 
         private void NUDCounter_ValueChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.CharacterSheet.Cars.Counter = (int)NUDCounter.Value;
         }
 
-        // TODO: Character Sheet
-
         private void TBMusicVolume_ValueChanged(object sender, EventArgs e)
         {
             LblMusicVolumeValue.Text = $"{TBMusicVolume.Value}%";
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SoundSettings.MusicVolume = TBMusicVolume.Value / 100f;
         }
@@ -2377,6 +2519,9 @@ namespace SHARSaveGameEditor
         private void TBSFXVolume_ValueChanged(object sender, EventArgs e)
         {
             LblSFXVolumeValue.Text = $"{TBSFXVolume.Value}%";
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SoundSettings.SFXVolume = TBSFXVolume.Value / 100f;
         }
@@ -2384,6 +2529,9 @@ namespace SHARSaveGameEditor
         private void TBCarVolume_ValueChanged(object sender, EventArgs e)
         {
             LblCarVolumeValue.Text = $"{TBCarVolume.Value}%";
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SoundSettings.CarVolume = TBCarVolume.Value / 100f;
         }
@@ -2391,90 +2539,135 @@ namespace SHARSaveGameEditor
         private void TBDialogVolume_ValueChanged(object sender, EventArgs e)
         {
             LblDialogVolumeValue.Text = $"{TBDialogVolume.Value}%";
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SoundSettings.DialogVolume = TBDialogVolume.Value / 100f;
         }
 
         private void CBJumpCamsEnabled1_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[0].JumpCamsEnabled = CBJumpCamsEnabled1.Checked;
         }
 
         private void CBIsInvertedCameraEnabled1_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[0].IsInvertedCameraEnabled = CBIsInvertedCameraEnabled1.Checked;
         }
 
         private void CBPreferredFollowCam1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[0].PreferredFollowCam = (SuperCamCentral.PreferredFollowCams)CBPreferredFollowCam1.SelectedItem;
         }
 
         private void CBJumpCamsEnabled2_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[1].JumpCamsEnabled = CBJumpCamsEnabled2.Checked;
         }
 
         private void CBIsInvertedCameraEnabled2_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[1].IsInvertedCameraEnabled = CBIsInvertedCameraEnabled2.Checked;
         }
 
         private void CBPreferredFollowCam2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[1].PreferredFollowCam = (SuperCamCentral.PreferredFollowCams)CBPreferredFollowCam2.SelectedItem;
         }
 
         private void CBJumpCamsEnabled3_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[2].JumpCamsEnabled = CBJumpCamsEnabled3.Checked;
         }
 
         private void CBIsInvertedCameraEnabled3_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[2].IsInvertedCameraEnabled = CBIsInvertedCameraEnabled3.Checked;
         }
 
         private void CBPreferredFollowCam3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[2].PreferredFollowCam = (SuperCamCentral.PreferredFollowCams)CBPreferredFollowCam3.SelectedItem;
         }
 
         private void CBJumpCamsEnabled4_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[3].JumpCamsEnabled = CBJumpCamsEnabled4.Checked;
         }
 
         private void CBIsInvertedCameraEnabled4_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[3].IsInvertedCameraEnabled = CBIsInvertedCameraEnabled4.Checked;
         }
 
         private void CBPreferredFollowCam4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.SuperCamCentrals[3].PreferredFollowCam = (SuperCamCentral.PreferredFollowCams)CBPreferredFollowCam4.SelectedItem;
         }
 
         private void CBEnableTutorialEvents_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.TutorialManager.EnableTutorialEvents = CBEnableTutorialEvents.Checked;
         }
 
         private void CLBTutorialsSeen_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             TutorialManager.TutorialMode tutorialMode = (TutorialManager.TutorialMode)CLBTutorialsSeen.Items[e.Index];
             if (e.NewValue == CheckState.Checked)
@@ -2489,12 +2682,18 @@ namespace SHARSaveGameEditor
 
         private void CBIsRadarEnabled_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             SaveGame.GUISystem.IsRadarEnabled = CBIsRadarEnabled.Checked;
         }
 
         private void CLBCollectedCardIDs_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            if (!TCMain.Enabled)
+                return;
+
             UnsavedChanges = true;
             bool value = e.NewValue == CheckState.Checked;
             SaveGame.CardGallery.CollectedCardIDs[e.Index] = value;
