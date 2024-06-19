@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace SHARSaveGameEditor
@@ -11,7 +12,19 @@ namespace SHARSaveGameEditor
         private static readonly Microsoft.Win32.RegistryKey RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(RegistrySettings, Microsoft.Win32.RegistryKeyPermissionCheck.ReadWriteSubTree);
 
         private SaveGame SaveGame = new();
-        private string LastPath = string.Empty;
+        private string _lastPath = string.Empty;
+        private string LastPath
+        {
+            get => _lastPath;
+            set
+            {
+                if (_lastPath == value)
+                    return;
+
+                _lastPath = value;
+                UpdateText();
+            }
+        }
         private string _Text = string.Empty;
         private bool _unsavedChanges = false;
         private bool UnsavedChanges
@@ -26,13 +39,22 @@ namespace SHARSaveGameEditor
                     return;
 
                 _unsavedChanges = value;
-                if (value)
-                    Text = $"*{_Text}";
-                else
-                    Text = _Text;
+                UpdateText();
             }
         }
         private readonly List<string> RecentFiles = [];
+
+        private void UpdateText()
+        {
+            StringBuilder text = new();
+            if (_unsavedChanges)
+                text.Append('*');
+            if (!string.IsNullOrEmpty(_lastPath))
+                text.Append($"{_lastPath} - ");
+            text.Append(_Text);
+
+            Text = text.ToString();
+        }
 
         private bool ConfirmPurchaseTotals()
         {
@@ -114,8 +136,8 @@ namespace SHARSaveGameEditor
             string version = Application.ProductVersion;
             while (version.EndsWith(".0"))
                 version = version.Substring(0, version.Length - 2);
-            _Text = $"{Text} - v{version}";
-            Text = _Text;
+            _Text = $"{Text} v{version}";
+            UpdateText();
 
             if (RegistryKey != null)
             {
