@@ -71,7 +71,7 @@ namespace SHARSaveGameEditor
                 }
                 if (savedTotal != actualTotal)
                 {
-                    MessageBox.Show($"The sum of \"Num Cars Purchased\" and \"Num Skins Purchased\" in Level {i + 1} ({savedTotal}) does not equal the number of \"Purchased Rewards\" ({actualTotal}).", "Invalid save file", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"The sum of \"Num Cars Purchased\" and \"Num Skins Purchased\" in Level {i + 1} ({savedTotal}) does not equal the number of \"Purchased Rewards\" ({actualTotal}).\nNote: Any reward index greater than 11 should be omitted from this sum.", "Invalid save file", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
             }
@@ -479,26 +479,26 @@ namespace SHARSaveGameEditor
                 var merchandiseUnlocked = lucasModLauncherData.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked;
                 if (merchandiseUnlocked != null && merchandiseUnlocked.Indices.Length == 7)
                 {
-                    for (int i = 0; i < CLBLevel1PurchasedRewards.Items.Count; i++)
-                        CLBLevel1PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[0].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[0])
+                        CLBLevel1PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel2PurchasedRewards.Items.Count; i++)
-                        CLBLevel2PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[1].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[1])
+                        CLBLevel2PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel3PurchasedRewards.Items.Count; i++)
-                        CLBLevel3PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[2].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[2])
+                        CLBLevel3PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel4PurchasedRewards.Items.Count; i++)
-                        CLBLevel4PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[3].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[3])
+                        CLBLevel4PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel5PurchasedRewards.Items.Count; i++)
-                        CLBLevel5PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[4].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[4])
+                        CLBLevel5PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel6PurchasedRewards.Items.Count; i++)
-                        CLBLevel6PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[5].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[5])
+                        CLBLevel6PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
 
-                    for (int i = 0; i < CLBLevel7PurchasedRewards.Items.Count; i++)
-                        CLBLevel7PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[6].Contains(i));
+                    foreach (int unlockedRewardIndex in merchandiseUnlocked.Indices[6])
+                        CLBLevel7PurchasedRewards.SetItemChecked(unlockedRewardIndex, true);
                 }
 
                 var launcherVersion = lucasModLauncherData.HackCustomSaveDataLauncherVersion;
