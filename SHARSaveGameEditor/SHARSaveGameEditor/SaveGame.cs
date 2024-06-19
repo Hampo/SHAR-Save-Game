@@ -840,6 +840,7 @@ namespace SHARSaveGameEditor
                 if (signature != LMLD.Signature)
                 {
                     Debugger.Break(); // Weird extra data. Break to investigate.
+                    this.Data = Data;
                     return;
                 }
 
