@@ -10,7 +10,7 @@ namespace SHARSaveGameEditor
         private const string RegistrySettings = @"Software\SHARSaveGameEditor";
         private static readonly Microsoft.Win32.RegistryKey RegistryKey = Microsoft.Win32.Registry.CurrentUser.CreateSubKey(RegistrySettings, Microsoft.Win32.RegistryKeyPermissionCheck.ReadWriteSubTree);
 
-        private SaveGame SaveGame = new SaveGame();
+        private SaveGame SaveGame = new();
         private string LastPath = string.Empty;
         private string _Text = string.Empty;
         private bool _unsavedChanges = false;
@@ -32,7 +32,7 @@ namespace SHARSaveGameEditor
                     Text = _Text;
             }
         }
-        private readonly List<string> RecentFiles = new List<string>();
+        private readonly List<string> RecentFiles = [];
 
         private bool ConfirmPurchaseTotals()
         {
@@ -76,36 +76,33 @@ namespace SHARSaveGameEditor
 
         private void TSMIRecentFile_Click(object sender, EventArgs e)
         {
-            if (!(sender is ToolStripItem menuItem))
+            if (sender is not ToolStripItem menuItem)
                 return;
+
+            if (UnsavedChanges)
+            {
+                var result = MessageBox.Show("There are unsaved changes. Do you want to save them?", "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3);
+                switch (result)
+                {
+                    case DialogResult.Cancel:
+                        return;
+                    case DialogResult.Yes:
+                        TSMISave.PerformClick();
+                        break;
+                }
+            }
+
             LoadSave(menuItem.Text);
         }
 
-        private CharacterSheet.Level.MissionRecord GetMissionRecordFromIndex(CharacterSheet.Level level, int index)
+        private CharacterSheet.Level.MissionRecord GetMissionRecordFromIndex(CharacterSheet.Level level, int index) => index switch
         {
-            switch (index)
-            {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    return level.Missions[index];
-                case 8:
-                    return level.BonusMission;
-                case 9:
-                case 10:
-                case 11:
-                    return level.StreetRaces[index - 9];
-                case 12:
-                    return level.GambleRace;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(index));
-            }
-        }
+            0 or 1 or 2 or 3 or 4 or 5 or 6 or 7 => level.Missions[index],
+            8 => level.BonusMission,
+            9 or 10 or 11 => level.StreetRaces[index - 9],
+            12 => level.GambleRace,
+            _ => throw new ArgumentOutOfRangeException(nameof(index)),
+        };
 
         public FrmMain()
         {
@@ -155,13 +152,6 @@ namespace SHARSaveGameEditor
 
             foreach (var value in Names.PersistentObjectStates)
                 CLBPersistentObjectStates.Items.Add(value);
-            /*foreach (var value in Names.PersistentObjectStateSectors)
-                for (int i = 0; i < 16 * 8; i++)
-                    CLBPersistentObjectStates.Items.Add($"Sector: {value} | Persistent Object: {i}");*/
-            /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
-                CLBPersistentObjectStates.Items.Add($"Persistent Object {i}");*/
-            /*for (int i = 0; i < SaveGame.CharacterSheet.PersistentObjectStates.Length; i++)
-                LVPersistentObjectStates.Items.Add(new ListViewItem(new string[] { i.ToString(), "0" }));*/
 
             foreach (var value in Names.Level1PurchasedRewards)
                 CLBLevel1PurchasedRewards.Items.Add(value);
@@ -327,15 +317,13 @@ namespace SHARSaveGameEditor
 
             try
             {
-                using (var fileStream = File.OpenRead(filePath))
-                using (var binaryReader = new BinaryReader(fileStream))
-                {
-                    SaveGame saveGame = new SaveGame(binaryReader);
-                    SaveGame = saveGame;
-                    LastPath = filePath;
-                    PopulateData();
-                    AddRecentFile(LastPath);
-                }
+                using var fileStream = File.OpenRead(filePath);
+                using var binaryReader = new BinaryReader(fileStream);
+                SaveGame saveGame = new(binaryReader);
+                SaveGame = saveGame;
+                LastPath = filePath;
+                PopulateData();
+                AddRecentFile(LastPath);
             }
             catch (Exception ex)
             {
@@ -346,6 +334,182 @@ namespace SHARSaveGameEditor
         private void PopulateData()
         {
             TCMain.Enabled = false;
+
+            CLBLevel1PurchasedRewards.BeginUpdate();
+            CLBLevel2PurchasedRewards.BeginUpdate();
+            CLBLevel3PurchasedRewards.BeginUpdate();
+            CLBLevel4PurchasedRewards.BeginUpdate();
+            CLBLevel5PurchasedRewards.BeginUpdate();
+            CLBLevel6PurchasedRewards.BeginUpdate();
+            CLBLevel7PurchasedRewards.BeginUpdate();
+            CLBLevel1PurchasedRewards.Items.Clear();
+            CLBLevel1PurchasedRewards.Items.AddRange(Names.Level1PurchasedRewards);
+            CLBLevel2PurchasedRewards.Items.Clear();
+            CLBLevel2PurchasedRewards.Items.AddRange(Names.Level2PurchasedRewards);
+            CLBLevel3PurchasedRewards.Items.Clear();
+            CLBLevel3PurchasedRewards.Items.AddRange(Names.Level3PurchasedRewards);
+            CLBLevel4PurchasedRewards.Items.Clear();
+            CLBLevel4PurchasedRewards.Items.AddRange(Names.Level4PurchasedRewards);
+            CLBLevel5PurchasedRewards.Items.Clear();
+            CLBLevel5PurchasedRewards.Items.AddRange(Names.Level5PurchasedRewards);
+            CLBLevel6PurchasedRewards.Items.Clear();
+            CLBLevel6PurchasedRewards.Items.AddRange(Names.Level6PurchasedRewards);
+            CLBLevel7PurchasedRewards.Items.Clear();
+            CLBLevel7PurchasedRewards.Items.AddRange(Names.Level7PurchasedRewards);
+
+            CustomSaveData customSaveData = SaveGame.CustomSaveData;
+            if (customSaveData.Data.Length == 0 && customSaveData.LucasModLauncherData == null)
+            {
+                TCCustomSaveData.Visible = false;
+                LblCustomSaveData.Visible = true;
+            }
+            else
+            {
+                TCCustomSaveData.Visible = true;
+                LblCustomSaveData.Visible = false;
+            }
+
+            if (customSaveData.Data.Length == 0)
+            {
+                if (TCCustomSaveData.TabPages.Contains(TPCustomSaveDataUnknown))
+                    TCCustomSaveData.TabPages.Remove(TPCustomSaveDataUnknown);
+            }
+            else
+            {
+                if (!TCCustomSaveData.TabPages.Contains(TPCustomSaveDataUnknown))
+                    TCCustomSaveData.TabPages.Insert(0, TPCustomSaveDataUnknown);
+
+                LblCustomSaveDataUnknownData.Text = $"Unknown Data Length: {customSaveData.Data.Length} bytes";
+                // Add HexControl or something
+            }
+            if (customSaveData.LucasModLauncherData == null)
+            {
+                if (TCCustomSaveData.TabPages.Contains(TPLucasModLauncherData))
+                    TCCustomSaveData.TabPages.Remove(TPLucasModLauncherData);
+            }
+            else
+            {
+                if (!TCCustomSaveData.TabPages.Contains(TPLucasModLauncherData))
+                    TCCustomSaveData.TabPages.Add(TPLucasModLauncherData);
+
+                var lucasModLauncherData = customSaveData.LucasModLauncherData;
+
+                var merchandiseNames = lucasModLauncherData.HackCustomSaveDataMerchandiseNames;
+                if (merchandiseNames != null && merchandiseNames.Names.Length == 7)
+                {
+                    for (int i = 0; i < merchandiseNames.Names[0].Count; i++)
+                    {
+                        if (i < CLBLevel1PurchasedRewards.Items.Count)
+                            CLBLevel1PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[0][i]}]";
+                        else
+                            CLBLevel1PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[0][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[1].Count; i++)
+                    {
+                        if (i < CLBLevel2PurchasedRewards.Items.Count)
+                            CLBLevel2PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[1][i]}]";
+                        else
+                            CLBLevel2PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[1][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[2].Count; i++)
+                    {
+                        if (i < CLBLevel3PurchasedRewards.Items.Count)
+                            CLBLevel3PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[2][i]}]";
+                        else
+                            CLBLevel3PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[2][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[3].Count; i++)
+                    {
+                        if (i < CLBLevel4PurchasedRewards.Items.Count)
+                            CLBLevel4PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[3][i]}]";
+                        else
+                            CLBLevel4PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[3][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[4].Count; i++)
+                    {
+                        if (i < CLBLevel5PurchasedRewards.Items.Count)
+                            CLBLevel5PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[4][i]}]";
+                        else
+                            CLBLevel5PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[4][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[5].Count; i++)
+                    {
+                        if (i < CLBLevel6PurchasedRewards.Items.Count)
+                            CLBLevel6PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[5][i]}]";
+                        else
+                            CLBLevel6PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[5][i]}]");
+                    }
+
+                    for (int i = 0; i < merchandiseNames.Names[6].Count; i++)
+                    {
+                        if (i < CLBLevel7PurchasedRewards.Items.Count)
+                            CLBLevel7PurchasedRewards.Items[i] += $" [{merchandiseNames.Names[6][i]}]";
+                        else
+                            CLBLevel7PurchasedRewards.Items.Add($"Reward {i} (Unused) [{merchandiseNames.Names[6][i]}]");
+                    }
+                }
+
+                var merchandiseUnlocked = lucasModLauncherData.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked;
+                if (merchandiseUnlocked != null && merchandiseUnlocked.Indices.Length == 7)
+                {
+                    for (int i = 0; i < CLBLevel1PurchasedRewards.Items.Count; i++)
+                        CLBLevel1PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[0].Contains(i));
+
+                    for (int i = 0; i < CLBLevel2PurchasedRewards.Items.Count; i++)
+                        CLBLevel2PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[1].Contains(i));
+
+                    for (int i = 0; i < CLBLevel3PurchasedRewards.Items.Count; i++)
+                        CLBLevel3PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[2].Contains(i));
+
+                    for (int i = 0; i < CLBLevel4PurchasedRewards.Items.Count; i++)
+                        CLBLevel4PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[3].Contains(i));
+
+                    for (int i = 0; i < CLBLevel5PurchasedRewards.Items.Count; i++)
+                        CLBLevel5PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[4].Contains(i));
+
+                    for (int i = 0; i < CLBLevel6PurchasedRewards.Items.Count; i++)
+                        CLBLevel6PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[5].Contains(i));
+
+                    for (int i = 0; i < CLBLevel7PurchasedRewards.Items.Count; i++)
+                        CLBLevel7PurchasedRewards.SetItemChecked(i, merchandiseUnlocked.Indices[6].Contains(i));
+                }
+
+                var launcherVersion = lucasModLauncherData.HackCustomSaveDataLauncherVersion;
+                if (launcherVersion?.Version3 == null)
+                {
+                    TxtModLauncherVersion.Text = "Not Included In Save";
+                    TxtModLauncherVersion.Enabled = false;
+                }
+                else
+                {
+                    TxtModLauncherVersion.Text = launcherVersion.Version3;
+                    TxtModLauncherVersion.Enabled = true;
+                }
+
+                var mainMod = lucasModLauncherData.HackCustomSaveDataMainMod;
+                if (mainMod?.MainMod2 == null)
+                {
+                    TxtMainMod.Text = "Not Included In Save";
+                    TxtMainMod.Enabled = false;
+                }
+                else
+                {
+                    TxtMainMod.Text = mainMod.MainMod2;
+                    TxtMainMod.Enabled = true;
+                }
+            }
+            CLBLevel1PurchasedRewards.EndUpdate();
+            CLBLevel2PurchasedRewards.EndUpdate();
+            CLBLevel3PurchasedRewards.EndUpdate();
+            CLBLevel4PurchasedRewards.EndUpdate();
+            CLBLevel5PurchasedRewards.EndUpdate();
+            CLBLevel6PurchasedRewards.EndUpdate();
+            CLBLevel7PurchasedRewards.EndUpdate();
 
             SaveGameInfo saveGameInfo = SaveGame.SaveGameInfo;
             DTPSaveDate.Value = saveGameInfo.SaveDate;
@@ -372,10 +536,6 @@ namespace SHARSaveGameEditor
             for (int i = 0; i < characterSheet.PersistentObjectStates.Length; i++)
                 CLBPersistentObjectStates.SetItemChecked(i, !characterSheet.PersistentObjectStates[i]);
             CLBPersistentObjectStates.EndUpdate();
-            /*LVPersistentObjectStates.BeginUpdate();
-            for (int i = 0; i < characterSheet.PersistentObjectStates.Length; i++)
-                LVPersistentObjectStates.Items[i].SubItems[1].Text = characterSheet.PersistentObjectStates[i].ToString();
-            LVPersistentObjectStates.EndUpdate();*/
             LBCars.BeginUpdate();
             LBCars.Items.Clear();
             foreach (var car in characterSheet.Cars.Cars)
@@ -389,7 +549,7 @@ namespace SHARSaveGameEditor
             NUDLevel1WaspsDestroyed.Value = characterSheet.Levels[0].WaspsDestroyed;
             CBLevel1CurrentSkin.Text = characterSheet.Levels[0].CurrentSkin;
             CLBLevel1PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel1PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[0].PurchasedRewards.Length; i++)
                 CLBLevel1PurchasedRewards.SetItemChecked(i, characterSheet.Levels[0].PurchasedRewards[i]);
             CLBLevel1PurchasedRewards.EndUpdate();
             CLBLevel1Gags.BeginUpdate();
@@ -404,7 +564,7 @@ namespace SHARSaveGameEditor
             NUDLevel2WaspsDestroyed.Value = characterSheet.Levels[1].WaspsDestroyed;
             CBLevel2CurrentSkin.Text = characterSheet.Levels[1].CurrentSkin;
             CLBLevel2PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel2PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[1].PurchasedRewards.Length; i++)
                 CLBLevel2PurchasedRewards.SetItemChecked(i, characterSheet.Levels[1].PurchasedRewards[i]);
             CLBLevel2PurchasedRewards.EndUpdate();
             CLBLevel2Gags.BeginUpdate();
@@ -419,7 +579,7 @@ namespace SHARSaveGameEditor
             NUDLevel3WaspsDestroyed.Value = characterSheet.Levels[2].WaspsDestroyed;
             CBLevel3CurrentSkin.Text = characterSheet.Levels[2].CurrentSkin;
             CLBLevel3PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel3PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[2].PurchasedRewards.Length; i++)
                 CLBLevel3PurchasedRewards.SetItemChecked(i, characterSheet.Levels[2].PurchasedRewards[i]);
             CLBLevel3PurchasedRewards.EndUpdate();
             CLBLevel3Gags.BeginUpdate();
@@ -434,7 +594,7 @@ namespace SHARSaveGameEditor
             NUDLevel4WaspsDestroyed.Value = characterSheet.Levels[3].WaspsDestroyed;
             CBLevel4CurrentSkin.Text = characterSheet.Levels[3].CurrentSkin;
             CLBLevel4PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel4PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[3].PurchasedRewards.Length; i++)
                 CLBLevel4PurchasedRewards.SetItemChecked(i, characterSheet.Levels[3].PurchasedRewards[i]);
             CLBLevel4PurchasedRewards.EndUpdate();
             CLBLevel4Gags.BeginUpdate();
@@ -449,7 +609,7 @@ namespace SHARSaveGameEditor
             NUDLevel5WaspsDestroyed.Value = characterSheet.Levels[4].WaspsDestroyed;
             CBLevel5CurrentSkin.Text = characterSheet.Levels[4].CurrentSkin;
             CLBLevel5PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel5PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[4].PurchasedRewards.Length; i++)
                 CLBLevel5PurchasedRewards.SetItemChecked(i, characterSheet.Levels[4].PurchasedRewards[i]);
             CLBLevel5PurchasedRewards.EndUpdate();
             CLBLevel5Gags.BeginUpdate();
@@ -464,7 +624,7 @@ namespace SHARSaveGameEditor
             NUDLevel6WaspsDestroyed.Value = characterSheet.Levels[5].WaspsDestroyed;
             CBLevel6CurrentSkin.Text = characterSheet.Levels[5].CurrentSkin;
             CLBLevel6PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel6PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[5].PurchasedRewards.Length; i++)
                 CLBLevel6PurchasedRewards.SetItemChecked(i, characterSheet.Levels[5].PurchasedRewards[i]);
             CLBLevel6PurchasedRewards.EndUpdate();
             CLBLevel6Gags.BeginUpdate();
@@ -479,7 +639,7 @@ namespace SHARSaveGameEditor
             NUDLevel7WaspsDestroyed.Value = characterSheet.Levels[6].WaspsDestroyed;
             CBLevel7CurrentSkin.Text = characterSheet.Levels[6].CurrentSkin;
             CLBLevel7PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < CLBLevel7PurchasedRewards.Items.Count; i++)
+            for (int i = 0; i < characterSheet.Levels[6].PurchasedRewards.Length; i++)
                 CLBLevel7PurchasedRewards.SetItemChecked(i, characterSheet.Levels[6].PurchasedRewards[i]);
             CLBLevel7PurchasedRewards.EndUpdate();
             CLBLevel7Gags.BeginUpdate();
@@ -534,116 +694,6 @@ namespace SHARSaveGameEditor
             for (int i = 0; i < cardGallery.CollectedCardIDs.Length; i++)
                 CLBCollectedCardIDs.SetItemChecked(i, cardGallery.CollectedCardIDs[i]);
             CLBCollectedCardIDs.EndUpdate();
-
-            CustomSaveData customSaveData = SaveGame.CustomSaveData;
-            CustomSaveData.LMLD lucasModLauncherData = customSaveData.LucasModLauncherData;
-            CustomSaveData.LMLD.Section merchandiseSection = null;
-            LBCustomSaveDataSectors.Items.Clear();
-            if (lucasModLauncherData == null)
-            {
-                LblCustomSaveData.Text = "Custom Save Data:";
-                LblCustomSaveDataLength.Visible = true;
-                LblCustomSaveDataLength.Text = $"{customSaveData.Data.Length} bytes";
-
-                LBCustomSaveDataSectors.Visible = false;
-
-                LblSectorValue.Visible = false;
-                TxtSectorValue.Visible = false;
-                TxtSectorValue.Text = string.Empty;
-                TCCustomSaveDataSubItems.Visible = false;
-                TCCustomSaveDataSubItems.TabPages.Clear();
-            }
-            else
-            {
-                LblCustomSaveData.Text = "Sectors:";
-                LblCustomSaveDataLength.Visible = false;
-
-                LblSectorValue.Visible = true;
-                TxtSectorValue.Visible = true;
-                TCCustomSaveDataSubItems.Visible = true;
-
-                LBCustomSaveDataSectors.Visible = true;
-                LBCustomSaveDataSectors.BeginUpdate();
-                foreach (var sector in lucasModLauncherData.Sections)
-                {
-                    LBCustomSaveDataSectors.Items.Add(sector.Name);
-                    if (sector.Name == "Merchandise")
-                        merchandiseSection = sector;
-                }
-                if (LBCustomSaveDataSectors.Items.Count > 0)
-                    LBCustomSaveDataSectors.SelectedIndex = 0;
-                LBCustomSaveDataSectors.EndUpdate();
-            }
-            CLBLevel1PurchasedRewards.BeginUpdate();
-            CLBLevel2PurchasedRewards.BeginUpdate();
-            CLBLevel3PurchasedRewards.BeginUpdate();
-            CLBLevel4PurchasedRewards.BeginUpdate();
-            CLBLevel5PurchasedRewards.BeginUpdate();
-            CLBLevel6PurchasedRewards.BeginUpdate();
-            CLBLevel7PurchasedRewards.BeginUpdate();
-            for (int i = 0; i < Names.Level1PurchasedRewards.Length; i++)
-                CLBLevel1PurchasedRewards.Items[i] = Names.Level1PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level2PurchasedRewards.Length; i++)
-                CLBLevel2PurchasedRewards.Items[i] = Names.Level2PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level3PurchasedRewards.Length; i++)
-                CLBLevel3PurchasedRewards.Items[i] = Names.Level3PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level4PurchasedRewards.Length; i++)
-                CLBLevel4PurchasedRewards.Items[i] = Names.Level4PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level5PurchasedRewards.Length; i++)
-                CLBLevel5PurchasedRewards.Items[i] = Names.Level5PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level6PurchasedRewards.Length; i++)
-                CLBLevel6PurchasedRewards.Items[i] = Names.Level6PurchasedRewards[i];
-
-            for (int i = 0; i < Names.Level7PurchasedRewards.Length; i++)
-                CLBLevel7PurchasedRewards.Items[i] = Names.Level7PurchasedRewards[i];
-            if (merchandiseSection != null)
-            {
-                CustomSaveData.LMLD.Section.SubItem namesSubItem = null;
-                foreach (var subItem in merchandiseSection.SubItems)
-                {
-                    if (subItem.Name == "Names")
-                    {
-                        namesSubItem = subItem;
-                        break;
-                    }
-                }
-
-                if (namesSubItem != null && namesSubItem.Values.Count == 7)
-                {
-                    for (int i = 0; i < namesSubItem.Values[0].Count; i++)
-                        CLBLevel1PurchasedRewards.Items[i] += $" [{namesSubItem.Values[0][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[1].Count; i++)
-                        CLBLevel2PurchasedRewards.Items[i] += $" [{namesSubItem.Values[1][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[2].Count; i++)
-                        CLBLevel3PurchasedRewards.Items[i] += $" [{namesSubItem.Values[2][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[3].Count; i++)
-                        CLBLevel4PurchasedRewards.Items[i] += $" [{namesSubItem.Values[3][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[4].Count; i++)
-                        CLBLevel5PurchasedRewards.Items[i] += $" [{namesSubItem.Values[4][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[5].Count; i++)
-                        CLBLevel6PurchasedRewards.Items[i] += $" [{namesSubItem.Values[5][i]}]";
-
-                    for (int i = 0; i < namesSubItem.Values[6].Count; i++)
-                        CLBLevel7PurchasedRewards.Items[i] += $" [{namesSubItem.Values[6][i]}]";
-                }
-            }
-            CLBLevel1PurchasedRewards.EndUpdate();
-            CLBLevel2PurchasedRewards.EndUpdate();
-            CLBLevel3PurchasedRewards.EndUpdate();
-            CLBLevel4PurchasedRewards.EndUpdate();
-            CLBLevel5PurchasedRewards.EndUpdate();
-            CLBLevel6PurchasedRewards.EndUpdate();
-            CLBLevel7PurchasedRewards.EndUpdate();
 
             TCMain.Enabled = true;
             UnsavedChanges = false;
@@ -711,15 +761,13 @@ namespace SHARSaveGameEditor
                 }
             }
 
-            using (var ofd = new OpenFileDialog() { Title = "Open Save File", Filter = "Save files (Save1; Save2; Save3; Save4; Save5; Save6; Save7; Save8)|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files (*.*)|*.*" })
-            {
-                if (!string.IsNullOrEmpty(LastPath))
-                    ofd.InitialDirectory = Path.GetDirectoryName(LastPath);
-                if (ofd.ShowDialog() != DialogResult.OK)
-                    return;
+            using var ofd = new OpenFileDialog() { Title = "Open Save File", Filter = "Save files (Save1; Save2; Save3; Save4; Save5; Save6; Save7; Save8)|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files (*.*)|*.*" };
+            if (!string.IsNullOrEmpty(LastPath))
+                ofd.InitialDirectory = Path.GetDirectoryName(LastPath);
+            if (ofd.ShowDialog() != DialogResult.OK)
+                return;
 
-                LoadSave(ofd.FileName);
-            }
+            LoadSave(ofd.FileName);
         }
 
         private void TSMISave_Click(object sender, EventArgs e)
@@ -751,32 +799,30 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            using (var sfd = new SaveFileDialog() { Title = "Save File", FileName = "Save1", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" })
-            {
-                if (sfd.ShowDialog() != DialogResult.OK)
-                    return;
+            using var sfd = new SaveFileDialog() { Title = "Save File", FileName = "Save1", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" };
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
 
-                try
+            try
+            {
+                if (CBAutoSaveDate.Checked)
                 {
-                    if (CBAutoSaveDate.Checked)
-                    {
-                        var now = DateTime.Now;
-                        DTPSaveDate.Value = now;
-                        NUDSaveHour.Value = now.Hour;
-                        NUDSaveMinute.Value = now.Minute;
-                        NUDSaveSecond.Value = now.Second;
-                    }
-                    using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var binaryWriter = new BinaryWriter(fileStream))
-                        SaveGame.Write(binaryWriter);
-                    UnsavedChanges = false;
-                    LastPath = sfd.FileName;
-                    AddRecentFile(LastPath);
+                    var now = DateTime.Now;
+                    DTPSaveDate.Value = now;
+                    NUDSaveHour.Value = now.Hour;
+                    NUDSaveMinute.Value = now.Minute;
+                    NUDSaveSecond.Value = now.Second;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error writing save file: {ex}", "Error saving file", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (var binaryWriter = new BinaryWriter(fileStream))
+                    SaveGame.Write(binaryWriter);
+                UnsavedChanges = false;
+                LastPath = sfd.FileName;
+                AddRecentFile(LastPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error writing save file: {ex}", "Error saving file", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -785,43 +831,41 @@ namespace SHARSaveGameEditor
             if (!ConfirmPurchaseTotals())
                 return;
 
-            using (var sfd = new SaveFileDialog() { Title = "Save File", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" })
+            using var sfd = new SaveFileDialog() { Title = "Save File", Filter = "Save files|Save1;Save2;Save3;Save4;Save5;Save6;Save7;Save8|All files|*.*" };
+            if (string.IsNullOrEmpty(LastPath))
             {
-                if (string.IsNullOrEmpty(LastPath))
-                {
-                    sfd.FileName = "Save1";
-                }
-                else
-                {
-                    sfd.InitialDirectory = Path.GetDirectoryName(LastPath);
-                    sfd.FileName = Path.GetFileName(LastPath);
-                    if (Path.GetExtension(LastPath).Length > 0)
-                        sfd.FilterIndex = 2;
-                }
-                if (sfd.ShowDialog() != DialogResult.OK)
-                    return;
+                sfd.FileName = "Save1";
+            }
+            else
+            {
+                sfd.InitialDirectory = Path.GetDirectoryName(LastPath);
+                sfd.FileName = Path.GetFileName(LastPath);
+                if (Path.GetExtension(LastPath).Length > 0)
+                    sfd.FilterIndex = 2;
+            }
+            if (sfd.ShowDialog() != DialogResult.OK)
+                return;
 
-                try
+            try
+            {
+                if (CBAutoSaveDate.Checked)
                 {
-                    if (CBAutoSaveDate.Checked)
-                    {
-                        var now = DateTime.Now;
-                        DTPSaveDate.Value = now;
-                        NUDSaveHour.Value = now.Hour;
-                        NUDSaveMinute.Value = now.Minute;
-                        NUDSaveSecond.Value = now.Second;
-                    }
-                    using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var binaryWriter = new BinaryWriter(fileStream))
-                        SaveGame.Write(binaryWriter);
-                    UnsavedChanges = false;
-                    LastPath = sfd.FileName;
-                    AddRecentFile(LastPath);
+                    var now = DateTime.Now;
+                    DTPSaveDate.Value = now;
+                    NUDSaveHour.Value = now.Hour;
+                    NUDSaveMinute.Value = now.Minute;
+                    NUDSaveSecond.Value = now.Second;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error writing save file: {ex}", "Error saving file", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                using (var fileStream = File.Open(sfd.FileName, FileMode.Create, FileAccess.Write, FileShare.None))
+                using (var binaryWriter = new BinaryWriter(fileStream))
+                    SaveGame.Write(binaryWriter);
+                UnsavedChanges = false;
+                LastPath = sfd.FileName;
+                AddRecentFile(LastPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error writing save file: {ex}", "Error saving file", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1045,7 +1089,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[0].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[0].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(0, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel1Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -1252,7 +1299,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[1].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[1].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[1].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(1, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel2Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -1459,7 +1509,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[2].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[2].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[2].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(2, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel3Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -1666,7 +1719,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[3].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[3].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[3].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(3, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel4Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -1873,7 +1929,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[4].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[4].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[4].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(4, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel5Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -2080,7 +2139,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[5].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[5].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[5].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(5, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel6Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -2287,7 +2349,10 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[6].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            if (e.Index < SaveGame.CharacterSheet.Levels[6].PurchasedRewards.Length)
+                SaveGame.CharacterSheet.Levels[6].PurchasedRewards[e.Index] = e.NewValue == CheckState.Checked;
+            else
+                SaveGame.CustomSaveData.LucasModLauncherData?.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked?.Set(6, e.Index, e.NewValue == CheckState.Checked);
         }
 
         private void CLBLevel7Gags_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -2825,11 +2890,11 @@ namespace SHARSaveGameEditor
             if (MessageBox.Show("Are you sure you want to select all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                 return;
 
-            if (!(sender is ToolStripItem menuItem))
+            if (sender is not ToolStripItem menuItem)
                 return;
-            if (!(menuItem.Owner is ContextMenuStrip owner))
+            if (menuItem.Owner is not ContextMenuStrip owner)
                 return;
-            if (!(owner.SourceControl is CheckedListBox clb))
+            if (owner.SourceControl is not CheckedListBox clb)
                 return;
 
             clb.BeginUpdate();
@@ -2843,87 +2908,17 @@ namespace SHARSaveGameEditor
             if (MessageBox.Show("Are you sure you want to deselect all?\nThis action cannot be reversed.", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                 return;
 
-            if (!(sender is ToolStripItem menuItem))
+            if (sender is not ToolStripItem menuItem)
                 return;
-            if (!(menuItem.Owner is ContextMenuStrip owner))
+            if (menuItem.Owner is not ContextMenuStrip owner)
                 return;
-            if (!(owner.SourceControl is CheckedListBox clb))
+            if (owner.SourceControl is not CheckedListBox clb)
                 return;
 
             clb.BeginUpdate();
             for (int i = 0; i < clb.Items.Count; i++)
                 clb.SetItemChecked(i, false);
             clb.EndUpdate();
-        }
-
-        private bool UpdatingCustomSaveDataSector = false;
-        private void LBCustomSaveDataSectors_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UpdatingCustomSaveDataSector = true;
-            int index = LBCustomSaveDataSectors.SelectedIndex;
-            TCCustomSaveDataSubItems.TabPages.Clear();
-            if (index == -1)
-            {
-                TxtSectorValue.Text = string.Empty;
-                TxtSectorValue.Enabled = false;
-
-                UpdatingCustomSaveDataSector = false;
-                return;
-            }
-
-            var sector = SaveGame.CustomSaveData.LucasModLauncherData.Sections[LBCustomSaveDataSectors.SelectedIndex];
-
-            TxtSectorValue.Text = sector.Value;
-            TxtSectorValue.Enabled = true;
-
-            if (sector.SubItems.Count == 0)
-            {
-                TCCustomSaveDataSubItems.Visible = false;
-            }
-            else
-            {
-                TCCustomSaveDataSubItems.SuspendLayout();
-                foreach (var subItem in sector.SubItems)
-                {
-                    TabPage tp = new TabPage(subItem.Name);
-                    TCCustomSaveDataSubItems.TabPages.Add(tp);
-
-                    if (subItem.Values.Count == 0)
-                    {
-                        Label lbl = new Label()
-                        {
-                            Text = "No values",
-                            Location = new System.Drawing.Point(9, 4)
-                        };
-                        tp.Controls.Add(lbl);
-                    }
-                    else
-                    {
-                        TabControl tc = new TabControl()
-                        {
-                            Dock = DockStyle.Fill,
-                        };
-                        tp.Controls.Add(tc);
-
-                        for (int i = 0; i < subItem.Values.Count; i++)
-                        {
-                            TabPage tp2 = new TabPage($"Array {i}");
-                            tc.TabPages.Add(tp2);
-
-                            ListBox lb = new ListBox()
-                            {
-                                Dock = DockStyle.Fill,
-                            };
-                            lb.Items.AddRange(subItem.Values[i].ToArray());
-                            tp2.Controls.Add(lb);
-                        }
-                    }
-                }
-                TCCustomSaveDataSubItems.ResumeLayout(true);
-                TCCustomSaveDataSubItems.Visible = true;
-            }
-
-            UpdatingCustomSaveDataSector = false;
         }
     }
 }

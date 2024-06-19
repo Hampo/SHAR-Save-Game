@@ -289,7 +289,7 @@ namespace SHARSaveGameEditor
             public bool[] GagsCompleted { get; } = new bool[32];
             public bool[] PurchasedRewards { get; } = new bool[12];
 
-            private static readonly string[] DefaultSkins = { "homer", "bart", "lisa", "marge", "apu", "bart", "homer" };
+            private static readonly string[] DefaultSkins = ["homer", "bart", "lisa", "marge", "apu", "bart", "homer"];
 
             public Level(int levelNumber)
             {
@@ -535,7 +535,7 @@ namespace SHARSaveGameEditor
 
             public CarInventory()
             {
-                Car defaultCar = new Car()
+                Car defaultCar = new()
                 {
                     Name = "famil_v",
                     CurrentHealth = 1,
@@ -822,319 +822,46 @@ namespace SHARSaveGameEditor
     public class CustomSaveData
     {
         public byte[] Data { get; set; }
-        public LMLD LucasModLauncherData { get; set; }
+        public LucasStuff.CustomSaveData LucasModLauncherData { get; set; }
 
         public CustomSaveData()
         {
-            Data = new byte[0];
+            Data = [];
             LucasModLauncherData = null;
         }
 
         public CustomSaveData(BinaryReader br)
         {
-            byte[] Data = br.ReadBytes((int)(br.BaseStream.Length - br.BaseStream.Position));
+            var startPos = br.BaseStream.Position;
+            var remaining = (int)(br.BaseStream.Length - startPos);
 
-            if (Data.Length >= 16)
+            if (remaining < 16)
             {
-                var signature = BitConverter.ToUInt32(Data, 0);
-                if (signature != LMLD.Signature)
-                {
-                    Debugger.Break(); // Weird extra data. Break to investigate.
-                    this.Data = Data;
-                    return;
-                }
-
-                int pos = 12;
-                var size = BitConverter.ToInt32(Data, pos);
-                pos += sizeof(int);
-                int remaining = Data.Length - pos;
-                if (size != remaining)
-                    throw new InvalidDataException($"Invalid Custom Save Data. Reported size: {size}. Remaining bytes: {remaining}.");
-
-                byte[] data = new byte[size];
-                Array.Copy(Data, pos, data, 0, size);
-                LucasModLauncherData = new LMLD(data);
+                Data = br.ReadBytes(remaining);
+                return;
             }
+
+            LucasStuff.CustomSaveData customSaveData = new();
+            if (!customSaveData.Load(br))
+            {
+                br.BaseStream.Position = startPos;
+                Data = br.ReadBytes(remaining);
+                return;
+            }
+
+            LucasModLauncherData = customSaveData;
+
+            remaining = (int)(br.BaseStream.Length - br.BaseStream.Position);
+            if (remaining > 0)
+                Data = br.ReadBytes(remaining);
             else
-            {
-                this.Data = Data;
-            }
+                Data = [];
         }
 
         public void Write(BinaryWriter bw)
         {
-            if (LucasModLauncherData == null)
-                bw.Write(Data);
-            else
-                LucasModLauncherData.Write(bw);
-        }
-
-        public class LMLD
-        {
-            public const uint Signature = 0x444C4D4C;
-            public int Unknown1 { get; set; }
-            public int Unknown2 { get; set; }
-            public List<Section> Sections { get; } = new List<Section>();
-
-            public LMLD(byte[] data)
-            {
-                int pos = 0;
-
-                Unknown1 = BitConverter.ToInt32(data, pos);
-                pos += sizeof(int);
-
-                Unknown1 = BitConverter.ToInt32(data, pos);
-                pos += sizeof(int);
-
-                int sections = BitConverter.ToInt32(data, pos);
-                pos += sizeof(int);
-
-                Sections.Capacity = sections;
-                for (int i = 0; i < sections; i++)
-                {
-                    Section section = new Section(data, ref pos);
-                    Sections.Add(section);
-                }
-            }
-
-            public void Write(BinaryWriter bw)
-            {
-                bw.Write(Signature);
-                bw.Write(0);
-                bw.Write(0);
-
-                int length = sizeof(int) + sizeof(int) + sizeof(int); // Unknown1 + Unknown2 + SectionCount
-                foreach (var section in Sections)
-                    length += section.Length;
-                bw.Write(length);
-
-                bw.Write(Unknown1);
-                bw.Write(Unknown2);
-                bw.Write(Sections.Count);
-                foreach (var section in Sections)
-                    section.Write(bw);
-            }
-
-            public class Section
-            {
-                public string Name { get; set; }
-                public int Unknown1 { get; set; }
-                public int Unknown2 { get; set; }
-                public string Value { get; set; }
-                private string RawValue {
-                    get
-                    {
-                        return string.IsNullOrEmpty(Value) ? "\0" : Value;
-                    }
-                    set
-                    {
-                        Value = value == "\0" ? string.Empty : value;
-                    }
-                }
-                public List<SubItem> SubItems { get; } = new List<SubItem>();
-
-                public int DataLength
-                {
-                    get
-                    {
-                        int length = sizeof(int) + sizeof(int) + 1 + Encoding.Unicode.GetByteCount(RawValue);
-                        foreach (var item in SubItems)
-                            length += 1 + item.Length;
-                        return length;
-                    }
-                }
-
-                public int Length
-                {
-                    get
-                    {
-                        return 1 + Encoding.ASCII.GetByteCount(Name) + sizeof(int) + DataLength;
-                    }
-                }
-
-                public Section(byte[] data, ref int pos)
-                {
-                    byte nameLength = data[pos++];
-                    Name = BinaryExtensions.ReadASCIIString(data, pos, nameLength);
-                    pos += nameLength;
-
-                    int length = BitConverter.ToInt32(data, pos);
-                    pos += sizeof(int);
-
-                    int remaining = data.Length - pos;
-                    if (length > remaining)
-                        throw new InvalidDataException($"Invalid Custom Save Data Section. Required bytes: {length}. Remaining bytes: {remaining}.");
-
-                    byte[] sectionData = new byte[length];
-                    Array.Copy(data, pos, sectionData, 0, length);
-                    ProcessSectionData(sectionData);
-
-                    pos += length;
-                }
-
-                private void ProcessSectionData(byte[] data)
-                {
-                    int pos = 0;
-
-                    Unknown1 = BitConverter.ToInt32(data, pos);
-                    pos += sizeof(int);
-
-                    Unknown2 = BitConverter.ToInt32(data, pos);
-                    pos += sizeof(int);
-
-                    byte valueLength = data[pos++];
-                    RawValue = BinaryExtensions.ReadUnicodeString(data, pos, valueLength);
-                    pos += valueLength * 2;
-
-                    while (pos < data.Length)
-                    {
-                        pos += 1; // Separator? Idk
-                        SubItem item = new SubItem(data, ref pos);
-                        SubItems.Add(item);
-                    }
-                }
-
-                public void Write(BinaryWriter bw)
-                {
-                    byte[] nameBytes = Encoding.ASCII.GetBytes(Name);
-                    if (nameBytes.Length > byte.MaxValue)
-                        throw new InvalidDataException($"{nameof(Name)} has a max length of {byte.MaxValue} bytes. Current value bytes {nameBytes.Length}.");
-
-                    byte[] valueBytes = Encoding.Unicode.GetBytes(RawValue);
-                    if (valueBytes.Length > byte.MaxValue * 2)
-                        throw new InvalidDataException($"{nameof(RawValue)} has a max length of {byte.MaxValue * 2} bytes. Current value bytes {valueBytes.Length}.");
-
-                    bw.Write((byte)nameBytes.Length);
-                    bw.Write(nameBytes);
-
-                    bw.Write(DataLength);
-
-                    bw.Write(Unknown1);
-                    bw.Write(Unknown2);
-
-                    bw.Write((byte)(valueBytes.Length / 2));
-                    bw.Write(valueBytes);
-
-                    foreach (var subItem in SubItems)
-                    {
-                        bw.Write((byte)0);
-                        subItem.Write(bw);
-                    }
-                }
-
-                public class SubItem
-                {
-                    public string Name { get; set; }
-                    public int Unknown1 { get; set; }
-                    public int Unknown2 { get; set; }
-                    public List<List<string>> Values { get; } = new List<List<string>>();
-
-                    public int DataLength
-                    {
-                        get
-                        {
-                            int length = sizeof(int) + sizeof(int);
-                            foreach (var x in Values)
-                            {
-                                length += sizeof(int);
-                                foreach (var y in x)
-                                    length += 1 + Encoding.ASCII.GetByteCount(y);
-                            }
-                            return length;
-                        }
-                    }
-
-                    public int Length
-                    {
-                        get
-                        {
-                            return 1 + Encoding.ASCII.GetByteCount(Name) + sizeof(int) + DataLength;
-                        }
-                    }
-
-                    public SubItem(byte[] data, ref int pos)
-                    {
-                        byte nameLength = data[pos++];
-                        Name = BinaryExtensions.ReadASCIIString(data, pos, nameLength);
-                        pos += nameLength;
-
-                        int length = BitConverter.ToInt32(data, pos);
-                        pos += sizeof(int);
-
-                        int remaining = data.Length - pos;
-                        if (length > remaining)
-                            throw new InvalidDataException($"Invalid Custom Save Data Section Sub Item. Required bytes: {length}. Remaining bytes: {remaining}.");
-
-                        byte[] itemData = new byte[length];
-                        Array.Copy(data, pos, itemData, 0, length);
-                        ProcessItemData(itemData);
-
-                        pos += length;
-                    }
-
-                    private void ProcessItemData(byte[] data)
-                    {
-                        int pos = 0;
-
-                        Unknown1 = BitConverter.ToInt32(data, pos);
-                        pos += sizeof(int);
-
-                        Unknown2 = BitConverter.ToInt32(data, pos);
-                        pos += sizeof(int);
-
-                        while (pos < data.Length)
-                        {
-                            int itemCount = BitConverter.ToInt32(data, pos);
-                            pos += sizeof(int);
-
-                            List<string> items = new List<string>(itemCount);
-                            for (int i = 0; i < itemCount; i++)
-                            {
-                                byte nameLength = data[pos++];
-                                items.Add(BinaryExtensions.ReadASCIIString(data, pos, nameLength));
-                                pos += nameLength;
-                            }
-                            Values.Add(items);
-                        }
-                    }
-
-                    public void Write(BinaryWriter bw)
-                    {
-                        byte[] nameBytes = Encoding.ASCII.GetBytes(Name);
-                        if (nameBytes.Length > byte.MaxValue)
-                            throw new InvalidDataException($"{nameof(Name)} has a max length of {byte.MaxValue} bytes. Current value bytes {nameBytes.Length}.");
-
-                        foreach (var x in Values)
-                        {
-                            foreach (var y in x)
-                            {
-                                int z = Encoding.ASCII.GetByteCount(y);
-                                if (z > byte.MaxValue)
-                                    throw new InvalidDataException($"A value has a max length of {byte.MaxValue} bytes. Current value bytes {z}.");
-                            }
-                        }
-
-                        bw.Write((byte)nameBytes.Length);
-                        bw.Write(nameBytes);
-
-                        bw.Write(DataLength);
-
-                        bw.Write(Unknown1);
-                        bw.Write(Unknown2);
-
-                        foreach (var x in Values)
-                        {
-                            bw.Write(x.Count);
-                            foreach (var y in x)
-                            {
-                                byte[] z = Encoding.ASCII.GetBytes(y);
-                                bw.Write((byte)z.Length);
-                                bw.Write(z);
-                            }
-                        }
-                    }
-                }
-            }
+            LucasModLauncherData?.Write(bw);
+            bw.Write(Data);
         }
     }
 }

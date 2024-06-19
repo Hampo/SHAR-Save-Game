@@ -3,7 +3,7 @@
     public static class Names
     {
         public static readonly string[] Cards =
-        {
+        [
             // Level 1
             "card11 (Home Made Football)",
             "card12 (Crab Juice)",
@@ -67,10 +67,10 @@
             "card76 (Monkey's Paw)",
             "card77 (\"Smarch\" Calendar)",
             "UNUSED",
-        };
+        ];
 
         public static readonly string[] Level1PurchasedRewards =
-        {
+        [
             "Reward 0 (Plow King)",
             "Reward 1 (Duff Truck)",
             "Reward 2 (Surveillance Van)",
@@ -83,9 +83,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level1Gags = {
+        public static readonly string[] Level1Gags =
+        [
             "Gag 0 (gag_bbq.p3d)",
             "Gag 1 (gag_gas.p3d)",
             "Gag 2 (gag_shel.p3d)",
@@ -118,10 +119,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level1Missions =
-        {
+        [
             "Mission 0 (The Cola Caper)",
             "Mission 1 (S-M-R-T)",
             "Mission 2 (Petty Theft Homer)",
@@ -135,10 +136,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level2PurchasedRewards =
-        {
+        [
             "Reward 0 (Mr. Plow)",
             "Reward 1 (Limo)",
             "Reward 2 (Fire Truck)",
@@ -151,9 +152,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level2Gags = {
+        public static readonly string[] Level2Gags =
+        [
             "Gag 0 (gag_jar.p3d)",
             "Gag 1 (gag_flm.p3d)",
             "Gag 2 (gag_love.p3d)",
@@ -186,10 +188,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level2Missions =
-        {
+        [
             "Mission 1 (Detention Deficit Disorder)",
             "Mission 2 (Weapons of Mass Delinquency)",
             "Mission 3 (Vox Nerduli)",
@@ -203,10 +205,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level3PurchasedRewards =
-        {
+        [
             "Reward 0 (School Bus)",
             "Reward 1 (Donut Truck)",
             "Reward 2 (Nerd Car)",
@@ -219,9 +221,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level3Gags = {
+        public static readonly string[] Level3Gags =
+        [
             "Gag 0 (gag_racm.p3d)",
             "Gag 1 (gag_clnk.p3d)",
             "Gag 2 (gag_flag.p3d)",
@@ -254,10 +257,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level3Missions =
-        {
+        [
             "Mission 1 (Nerd Race Queen)",
             "Mission 2 (Clueless)",
             "Mission 3 (Bonfire of the Manatees)",
@@ -271,10 +274,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level4PurchasedRewards =
-        {
+        [
             "Reward 0 (Tractor)",
             "Reward 1 (Krusty's Limo)",
             "Reward 2 (Curator)",
@@ -287,9 +290,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level4Gags = {
+        public static readonly string[] Level4Gags =
+        [
             "Gag 0 (l04_bbq.p3d)",
             "Gag 1 (l04_gas.p3d)",
             "Gag 2 (gag_shel.p3d)",
@@ -322,10 +326,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level4Missions =
-        {
+        [
             "Mission 1 (For A Few Donuts More)",
             "Mission 2 (Redneck Roundup)",
             "Mission 3 (Ketchup Logic)",
@@ -339,10 +343,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level5PurchasedRewards =
-        {
+        [
             "Reward 0 (Car Built For Homer)",
             "Reward 1 (Police Car)",
             "Reward 2 (Cola Truck)",
@@ -355,9 +359,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level5Gags = {
+        public static readonly string[] Level5Gags =
+        [
             "Gag 0 (gag_jar.p3d)",
             "Gag 1 (gag_flm.p3d)",
             "Gag 2 (gag_love.p3d)",
@@ -390,10 +395,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level5Missions =
-        {
+        [
             "Mission 1 (Incriminating Caffeine)",
             "Mission 2 (. . . and Baby Makes 8)",
             "Mission 3 (Eight is Too Much)",
@@ -407,10 +412,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level6PurchasedRewards =
-        {
+        [
             "Reward 0 (Globex Super Villain Car)",
             "Reward 1 (Armored Truck)",
             "Reward 2 (Chase Sedan)",
@@ -423,9 +428,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level6Gags = {
+        public static readonly string[] Level6Gags =
+        [
             "Gag 0 (gag_racm.p3d)",
             "Gag 1 (gag_clnk.p3d)",
             "Gag 2 (l06_flag.p3d)",
@@ -458,10 +464,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level6Missions =
-        {
+        [
             "Mission 1 (Going to the Lu')",
             "Mission 2 (Getting Down with the Clown)",
             "Mission 3 (Lab Coat Caper)",
@@ -475,10 +481,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] Level7PurchasedRewards =
-        {
+        [
             "Reward 0 (Zombie Car)",
             "Reward 1 (Hover Bike)",
             "Reward 2 (Hearse)",
@@ -491,9 +497,10 @@
             "Reward 9 (Unused)",
             "Reward 10 (Unused)",
             "Reward 11 (Unused)",
-        };
+        ];
 
-        public static readonly string[] Level7Gags = {
+        public static readonly string[] Level7Gags =
+        [
             "Gag 0 (l07_gas.p3d)",
             "Gag 1 (l07_swng.p3d)",
             "Gag 2 (l07_swg2.p3d)",
@@ -526,10 +533,10 @@
             "Gag 29 (unused)",
             "Gag 30 (unused)",
             "Gag 31 (unused)",
-        };
+        ];
 
         public static readonly string[] Level7Missions =
-        {
+        [
             "Mission 1 (Rigor Motors)",
             "Mission 2 (Long Black Probes)",
             "Mission 3 (Pocket Protector)",
@@ -543,10 +550,10 @@
             "Race 2 (Circuit Race)",
             "Race 3 (Checkpoint Race)",
             "Race 4 (Wager Race)",
-        };
+        ];
 
         public static readonly string[] PersistentObjectStates =
-        {
+        [
             "Sector: l1r1.p3d | Object 0 (l1_lemonade_Shape->l1_lemonade)",
             "Sector: l1r1.p3d | Object 1 (coin)",
             "Sector: l1r1.p3d | Object 2 (coin2)",
@@ -11043,92 +11050,6 @@
             "Sector: Level 7 | Object 125 (Unused)",
             "Sector: Level 7 | Object 126 (Unused)",
             "Sector: Level 7 | Object 127 (Unused)",
-        };
-
-        public static readonly string[] PersistentObjectStateSectors =
-        {
-            "l1r1.p3d",
-            "l1r2.p3d",
-            "l1r3.p3d",
-            "l1r4a.p3d",
-            "l1r4b.p3d",
-            "l1r6.p3d",
-            "l1r7.p3d",
-            "l1z1.p3d",
-            "l1z2.p3d",
-            "l1z3.p3d",
-            "l1z4.p3d",
-            "l1z6.p3d",
-            "l1z7.p3d",
-            "l2r1.p3d",
-            "l2r2.p3d",
-            "l2r3.p3d",
-            "l2r4.p3d",
-            "l2z1.p3d",
-            "l2z2.p3d",
-            "l2z3.p3d",
-            "l2z4.p3d",
-            "l3r1.p3d",
-            "l3r2.p3d",
-            "l3r3.p3d",
-            "l3r4.p3d",
-            "l3r5.p3d",
-            "l3z1.p3d",
-            "l3z2.p3d",
-            "l3z3.p3d",
-            "l3z4.p3d",
-            "l3z5.p3d",
-            "l4r1.p3d",
-            "l4r2.p3d",
-            "l4r3.p3d",
-            "l4r4a.p3d",
-            "l4r4b.p3d",
-            "l4r6.p3d",
-            "l4r7.p3d",
-            "l4z1.p3d",
-            "l4z2.p3d",
-            "l4z3.p3d",
-            "l4z4.p3d",
-            "l4z6.p3d",
-            "l4z7.p3d",
-            "l5r1.p3d",
-            "l5r2.p3d",
-            "l5r3.p3d",
-            "l5r4.p3d",
-            "l5z1.p3d",
-            "l5z2.p3d",
-            "l5z3.p3d",
-            "l5z4.p3d",
-            "l6r1.p3d",
-            "l6r2.p3d",
-            "l6r3.p3d",
-            "l6r4.p3d",
-            "l6r5.p3d",
-            "l6z1.p3d",
-            "l6z2.p3d",
-            "l6z3.p3d",
-            "l6z4.p3d",
-            "l6z5.p3d",
-            "l7r1.p3d",
-            "l7r2.p3d",
-            "l7r3.p3d",
-            "l7r4a.p3d",
-            "l7r4b.p3d",
-            "l7r6.p3d",
-            "l7r7.p3d",
-            "l7z1.p3d",
-            "l7z2.p3d",
-            "l7z3.p3d",
-            "l7z4.p3d",
-            "l7z6.p3d",
-            "l7z7.p3d",
-            "Level 1",
-            "Level 2",
-            "Level 3",
-            "Level 4",
-            "Level 5",
-            "Level 6",
-            "Level 7",
-        };
+        ];
     }
 }
