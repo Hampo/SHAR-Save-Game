@@ -17,8 +17,10 @@
             public void Set(uint Level, int Index, bool Unlocked)
             {
                 if (Unlocked)
+                {
                     if (!this.Indices[Level].Contains(Index))
                         this.Indices[Level].Add(Index);
+                }
                 else
                     this.Indices[Level].Remove(Index);
             }
