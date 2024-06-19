@@ -535,10 +535,17 @@ namespace SHARSaveGameEditor
 
             public CarInventory()
             {
-                for (int i = 0; i < Cars.Length; i++)
+                Car defaultCar = new Car()
+                {
+                    Name = "famil_v",
+                    CurrentHealth = 1,
+                    MaxHealth = -1,
+                };
+                Cars[0] = defaultCar;
+                for (int i = 1; i < Cars.Length; i++)
                     Cars[i] = new Car();
 
-                Counter = 0;
+                Counter = 1;
             }
 
             public CarInventory(BinaryReader br)
@@ -733,7 +740,7 @@ namespace SHARSaveGameEditor
 
         public TutorialManager()
         {
-            EnableTutorialEvents = false;
+            EnableTutorialEvents = true;
             TutorialsSeen = 0;
         }
 
@@ -756,7 +763,7 @@ namespace SHARSaveGameEditor
 
         public GUISystem()
         {
-            IsRadarEnabled = false;
+            IsRadarEnabled = true;
         }
 
         public GUISystem(BinaryReader br)
