@@ -779,7 +779,10 @@ namespace SHARSaveGameEditor
 
     public class CardGallery
     {
-        public bool[] CollectedCardIDs { get; } = new bool[7 * 8]; // Byte Count * Bits Per Byte
+        private const int ByteCount = 7;
+        private const int BitsPerByte = 8;
+
+        public bool[] CollectedCardIDs { get; } = new bool[ByteCount * BitsPerByte];
 
         public CardGallery()
         {
@@ -789,17 +792,17 @@ namespace SHARSaveGameEditor
 
         public CardGallery(BinaryReader br)
         {
-            byte[] collectedCardIDs = br.ReadBytes(CollectedCardIDs.Length / 8);
+            byte[] collectedCardIDs = br.ReadBytes(ByteCount);
             for (int i = 0; i < CollectedCardIDs.Length; i++)
             {
-                uint index = (uint)(i / 8);
-                CollectedCardIDs[i] = (collectedCardIDs[index] & (1 << i % 8)) > 0;
+                uint index = (uint)(i / BitsPerByte);
+                CollectedCardIDs[i] = (collectedCardIDs[index] & (1 << i % BitsPerByte)) > 0;
             }
         }
 
         public void Write(BinaryWriter bw)
         {
-            byte[] collectedCardIDs = new byte[CollectedCardIDs.Length / 8];
+            byte[] collectedCardIDs = new byte[ByteCount];
             for (int i = 0; i < collectedCardIDs.Length; i++)
                 collectedCardIDs[i] = 0;
 
@@ -807,8 +810,8 @@ namespace SHARSaveGameEditor
             {
                 if (CollectedCardIDs[i])
                 {
-                    uint index = (uint)(i / 8);
-                    collectedCardIDs[index] |= (byte)(1 << (i % 8));
+                    uint index = (uint)(i / BitsPerByte);
+                    collectedCardIDs[index] |= (byte)(1 << (i % BitsPerByte));
                 }
             }
 
