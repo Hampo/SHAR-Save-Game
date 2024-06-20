@@ -66,8 +66,8 @@ A library for handling SHAR save games.
 - `Jump Cams Enabled` - If enabled, camera angle changes when going over a jump.
 - `Is Inverted Camera Enabled` - If enabled, the first person camera is inverted.
 - `Perferred Follow Cam` - The default follow cam for the player.
-## Tutorial Manager
 
+## Tutorial Manager
 - `Enable Tutorial Events` - Should the tutorial events be shown.
 - `Tutorials Seen` - The different tutorials.
 
@@ -76,6 +76,7 @@ A library for handling SHAR save games.
 
 ## Card Gallery
 - `Collected Card IDs` - A list of all cards.
+
 ## Custom Save Data
 
 ### Unknown
