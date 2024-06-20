@@ -33,7 +33,7 @@ A library for handling SHAR save games.
 - `Current Skin` - Current costume in the level.
 - `Purchased Rewards` - The list of rewards in the level.
   - The sum of `Num Cars Purchased` and `Num Skins Purchased` must equal the number of items checked.
-    - However, if a save with IncreasedRewardLimits is loaded, any reward with an index greater than 11 should be omitted from this count.
+    - However, if a save with `IncreasedRewardLimits` is loaded, any reward with an index greater than 11 should be omitted from this count.
 - `Gags Viewed` - The gags viewed in the level.
 
 #### Missions
