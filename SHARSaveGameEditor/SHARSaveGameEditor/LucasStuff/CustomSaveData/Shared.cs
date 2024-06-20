@@ -132,7 +132,7 @@
                     else
                     {
                         var HackData = new THackCustomSaveDataUnknown(HackName);
-                        if (!HackCustomSaveData.Contains(Data))
+                        if (!HackCustomSaveData.Contains(HackData))
                             this.HackCustomSaveData.Add(HackData);
                         this.HackCustomSaveDataUnknown.Add(HackData);
                         var StartPosition = Reader.BaseStream.Position;
