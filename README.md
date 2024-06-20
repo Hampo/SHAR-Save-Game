@@ -2,14 +2,23 @@
 A library for handling SHAR save games.
 
 # SHAR Save Game Editor
+![All Settings](Screenshots/10.%20All%20settings.gif?raw=true "All Settings")
+
 ## Save Game Info
 - `Save Date` - The last saved date of the file, displays in the `Load Game` and `Save Game` screens.
   - `Auto update` - Will automatically update the `Save Date` when the file is saved.
 - `Display Level`/`Display Mission` - The Level/Mission to show in the `Load Game` and `Save Game` screens.
-  - This is different from `Character Sheet`->`Current Mission Info`. You can display one mission and launch another. :WoahRadical: 
+  - This is different from `Character Sheet`->`Current Mission Info`. You can display one mission and launch another.
+
+![Save Game Info](Screenshots/01.%20The%20%60Save%20Game%20Info%60%20tab.png?raw=true "Save Game Info")
+
 ## Input Manager
 - `Is Rumble Enabled` - Controller rumble.
+
+![Input Manager](Screenshots/02.%20The%20%60Input%20Manager%60%20tab.png?raw=true "Input Manager")
+
 ## Character Sheet
+
 ### Miscellaneous
 - `Player Name` - Entirely useless, game always sets it to `Player1`. Probably a relic of when the game supported split screen in story mode.
 - `Current Mission Info` - The mission to launch when on `Resume Game`.
@@ -18,7 +27,9 @@ A library for handling SHAR save games.
 - `Coins` - The number of coins you have.
 - `Itchy Scratchy CBG First`/`Itchy Scratchy Ticket` - Related to talking to CBG to get the ticket after collecting all cards.
 - `Persistent Object States` - Breakable objects, coins and wasps. Maybe more things I haven't figured out yet.
+
 ### Levels
+
 #### Miscellaneous
 - `FMV Unlocked` - For every level other than 3, it allows you to skip the video that plays during that level. For level 3 it's if you've watched the Itchy Scratchy movie.
 - `Num Cars Purchased` - Number of `Purchased Rewards` that are cars.
@@ -27,7 +38,9 @@ A library for handling SHAR save games.
 - `Current Skin` - Current costume in the level.
 - `Purchased Rewards` - The list of rewards in the level.
   - The sum of `Num Cars Purchased` and `Num Skins Purchased` must equal the number of items checked.
+    - However, if a save with `IncreasedRewardLimits` is loaded, any reward with an index greater than 11 should be omitted from this count.
 - `Gags Viewed` - The gags viewed in the level.
+
 #### Missions
 - `Mission Name` - The name of the mission. Determined by the `AddMission` MFK function.
 - `Completed` - If the mission has been completed.
@@ -35,36 +48,63 @@ A library for handling SHAR save games.
 - `Num Attempts` - The number of times the mission was attempted prior to completion.
 - `Skipped Mission` - If the mission was skipped.
 - `Best Time` - Really only used by the `Race 1 (Time Trial)`. The best time of the trial.
+
 #### Cards
 - `Card Name` - Unused by the game. Hardcodedly set to `Cardx`.
 - `Collected` - If the card has been collected.
+
 ### Cars
 - `Name` - The car name.
 - `Current Health (%)` - The current health of the vehicle (think damage in the phonebooth).
 - `Max Health` - Unused by the game. _Should_ be the vehicles hit points.
 - `Counter` - The number of cars in the inventory.
   - This should equal the number of cars with names that aren't `n/a`, but this isn't enforced.
+
+![Character Sheet](Screenshots/03.%20The%20%60Character%20Sheet%60%20tab.png?raw=true "Character Sheet")
+
 ## Sound Settings
 - `Music Volume` - The music volume percentage.
 - `SFX Volume` - The SFX volume percentage.
 - `Car Volume` - The car volume percentage.
 - `Dialog Volume` - The dialog volume percentage.
 - `Is Surround` - If checked, the game uses surround sound. If unchecked, the game uses stereo audio.
+
+![Sound Settings](Screenshots/04.%20The%20%60Sound%20Settings%60%20tab.png?raw=true "Sound Settings")
+
 ## Super Cam Central
 *Note: The 4 options are the 4 players in the bonus game.*
 - `Jump Cams Enabled` - If enabled, camera angle changes when going over a jump.
 - `Is Inverted Camera Enabled` - If enabled, the first person camera is inverted.
 - `Perferred Follow Cam` - The default follow cam for the player.
+
+![Super Cam Central](Screenshots/05.%20The%20%60Super%20Cam%20Central%60%20tab.png?raw=true "Super Cam Central")
+
 ## Tutorial Manager
 - `Enable Tutorial Events` - Should the tutorial events be shown.
 - `Tutorials Seen` - The different tutorials.
+
+![Tutorial Manager](Screenshots/06.%20The%20%60Tutorial%20Manager%60%20tab.png?raw=true "Tutorial Manager")
+
 ## GUI System
 - `Is Radar Enabled` - Is the radar shown in-game.
+
+![GUI System](Screenshots/07.%20The%20%60GUI%20System%60%20tab.png?raw=true "GUI System")
+
 ## Card Gallery
 - `Collected Card IDs` - A list of all cards.
+
+![Card Gallery](Screenshots/08.%20The%20%60Card%20Gallery%60%20tab.png?raw=true "Card Gallery")
+
 ## Custom Save Data
-- `Custom Save Data` - Currently just shows the size. The data added by Lucas' Simpsons Hit & Run Mod Launcher.
-  - Hopefully will be able to manipulate this in a future version.
+
+### Unknown
+- As save files can contain any data after the vanilla contents, any completely unknown data will be displayed here.
+
+### Lucas Mod Launcher Data
+- `Mod Launcher Version` - The version of the mod launcher the save was created in.
+- `Main Mod` - The name of the mod the save was created for.
+
+![Custom Save Data](Screenshots/09.%20The%20%60Custom%20Save%20Data%60%20tab.png?raw=true "Custom Save Data")
 
 # Overall File Structure
 A valid save file starts with a magic number and is composed of various sections, each corresponding to a specific part of the game state. The expected size for a vanilla save file is 7194 bytes.
