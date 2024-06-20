@@ -2,6 +2,7 @@
 A library for handling SHAR save games.
 
 # SHAR Save Game Editor
+![All Settings](/Screenshots/10. All settings.gif?raw=true)
 
 ## Save Game Info
 - `Save Date` - The last saved date of the file, displays in the `Load Game` and `Save Game` screens.
