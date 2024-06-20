@@ -63,8 +63,11 @@ A library for handling SHAR save games.
 ## Card Gallery
 - `Collected Card IDs` - A list of all cards.
 ## Custom Save Data
-- `Custom Save Data` - Currently just shows the size. The data added by Lucas' Simpsons Hit & Run Mod Launcher.
-  - Hopefully will be able to manipulate this in a future version.
+### Unknown
+- As save files can contain any data after the vanilla contents, any completely unknown data will be displayed here.
+### Lucas Mod Launcher Data
+- `Mod Launcher Version` - The version of the mod launcher the save was created in.
+- `Main Mod` - The name of the mod the save was created for.
 
 # Overall File Structure
 A valid save file starts with a magic number and is composed of various sections, each corresponding to a specific part of the game state. The expected size for a vanilla save file is 7194 bytes.
