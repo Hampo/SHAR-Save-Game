@@ -3,6 +3,8 @@ local setmetatable = setmetatable
 local type = type
 local tostring = tostring
 
+local math_floor = math.floor
+
 local string_pack = string.pack
 local string_rep = string.rep
 local string_unpack = string.unpack
@@ -190,7 +192,7 @@ function CharacterSheet:new(data, pos)
 		data.Cars = CharacterSheet.CarInventory:new()
 		data.PersistentObjectStates = {}
 		for i=1,1312 do
-			data.PersistentObjectStates[i] = 0
+			data.PersistentObjectStates[i] = 255
 		end
 		data.ItchyScratchyCBGFirst = false
 		data.ItchyScratchyTicket = false
@@ -587,7 +589,7 @@ function TutorialManager:new(data, pos)
 	self.__index = self
 	if data == nil then
 		return setmetatable({
-			EnableTutorialEvents = false,
+			EnableTutorialEvents = true,
 			TutorialsSeen = 0,
 		}, self)
 	end
@@ -637,13 +639,18 @@ function GUISystem:__tostring()
 end
 -- End GUI System
 
--- TODO: Actual handling
 -- Start Card Gallery
-function CardGallery:new(data, pos)
+local ByteCount = 7
+local BitsPerByte = 8
+function CardGallery:new(data, pos)	
 	self.__index = self
 	if data == nil then
+		local Cards = {}
+		for i=1,ByteCount*BitsPerByte do
+			Cards[i] = false
+		end
 		return setmetatable({
-			Data = "\0\0\0\0\0\0\0",
+			Cards = Cards,
 		}, self)
 	end
 	
@@ -654,13 +661,34 @@ function CardGallery:new(data, pos)
 	
 	local cardGallery = {}
 	
-	cardGallery.Data, pos = string_unpack("c7", data, pos)
+	local cards = {}
+	cardGallery.Cards = cards
+	
+	local bytes = {string_unpack("BBBBBBB", data, pos)}
+	pos = bytes[8]
+	bytes[8] = nil
+	for i=1,ByteCount*BitsPerByte do
+		local index = math_floor((i - 1) / BitsPerByte)
+		cards[i] = (bytes[index + 1] & (1 << (i - 1) % BitsPerByte)) > 0
+	end
 	
 	return setmetatable(cardGallery, self), pos
 end
 
 function CardGallery:__tostring()
-	return self.Data
+	local bytes = {}
+	for i=1,ByteCount do
+		bytes[i] = 0
+	end
+	
+	for i=1,#self.Cards do
+		if self.Cards[i] then
+			local index = math_floor((i - 1) / BitsPerByte)
+			bytes[index + 1] = bytes[index + 1] | (1 << (i - 1) % BitsPerByte)
+		end
+	end
+	
+	return string_pack("BBBBBBB", table_unpack(bytes))
 end
 -- End Card Gallery
 
