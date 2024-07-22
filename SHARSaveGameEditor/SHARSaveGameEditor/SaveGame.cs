@@ -318,7 +318,7 @@ namespace SHARSaveGameEditor
                     GagsCompleted[i] = false;
 
                 for (int i = 0; i < PurchasedRewards.Length; i++)
-                    GagsCompleted[i] = false;
+                    PurchasedRewards[i] = false;
             }
 
             public Level(BinaryReader br)
@@ -852,10 +852,7 @@ namespace SHARSaveGameEditor
             LucasModLauncherData = customSaveData;
 
             remaining = (int)(br.BaseStream.Length - br.BaseStream.Position);
-            if (remaining > 0)
-                Data = br.ReadBytes(remaining);
-            else
-                Data = [];
+            Data = remaining > 0 ? br.ReadBytes(remaining) : [];
         }
 
         public void Write(BinaryWriter bw)

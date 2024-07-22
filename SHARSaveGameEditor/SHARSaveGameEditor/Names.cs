@@ -404,7 +404,7 @@
             "Mission 3 (Eight is Too Much)",
             "Mission 4 (This Little Piggy)",
             "Mission 5 (Never Trust a Snake)",
-            "Mission 6 (Kiwk Cash)",
+            "Mission 6 (Kwik Cash)",
             "Mission 7 (Curious Curator)",
             "Mission 8 (Unnamed)",
             "Bonus Mission (Kinky Frinky)",

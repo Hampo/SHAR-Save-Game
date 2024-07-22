@@ -18,10 +18,6 @@ namespace SHARSaveGameEditor
             return Encoding.ASCII.GetString(bytes, 0, nullIndex);
         }
 
-        public static string ReadASCIIString(byte[] data, int pos, int length) => Encoding.ASCII.GetString(data, pos, length);
-
-        public static string ReadUnicodeString(byte[] data, int pos, int length) => Encoding.Unicode.GetString(data, pos, length * 2);
-
         public static void WriteNullTerminatedString(BinaryWriter writer, string value, int length)
         {
             byte[] bytes = Encoding.ASCII.GetBytes(value);

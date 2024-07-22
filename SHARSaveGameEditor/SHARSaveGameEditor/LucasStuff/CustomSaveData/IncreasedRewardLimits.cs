@@ -1,107 +1,106 @@
-﻿namespace LucasStuff
+﻿namespace LucasStuff;
+
+public partial class CustomSaveData
 {
-    public partial class CustomSaveData
+    public class THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked : THackCustomSaveData
     {
-        public class THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked : THackCustomSaveData
+        public uint Version;
+        public uint Version2;
+        public readonly System.Collections.Generic.List<int>[] Indices = new System.Collections.Generic.List<int>[7];
+
+        public THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked() : base("Unlocked")
         {
-            public uint Version;
-            public uint Version2;
-            public readonly System.Collections.Generic.List<int>[] Indices = new System.Collections.Generic.List<int>[7];
+            for (var I = 0; I < this.Indices.Length; ++I)
+                this.Indices[I] = [];
+        }
 
-            public THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked() : base("Unlocked")
+        public void Set(uint Level, int Index, bool Unlocked)
+        {
+            if (Unlocked)
             {
-                for (var I = 0; I < this.Indices.Length; ++I)
-                    this.Indices[I] = [];
+                if (!this.Indices[Level].Contains(Index))
+                    this.Indices[Level].Add(Index);
             }
+            else
+                this.Indices[Level].Remove(Index);
+        }
 
-            public void Set(uint Level, int Index, bool Unlocked)
+        public override bool ShouldInclude()
+        {
+            foreach (var Indices in this.Indices)
+                if (Indices.Count > 0)
+                    return true;
+            return false;
+        }
+
+        public override int GetSize()
+        {
+            var Result =
+                sizeof(uint) +//Version
+                sizeof(uint);//Version2
+            foreach (var Indices in this.Indices)
             {
-                if (Unlocked)
-                {
-                    if (!this.Indices[Level].Contains(Index))
-                        this.Indices[Level].Add(Index);
-                }
-                else
-                    this.Indices[Level].Remove(Index);
+                Result +=
+                    sizeof(uint) +//Count
+                    Indices.Count * sizeof(int);
             }
+            return Result;
+        }
 
-            public override bool ShouldInclude()
-            {
-                foreach (var Indices in this.Indices)
-                    if (Indices.Count > 0)
-                        return true;
+        public override bool Read(System.IO.BinaryReader Reader, uint Size)
+        {
+            foreach (var Indices in this.Indices)
+                Indices.Clear();
+            this.Version = Reader.ReadUInt32();
+            if (this.Version > 0)
                 return false;
-            }
-
-            public override int GetSize()
+            this.Version2 = Reader.ReadUInt32();
+            foreach (var Indices in this.Indices)
             {
-                var Result =
-                    sizeof(uint) +//Version
-                    sizeof(uint);//Version2
-                foreach (var Indices in this.Indices)
+                var UnlockedMerchandiseCount = Reader.ReadUInt32();
+                for (var I = 0; I < UnlockedMerchandiseCount; ++I)
                 {
-                    Result +=
-                        sizeof(uint) +//Count
-                        Indices.Count * sizeof(int);
-                }
-                return Result;
-            }
-
-            public override bool Read(System.IO.BinaryReader Reader, uint Size)
-            {
-                foreach (var Indices in this.Indices)
-                    Indices.Clear();
-                this.Version = Reader.ReadUInt32();
-                if (this.Version > 0)
-                    return false;
-                this.Version2 = Reader.ReadUInt32();
-                foreach (var Indices in this.Indices)
-                {
-                    var UnlockedMerchandiseCount = Reader.ReadUInt32();
-                    for (var I = 0; I < UnlockedMerchandiseCount; ++I)
-                    {
-                        var Index = Reader.ReadInt32();
-                        Indices.Add(Index);
-                    }
-                }
-                return true;
-            }
-
-            public override void Write(System.IO.BinaryWriter Writer)
-            {
-                Writer.Write(this.Version);
-                Writer.Write(this.Version2);
-                foreach (var Indices in this.Indices)
-                {
-                    Writer.Write((uint)Indices.Count);
-                    foreach (var it in Indices)
-                        Writer.Write(it);
+                    var Index = Reader.ReadInt32();
+                    Indices.Add(Index);
                 }
             }
-
-            public override void Reset()
-            {
-                foreach (var Indices in this.Indices)
-                    Indices.Clear();
-            }
+            return true;
         }
 
-        public THackCustomSaveDataGroup HackCustomSaveDataIncreasedRewardLimits = null;
-        public THackCustomSaveDataGroup HackCustomSaveDataIncreasedRewardLimitsMerchandise = null;
-        public THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked = null;
-
-        private void OnIncreasedRewardLimitsLoad()
+        public override void Write(System.IO.BinaryWriter Writer)
         {
-            this.HackCustomSaveDataIncreasedRewardLimits = new("IncreasedRewardLimits");
-            this.HackCustomSaveDataIncreasedRewardLimitsMerchandise = new("Merchandise");
-            this.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked = new();
+            Writer.Write(this.Version);
+            Writer.Write(this.Version2);
+            foreach (var Indices in this.Indices)
+            {
+                Writer.Write((uint)Indices.Count);
+                foreach (var it in Indices)
+                    Writer.Write(it);
+            }
         }
 
-        private void OnIncreasedRewardLimitsAddHack()
+        public override void Reset()
         {
-            AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimits);
-            this.HackCustomSaveDataIncreasedRewardLimits.AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimitsMerchandise);
-            this.HackCustomSaveDataIncreasedRewardLimitsMerchandise.AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked);
+            foreach (var Indices in this.Indices)
+                Indices.Clear();
         }
+    }
+
+    public THackCustomSaveDataGroup HackCustomSaveDataIncreasedRewardLimits = null;
+    public THackCustomSaveDataGroup HackCustomSaveDataIncreasedRewardLimitsMerchandise = null;
+    public THackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked = null;
+
+    private void OnIncreasedRewardLimitsLoad()
+    {
+        this.HackCustomSaveDataIncreasedRewardLimits = new("IncreasedRewardLimits");
+        this.HackCustomSaveDataIncreasedRewardLimitsMerchandise = new("Merchandise");
+        this.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked = new();
+    }
+
+    private void OnIncreasedRewardLimitsAddHack()
+    {
+        AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimits);
+        this.HackCustomSaveDataIncreasedRewardLimits.AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimitsMerchandise);
+        this.HackCustomSaveDataIncreasedRewardLimitsMerchandise.AddKnownHackCustomSaveData(this.HackCustomSaveDataIncreasedRewardLimitsMerchandiseUnlocked);
     }
 }
