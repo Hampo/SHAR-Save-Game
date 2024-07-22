@@ -12,6 +12,8 @@ local string_unpack = string.unpack
 local table_concat = table.concat
 local table_unpack = table.unpack
 
+local BitsPerByte = 8
+
 SaveGame = SaveGame or {}
 assert(type(SaveGame) == "table", "Global SaveGame must be a table.")
 
@@ -176,6 +178,7 @@ end
 -- End Input Manager
 
 -- Start Character Sheet
+local PersistentObjectStatesByteCount = 1312
 function CharacterSheet:new(data, pos)
 	self.__index = self
 	if data == nil then
@@ -191,8 +194,8 @@ function CharacterSheet:new(data, pos)
 		data.Coins = 0
 		data.Cars = CharacterSheet.CarInventory:new()
 		data.PersistentObjectStates = {}
-		for i=1,1312 do
-			data.PersistentObjectStates[i] = 255
+		for i=1,PersistentObjectStatesByteCount*BitsPerByte do
+			data.PersistentObjectStates[i] = true
 		end
 		data.ItchyScratchyCBGFirst = false
 		data.ItchyScratchyTicket = false
@@ -216,9 +219,14 @@ function CharacterSheet:new(data, pos)
 	characterSheet.HighestMissionInfo, pos = CharacterSheet.CurrentMission:new(data, pos)
 	characterSheet.IsNavSystemEnabled, characterSheet.Coins, pos = string_unpack("Bxxxi", data, pos)
 	characterSheet.Cars, pos = CharacterSheet.CarInventory:new(data, pos)
-	characterSheet.PersistentObjectStates = {string_unpack(string_rep("B", 1312), data, pos)}
-	pos = characterSheet.PersistentObjectStates[#characterSheet.PersistentObjectStates]
-	characterSheet.PersistentObjectStates[#characterSheet.PersistentObjectStates] = nil
+	local bytes = {string_unpack(string_rep("B", PersistentObjectStatesByteCount), data, pos)}
+	pos = bytes[#bytes]
+	bytes[#bytes] = nil
+	characterSheet.PersistentObjectStates = {}
+	for i=1,PersistentObjectStatesByteCount*BitsPerByte do
+		local index = math_floor((i - 1) / BitsPerByte)
+		characterSheet.PersistentObjectStates[i] = (bytes[index + 1] & (1 << (i - 1) % BitsPerByte)) > 0
+	end
 	local state
 	state, pos = string_unpack("Bxxx", data, pos)
 	characterSheet.ItchyScratchyCBGFirst = (state & 0x01) > 0
@@ -237,7 +245,18 @@ function CharacterSheet:__tostring()
 	data[10] = tostring(self.HighestMissionInfo)
 	data[11] = string_pack("Bxxxi", self.IsNavSystemEnabled and 1 or 0, self.Coins)
 	data[12] = tostring(self.Cars)
-	data[13] = string_pack(string_rep("B", 1312), table_unpack(self.PersistentObjectStates))
+	local bytes = {}
+	for i=1,PersistentObjectStatesByteCount do
+		bytes[i] = 0
+	end
+	
+	for i=1,#self.PersistentObjectStates do
+		if self.PersistentObjectStates[i] then
+			local index = math_floor((i - 1) / BitsPerByte)
+			bytes[index + 1] = bytes[index + 1] | (1 << (i - 1) % BitsPerByte)
+		end
+	end
+	data[13] = string_pack(string_rep("B", PersistentObjectStatesByteCount), table_unpack(bytes))
 	local state = 0
 	if self.ItchyScratchyCBGFirst then
 		state = state | 0x01
@@ -640,13 +659,12 @@ end
 -- End GUI System
 
 -- Start Card Gallery
-local ByteCount = 7
-local BitsPerByte = 8
+local CardGalleryByteCount = 7
 function CardGallery:new(data, pos)	
 	self.__index = self
 	if data == nil then
 		local Cards = {}
-		for i=1,ByteCount*BitsPerByte do
+		for i=1,CardGalleryByteCount*BitsPerByte do
 			Cards[i] = false
 		end
 		return setmetatable({
@@ -664,10 +682,10 @@ function CardGallery:new(data, pos)
 	local cards = {}
 	cardGallery.Cards = cards
 	
-	local bytes = {string_unpack("BBBBBBB", data, pos)}
-	pos = bytes[8]
-	bytes[8] = nil
-	for i=1,ByteCount*BitsPerByte do
+	local bytes = {string_unpack(string_rep("B", CardGalleryByteCount), data, pos)}
+	pos = bytes[#bytes]
+	bytes[#bytes] = nil
+	for i=1,CardGalleryByteCount*BitsPerByte do
 		local index = math_floor((i - 1) / BitsPerByte)
 		cards[i] = (bytes[index + 1] & (1 << (i - 1) % BitsPerByte)) > 0
 	end
@@ -677,7 +695,7 @@ end
 
 function CardGallery:__tostring()
 	local bytes = {}
-	for i=1,ByteCount do
+	for i=1,CardGalleryByteCount do
 		bytes[i] = 0
 	end
 	
@@ -688,7 +706,7 @@ function CardGallery:__tostring()
 		end
 	end
 	
-	return string_pack("BBBBBBB", table_unpack(bytes))
+	return string_pack(string_rep("B", CardGalleryByteCount), table_unpack(bytes))
 end
 -- End Card Gallery
 
