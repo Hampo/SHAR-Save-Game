@@ -24,6 +24,11 @@ end
 
 dofile(GetModPath() .. "/Resources/lib/MFKLexer.lua")
 
+local PersistentObjectSectors = 75
+local BytesPerSector = 16
+local BitsPerByte = 8
+local NumPersistentObjectStates = PersistentObjectSectors * BytesPerSector * BitsPerByte
+
 local RewardsMFK = MFKLexer.Lexer:Parse(ReadFile("/GameData/scripts/missions/rewards.mfk"))
 local Rewards = {}
 local RewardsIndexed = {}
@@ -78,15 +83,19 @@ for level=1,7 do
 		end
 	end
 	
+	local levelWasps = {}
+	Wasps[level] = levelWasps
+	
 	local LevelInitMFK = MFKLexer.Lexer:Parse(ReadFile("/GameData/scripts/missions/level0" .. level .. "/leveli.mfk"))
-	local wasps = 0
 	for Function in LevelInitMFK:GetFunctions() do
 		local name = Function.Name:lower()
 		if name == "addspawnpoint" or name == "addspawnpointbylocatorscript" then
-			wasps = wasps + 1
+			levelWasps[#levelWasps + 1] = Function.Arguments[1]
+			if #levelWasps >= 128 then
+				break
+			end
 		end
 	end
-	Wasps[level] = wasps
 end
 
 dofile(GetModPath() .. "/Resources/lib/SaveGame.lua")
@@ -112,8 +121,8 @@ SaveData.CharacterSheet.HighestMissionInfo.Mission = Settings.HighestMission - 1
 SaveData.CharacterSheet.IsNavSystemEnabled = Settings.IsNavSystemEnabled
 SaveData.CharacterSheet.Coins = Settings.Coins
 if Settings.AllPersistentObjectStates then
-	for i=1,#SaveData.CharacterSheet.PersistentObjectStates do
-		SaveData.CharacterSheet.PersistentObjectStates[i] = 0
+	for i=1,NumPersistentObjectStates do
+		SaveData.CharacterSheet.PersistentObjectStates[i] = false
 	end
 end
 SaveData.CharacterSheet.ItchyScratchyCBGFirst = Settings.ItchyScratchyCBGFirst
@@ -123,6 +132,7 @@ for level=1,7 do
 	local levelRewards = Rewards[level]
 	local levelRewardsIndexed = RewardsIndexed[level]
 	local levelGags = Gags[level]
+	local levelWasps = Wasps[level]
 	local Level = SaveData.CharacterSheet.Levels[level]
 	local LevelPrefix = "Level" .. level
 	
@@ -142,7 +152,6 @@ for level=1,7 do
 	Level.GambleRace.Completed = Settings[LevelPrefix .. "GambleRace"]
 	
 	Level.FMVUnlocked = Settings[LevelPrefix .. "FMVUnlocked"]
-	Level.WaspsDestroyed = Settings.AllPersistentObjectStates and Wasps[level] or 0
 	Level.CurrentSkin = Settings[LevelPrefix .. "CurrentSkin"]
 	
 	local gagsViewed = 0
@@ -179,6 +188,18 @@ for level=1,7 do
 	end
 	Level.NumCarsPurchased = numCarsPurchased
 	Level.NumSkinsPurchased = numSkinsPurchased
+	
+	local waspsDestroyed = 0
+	for wasp=1,#levelWasps do
+		local destroyed = Settings[LevelPrefix .. "Wasp" .. wasp]
+		if destroyed then
+			waspsDestroyed = waspsDestroyed + 1
+			local index = NumPersistentObjectStates + (level - 1) * BytesPerSector * BitsPerByte + wasp
+			SaveData.CharacterSheet.PersistentObjectStates[index] = false
+			print("Destroyed wasp \"" .. levelWasps[wasp] .. "\" (" .. index .. ") in level " .. level .. ".")
+		end
+	end
+	Level.WaspsDestroyed = waspsDestroyed
 end
 
 local carCounter = 0
