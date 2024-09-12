@@ -1451,7 +1451,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[1].Cards[index];
 
             TxtLevel2CardName.Text = card.Name;
             TxtLevel2CardName.Enabled = true;
@@ -1467,7 +1467,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel2Cards.SelectedIndex].Name = TxtLevel2CardName.Text;
+            SaveGame.CharacterSheet.Levels[1].Cards[LBLevel2Cards.SelectedIndex].Name = TxtLevel2CardName.Text;
         }
 
         private void CBLevel2CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -1476,7 +1476,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel2Cards.SelectedIndex].Collected = CBLevel2CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[1].Cards[LBLevel2Cards.SelectedIndex].Collected = CBLevel2CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(8 + LBLevel2Cards.SelectedIndex, CBLevel2CardCollected.Checked);
         }
 
@@ -1661,7 +1661,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[2].Cards[index];
 
             TxtLevel3CardName.Text = card.Name;
             TxtLevel3CardName.Enabled = true;
@@ -1677,7 +1677,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel3Cards.SelectedIndex].Name = TxtLevel3CardName.Text;
+            SaveGame.CharacterSheet.Levels[2].Cards[LBLevel3Cards.SelectedIndex].Name = TxtLevel3CardName.Text;
         }
 
         private void CBLevel3CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -1686,7 +1686,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel3Cards.SelectedIndex].Collected = CBLevel3CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[2].Cards[LBLevel3Cards.SelectedIndex].Collected = CBLevel3CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(16 + LBLevel3Cards.SelectedIndex, CBLevel3CardCollected.Checked);
         }
 
@@ -1871,7 +1871,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[3].Cards[index];
 
             TxtLevel4CardName.Text = card.Name;
             TxtLevel4CardName.Enabled = true;
@@ -1887,7 +1887,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel4Cards.SelectedIndex].Name = TxtLevel4CardName.Text;
+            SaveGame.CharacterSheet.Levels[3].Cards[LBLevel4Cards.SelectedIndex].Name = TxtLevel4CardName.Text;
         }
 
         private void CBLevel4CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -1896,7 +1896,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel4Cards.SelectedIndex].Collected = CBLevel4CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[3].Cards[LBLevel4Cards.SelectedIndex].Collected = CBLevel4CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(24 + LBLevel4Cards.SelectedIndex, CBLevel4CardCollected.Checked);
         }
 
@@ -2081,7 +2081,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[4].Cards[index];
 
             TxtLevel5CardName.Text = card.Name;
             TxtLevel5CardName.Enabled = true;
@@ -2097,7 +2097,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel5Cards.SelectedIndex].Name = TxtLevel5CardName.Text;
+            SaveGame.CharacterSheet.Levels[4].Cards[LBLevel5Cards.SelectedIndex].Name = TxtLevel5CardName.Text;
         }
 
         private void CBLevel5CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -2106,7 +2106,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel5Cards.SelectedIndex].Collected = CBLevel5CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[4].Cards[LBLevel5Cards.SelectedIndex].Collected = CBLevel5CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(32 + LBLevel5Cards.SelectedIndex, CBLevel5CardCollected.Checked);
         }
 
@@ -2291,7 +2291,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[5].Cards[index];
 
             TxtLevel6CardName.Text = card.Name;
             TxtLevel6CardName.Enabled = true;
@@ -2307,7 +2307,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel6Cards.SelectedIndex].Name = TxtLevel6CardName.Text;
+            SaveGame.CharacterSheet.Levels[5].Cards[LBLevel6Cards.SelectedIndex].Name = TxtLevel6CardName.Text;
         }
 
         private void CBLevel6CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -2316,7 +2316,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel6Cards.SelectedIndex].Collected = CBLevel6CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[5].Cards[LBLevel6Cards.SelectedIndex].Collected = CBLevel6CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(40 + LBLevel6Cards.SelectedIndex, CBLevel6CardCollected.Checked);
         }
 
@@ -2501,7 +2501,7 @@ namespace SHARSaveGameEditor
                 return;
             }
 
-            var card = SaveGame.CharacterSheet.Levels[0].Cards[index];
+            var card = SaveGame.CharacterSheet.Levels[6].Cards[index];
 
             TxtLevel7CardName.Text = card.Name;
             TxtLevel7CardName.Enabled = true;
@@ -2517,7 +2517,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel7Cards.SelectedIndex].Name = TxtLevel7CardName.Text;
+            SaveGame.CharacterSheet.Levels[6].Cards[LBLevel7Cards.SelectedIndex].Name = TxtLevel7CardName.Text;
         }
 
         private void CBLevel7CardCollected_CheckedChanged(object sender, EventArgs e)
@@ -2526,7 +2526,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.Levels[0].Cards[LBLevel7Cards.SelectedIndex].Collected = CBLevel7CardCollected.Checked;
+            SaveGame.CharacterSheet.Levels[6].Cards[LBLevel7Cards.SelectedIndex].Collected = CBLevel7CardCollected.Checked;
             CLBCollectedCardIDs.SetItemChecked(48 + LBLevel7Cards.SelectedIndex, CBLevel7CardCollected.Checked);
         }
 
