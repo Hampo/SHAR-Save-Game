@@ -172,8 +172,9 @@ namespace SHARSaveGameEditor
             CBHighestMissionInfoLevel.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Levels));
             CBHighestMissionInfoMission.DataSource = Enum.GetValues(typeof(CharacterSheet.CurrentMission.Missions));
 
-            foreach (var value in Names.PersistentObjectStates)
-                CLBPersistentObjectStates.Items.Add(value);
+            //foreach (var value in Names.PersistentObjectStates)
+            //    CLBPersistentObjectStates.Items.Add(value);
+            CBPersistentObjectStatesSector.SelectedIndex = 0;
 
             foreach (var value in Names.Level1PurchasedRewards)
                 CLBLevel1PurchasedRewards.Items.Add(value);
@@ -555,8 +556,9 @@ namespace SHARSaveGameEditor
             CBItchyScratchyCBGFirst.Checked = characterSheet.ItchyScratchyCBGFirst;
             CBItchyScratchyTicket.Checked = characterSheet.ItchyScratchyTicket;
             CLBPersistentObjectStates.BeginUpdate();
-            for (int i = 0; i < characterSheet.PersistentObjectStates.Length; i++)
-                CLBPersistentObjectStates.SetItemChecked(i, !characterSheet.PersistentObjectStates[i]);
+            var start = CBPersistentObjectStatesSector.SelectedIndex * 128;
+            for (int i = 0; i < 128; i++)
+                CLBPersistentObjectStates.SetItemChecked(i, !characterSheet.PersistentObjectStates[start + i]);
             CLBPersistentObjectStates.EndUpdate();
             LBCars.BeginUpdate();
             LBCars.Items.Clear();
@@ -2941,6 +2943,20 @@ namespace SHARSaveGameEditor
             for (int i = 0; i < clb.Items.Count; i++)
                 clb.SetItemChecked(i, false);
             clb.EndUpdate();
+        }
+
+        private void CBPersistentObjectStatesSector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CLBPersistentObjectStates.BeginUpdate();
+            CLBPersistentObjectStates.Items.Clear();
+            var start = CBPersistentObjectStatesSector.SelectedIndex * 128;
+            var states = SaveGame?.CharacterSheet?.PersistentObjectStates;
+            for (int i = 0; i < 128; i++)
+            {
+                var index = start + i;
+                CLBPersistentObjectStates.Items.Add(Names.PersistentObjectStates[index], states != null && !states[index]);
+            }
+            CLBPersistentObjectStates.EndUpdate();
         }
     }
 }

@@ -60,6 +60,7 @@
             this.TPCharacterSheet = new System.Windows.Forms.TabPage();
             this.TCCharacterSheet = new System.Windows.Forms.TabControl();
             this.TPCharacterSheetMiscellaneous = new System.Windows.Forms.TabPage();
+            this.CBPersistentObjectStatesSector = new System.Windows.Forms.ComboBox();
             this.CLBPersistentObjectStates = new System.Windows.Forms.CheckedListBox();
             this.CMSCheckedListBox = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.TSMISelectAll = new System.Windows.Forms.ToolStripMenuItem();
@@ -360,18 +361,18 @@
             this.CLBCollectedCardIDs = new System.Windows.Forms.CheckedListBox();
             this.LblCollectedCardIDs = new System.Windows.Forms.Label();
             this.TPCustomSaveData = new System.Windows.Forms.TabPage();
+            this.TCCustomSaveData = new System.Windows.Forms.TabControl();
+            this.TPCustomSaveDataUnknown = new System.Windows.Forms.TabPage();
+            this.LblCustomSaveDataUnknownData = new System.Windows.Forms.Label();
+            this.TPLucasModLauncherData = new System.Windows.Forms.TabPage();
+            this.TxtMainMod = new System.Windows.Forms.TextBox();
+            this.LblMainMod = new System.Windows.Forms.Label();
+            this.TxtModLauncherVersion = new System.Windows.Forms.TextBox();
+            this.LblModLauncherVersion = new System.Windows.Forms.Label();
+            this.LblCustomSaveData = new System.Windows.Forms.Label();
             this.CHPersistentObjectStatesIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CHPersistentObjectStatesValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TTSettingInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.TCCustomSaveData = new System.Windows.Forms.TabControl();
-            this.TPCustomSaveDataUnknown = new System.Windows.Forms.TabPage();
-            this.TPLucasModLauncherData = new System.Windows.Forms.TabPage();
-            this.LblCustomSaveDataUnknownData = new System.Windows.Forms.Label();
-            this.LblCustomSaveData = new System.Windows.Forms.Label();
-            this.TxtModLauncherVersion = new System.Windows.Forms.TextBox();
-            this.LblModLauncherVersion = new System.Windows.Forms.Label();
-            this.TxtMainMod = new System.Windows.Forms.TextBox();
-            this.LblMainMod = new System.Windows.Forms.Label();
             this.MSMain.SuspendLayout();
             this.TCMain.SuspendLayout();
             this.TPSaveGameInfo.SuspendLayout();
@@ -836,6 +837,7 @@
             // 
             // TPCharacterSheetMiscellaneous
             // 
+            this.TPCharacterSheetMiscellaneous.Controls.Add(this.CBPersistentObjectStatesSector);
             this.TPCharacterSheetMiscellaneous.Controls.Add(this.CLBPersistentObjectStates);
             this.TPCharacterSheetMiscellaneous.Controls.Add(this.LblPersistentObjectStates);
             this.TPCharacterSheetMiscellaneous.Controls.Add(this.CBItchyScratchyTicket);
@@ -858,13 +860,107 @@
             this.TPCharacterSheetMiscellaneous.Text = "Miscellaneous";
             this.TPCharacterSheetMiscellaneous.UseVisualStyleBackColor = true;
             // 
+            // CBPersistentObjectStatesSector
+            // 
+            this.CBPersistentObjectStatesSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBPersistentObjectStatesSector.FormattingEnabled = true;
+            this.CBPersistentObjectStatesSector.Items.AddRange(new object[] {
+            "L1R1.p3d",
+            "L1R2.p3d",
+            "L1R3.p3d",
+            "L1R4A.p3d",
+            "L1R4B.p3d",
+            "L1R6.p3d",
+            "L1R7.p3d",
+            "L1Z1.p3d",
+            "L1Z2.p3d",
+            "L1Z3.p3d",
+            "L1Z4.p3d",
+            "L1Z6.p3d",
+            "L1Z7.p3d",
+            "L2R1.p3d",
+            "L2R2.p3d",
+            "L2R3.p3d",
+            "L2R4.p3d",
+            "L2Z1.p3d",
+            "L2Z2.p3d",
+            "L2Z3.p3d",
+            "L2Z4.p3d",
+            "L3R1.p3d",
+            "L3R2.p3d",
+            "L3R3.p3d",
+            "L3R4.p3d",
+            "L3R5.p3d",
+            "L3Z1.p3d",
+            "L3Z2.p3d",
+            "L3Z3.p3d",
+            "L3Z4.p3d",
+            "L3Z5.p3d",
+            "L4R1.p3d",
+            "L4R2.p3d",
+            "L4R3.p3d",
+            "L4R4A.p3d",
+            "L4R4B.p3d",
+            "L4R6.p3d",
+            "L4R7.p3d",
+            "L4Z1.p3d",
+            "L4Z2.p3d",
+            "L4Z3.p3d",
+            "L4Z4.p3d",
+            "L4Z6.p3d",
+            "L4Z7.p3d",
+            "L5R1.p3d",
+            "L5R2.p3d",
+            "L5R3.p3d",
+            "L5R4.p3d",
+            "L5Z1.p3d",
+            "L5Z2.p3d",
+            "L5Z3.p3d",
+            "L5Z4.p3d",
+            "L6R1.p3d",
+            "L6R2.p3d",
+            "L6R3.p3d",
+            "L6R4.p3d",
+            "L6R5.p3d",
+            "L6Z1.p3d",
+            "L6Z2.p3d",
+            "L6Z3.p3d",
+            "L6Z4.p3d",
+            "L6Z5.p3d",
+            "L7R1.p3d",
+            "L7R2.p3d",
+            "L7R3.p3d",
+            "L7R4A.p3d",
+            "L7R4B.p3d",
+            "L7R6.p3d",
+            "L7R7.p3d",
+            "L7Z1.p3d",
+            "L7Z2.p3d",
+            "L7Z3.p3d",
+            "L7Z4.p3d",
+            "L7Z6.p3d",
+            "L7Z7.p3d",
+            "Level 1",
+            "Level 2",
+            "Level 3",
+            "Level 4",
+            "Level 5",
+            "Level 6",
+            "Level 7"});
+            this.CBPersistentObjectStatesSector.Location = new System.Drawing.Point(138, 228);
+            this.CBPersistentObjectStatesSector.Name = "CBPersistentObjectStatesSector";
+            this.CBPersistentObjectStatesSector.Size = new System.Drawing.Size(132, 21);
+            this.CBPersistentObjectStatesSector.TabIndex = 19;
+            this.TTSettingInfo.SetToolTip(this.CBPersistentObjectStatesSector, "The mission to launch on \"Resume Game\".");
+            this.CBPersistentObjectStatesSector.SelectedIndexChanged += new System.EventHandler(this.CBPersistentObjectStatesSector_SelectedIndexChanged);
+            // 
             // CLBPersistentObjectStates
             // 
             this.CLBPersistentObjectStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.CLBPersistentObjectStates.ContextMenuStrip = this.CMSCheckedListBox;
             this.CLBPersistentObjectStates.FormattingEnabled = true;
-            this.CLBPersistentObjectStates.Location = new System.Drawing.Point(12, 247);
+            this.CLBPersistentObjectStates.Location = new System.Drawing.Point(12, 255);
             this.CLBPersistentObjectStates.Name = "CLBPersistentObjectStates";
             this.CLBPersistentObjectStates.Size = new System.Drawing.Size(550, 124);
             this.CLBPersistentObjectStates.TabIndex = 18;
@@ -973,8 +1069,6 @@
             // 
             // CBHighestMissionInfoMission
             // 
-            this.CBHighestMissionInfoMission.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBHighestMissionInfoMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBHighestMissionInfoMission.FormattingEnabled = true;
             this.CBHighestMissionInfoMission.Location = new System.Drawing.Point(155, 99);
@@ -987,8 +1081,6 @@
             // 
             // CBHighestMissionInfoLevel
             // 
-            this.CBHighestMissionInfoLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBHighestMissionInfoLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBHighestMissionInfoLevel.FormattingEnabled = true;
             this.CBHighestMissionInfoLevel.Location = new System.Drawing.Point(12, 99);
@@ -1012,8 +1104,6 @@
             // 
             // CBCurrentMissionInfoMission
             // 
-            this.CBCurrentMissionInfoMission.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBCurrentMissionInfoMission.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBCurrentMissionInfoMission.FormattingEnabled = true;
             this.CBCurrentMissionInfoMission.Location = new System.Drawing.Point(155, 59);
@@ -1025,8 +1115,6 @@
             // 
             // CBCurrentMissionInfoLevel
             // 
-            this.CBCurrentMissionInfoLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.CBCurrentMissionInfoLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CBCurrentMissionInfoLevel.FormattingEnabled = true;
             this.CBCurrentMissionInfoLevel.Location = new System.Drawing.Point(12, 59);
@@ -4745,23 +4833,6 @@
             this.TPCustomSaveData.Text = "Custom Save Data";
             this.TPCustomSaveData.UseVisualStyleBackColor = true;
             // 
-            // CHPersistentObjectStatesIndex
-            // 
-            this.CHPersistentObjectStatesIndex.Text = "Index";
-            // 
-            // CHPersistentObjectStatesValue
-            // 
-            this.CHPersistentObjectStatesValue.Text = "Value";
-            // 
-            // TTSettingInfo
-            // 
-            this.TTSettingInfo.AutoPopDelay = 25000;
-            this.TTSettingInfo.InitialDelay = 500;
-            this.TTSettingInfo.ReshowDelay = 100;
-            this.TTSettingInfo.ShowAlways = true;
-            this.TTSettingInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.TTSettingInfo.ToolTipTitle = "Setting information";
-            // 
             // TCCustomSaveData
             // 
             this.TCCustomSaveData.Controls.Add(this.TPCustomSaveDataUnknown);
@@ -4783,6 +4854,15 @@
             this.TPCustomSaveDataUnknown.Text = "Unknown";
             this.TPCustomSaveDataUnknown.UseVisualStyleBackColor = true;
             // 
+            // LblCustomSaveDataUnknownData
+            // 
+            this.LblCustomSaveDataUnknownData.AutoSize = true;
+            this.LblCustomSaveDataUnknownData.Location = new System.Drawing.Point(9, 4);
+            this.LblCustomSaveDataUnknownData.Name = "LblCustomSaveDataUnknownData";
+            this.LblCustomSaveDataUnknownData.Size = new System.Drawing.Size(155, 13);
+            this.LblCustomSaveDataUnknownData.TabIndex = 0;
+            this.LblCustomSaveDataUnknownData.Text = "Unknown Data Length: 0 bytes";
+            // 
             // TPLucasModLauncherData
             // 
             this.TPLucasModLauncherData.Controls.Add(this.TxtMainMod);
@@ -4796,23 +4876,26 @@
             this.TPLucasModLauncherData.Text = "Lucas Mod Launcher Data";
             this.TPLucasModLauncherData.UseVisualStyleBackColor = true;
             // 
-            // LblCustomSaveDataUnknownData
+            // TxtMainMod
             // 
-            this.LblCustomSaveDataUnknownData.AutoSize = true;
-            this.LblCustomSaveDataUnknownData.Location = new System.Drawing.Point(9, 4);
-            this.LblCustomSaveDataUnknownData.Name = "LblCustomSaveDataUnknownData";
-            this.LblCustomSaveDataUnknownData.Size = new System.Drawing.Size(155, 13);
-            this.LblCustomSaveDataUnknownData.TabIndex = 0;
-            this.LblCustomSaveDataUnknownData.Text = "Unknown Data Length: 0 bytes";
+            this.TxtMainMod.BackColor = System.Drawing.SystemColors.Window;
+            this.TxtMainMod.Location = new System.Drawing.Point(12, 59);
+            this.TxtMainMod.MaxLength = 255;
+            this.TxtMainMod.Name = "TxtMainMod";
+            this.TxtMainMod.ReadOnly = true;
+            this.TxtMainMod.Size = new System.Drawing.Size(275, 20);
+            this.TxtMainMod.TabIndex = 6;
+            this.TTSettingInfo.SetToolTip(this.TxtMainMod, "The name of the mod this save was created for.");
             // 
-            // LblCustomSaveData
+            // LblMainMod
             // 
-            this.LblCustomSaveData.AutoSize = true;
-            this.LblCustomSaveData.Location = new System.Drawing.Point(9, 4);
-            this.LblCustomSaveData.Name = "LblCustomSaveData";
-            this.LblCustomSaveData.Size = new System.Drawing.Size(113, 13);
-            this.LblCustomSaveData.TabIndex = 1;
-            this.LblCustomSaveData.Text = "No Custom Save Data";
+            this.LblMainMod.AutoSize = true;
+            this.LblMainMod.Location = new System.Drawing.Point(9, 43);
+            this.LblMainMod.Name = "LblMainMod";
+            this.LblMainMod.Size = new System.Drawing.Size(57, 13);
+            this.LblMainMod.TabIndex = 5;
+            this.LblMainMod.Text = "Main Mod:";
+            this.TTSettingInfo.SetToolTip(this.LblMainMod, "The name of the mod this save was created for.");
             // 
             // TxtModLauncherVersion
             // 
@@ -4835,26 +4918,31 @@
             this.LblModLauncherVersion.Text = "Mod Launcher Version:";
             this.TTSettingInfo.SetToolTip(this.LblModLauncherVersion, "The version of the mod launcher the save was created in.");
             // 
-            // TxtMainMod
+            // LblCustomSaveData
             // 
-            this.TxtMainMod.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtMainMod.Location = new System.Drawing.Point(12, 59);
-            this.TxtMainMod.MaxLength = 255;
-            this.TxtMainMod.Name = "TxtMainMod";
-            this.TxtMainMod.ReadOnly = true;
-            this.TxtMainMod.Size = new System.Drawing.Size(275, 20);
-            this.TxtMainMod.TabIndex = 6;
-            this.TTSettingInfo.SetToolTip(this.TxtMainMod, "The name of the mod this save was created for.");
+            this.LblCustomSaveData.AutoSize = true;
+            this.LblCustomSaveData.Location = new System.Drawing.Point(9, 4);
+            this.LblCustomSaveData.Name = "LblCustomSaveData";
+            this.LblCustomSaveData.Size = new System.Drawing.Size(113, 13);
+            this.LblCustomSaveData.TabIndex = 1;
+            this.LblCustomSaveData.Text = "No Custom Save Data";
             // 
-            // LblMainMod
+            // CHPersistentObjectStatesIndex
             // 
-            this.LblMainMod.AutoSize = true;
-            this.LblMainMod.Location = new System.Drawing.Point(9, 43);
-            this.LblMainMod.Name = "LblMainMod";
-            this.LblMainMod.Size = new System.Drawing.Size(57, 13);
-            this.LblMainMod.TabIndex = 5;
-            this.LblMainMod.Text = "Main Mod:";
-            this.TTSettingInfo.SetToolTip(this.LblMainMod, "The name of the mod this save was created for.");
+            this.CHPersistentObjectStatesIndex.Text = "Index";
+            // 
+            // CHPersistentObjectStatesValue
+            // 
+            this.CHPersistentObjectStatesValue.Text = "Value";
+            // 
+            // TTSettingInfo
+            // 
+            this.TTSettingInfo.AutoPopDelay = 25000;
+            this.TTSettingInfo.InitialDelay = 500;
+            this.TTSettingInfo.ReshowDelay = 100;
+            this.TTSettingInfo.ShowAlways = true;
+            this.TTSettingInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.TTSettingInfo.ToolTipTitle = "Setting information";
             // 
             // FrmMain
             // 
@@ -5370,6 +5458,7 @@
         private System.Windows.Forms.Label LblModLauncherVersion;
         private System.Windows.Forms.TextBox TxtMainMod;
         private System.Windows.Forms.Label LblMainMod;
+        private System.Windows.Forms.ComboBox CBPersistentObjectStatesSector;
     }
 }
 

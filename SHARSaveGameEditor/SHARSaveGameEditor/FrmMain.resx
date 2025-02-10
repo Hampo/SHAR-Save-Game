@@ -123,6 +123,9 @@
   <metadata name="TTSettingInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="CMSCheckedListBox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>141, 17</value>
+  </metadata>
   <data name="NUDSaveSecond.ToolTip" xml:space="preserve">
     <value>The last saved time of the file. Displays in the Load Game and Save Game screens.
 If "Auto update" is checked, this will auto update to the current time on save.
@@ -183,9 +186,6 @@ This is separate from Character Sheet-&gt;Current Mission Info. You can display 
 The game has no validation and will just blindly display these values.
 Level 1 Mission 0 will display as "TUT".</value>
   </data>
-  <metadata name="CMSCheckedListBox.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>141, 17</value>
-  </metadata>
   <data name="CLBLevel1PurchasedRewards.ToolTip" xml:space="preserve">
     <value>The possible rewards in the level. If checked, the reward is unlocked.
 The sum of "Num Cars Purchased" and "Num Skins Purchased" must equal the number of items checked.
