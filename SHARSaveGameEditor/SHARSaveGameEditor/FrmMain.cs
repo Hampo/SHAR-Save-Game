@@ -1059,7 +1059,7 @@ namespace SHARSaveGameEditor
                 return;
 
             UnsavedChanges = true;
-            SaveGame.CharacterSheet.PersistentObjectStates[e.Index] = e.NewValue != CheckState.Checked;
+            SaveGame.CharacterSheet.PersistentObjectStates[CBPersistentObjectStatesSector.SelectedIndex * 128 + e.Index] = e.NewValue != CheckState.Checked;
         }
 
         private void CBLevel1FMVUnlocked_CheckedChanged(object sender, EventArgs e)
