@@ -20,18 +20,16 @@ namespace SHARSaveGameEditor
 
         public static void WriteNullTerminatedString(BinaryWriter writer, string value, int length)
         {
-            byte[] bytes = Encoding.ASCII.GetBytes(value);
+            if (length <= 0)
+                return;
 
-            if (bytes.Length >= length)
-            {
-                writer.Write(bytes, 0, length);
-            }
-            else
-            {
-                writer.Write(bytes);
-                for (int i = bytes.Length; i < length; i++)
-                    writer.Write((byte)0);
-            }
+            value ??= string.Empty;
+
+            byte[] bytes = Encoding.ASCII.GetBytes(value);
+            Array.Resize(ref bytes, length);
+            bytes[length - 1] = 0;
+
+            writer.Write(bytes);
         }
     }
 }
