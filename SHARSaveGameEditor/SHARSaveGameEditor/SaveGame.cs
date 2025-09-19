@@ -752,7 +752,7 @@ namespace SHARSaveGameEditor
 
         public void Write(BinaryWriter bw)
         {
-            bw.Write(EnableTutorialEvents);
+            bw.Write((byte)(EnableTutorialEvents ? 0xFF : 0x00));
             bw.Write((int)TutorialsSeen);
         }
     }

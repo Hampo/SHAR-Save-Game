@@ -951,7 +951,7 @@
             this.CBPersistentObjectStatesSector.Name = "CBPersistentObjectStatesSector";
             this.CBPersistentObjectStatesSector.Size = new System.Drawing.Size(132, 21);
             this.CBPersistentObjectStatesSector.TabIndex = 19;
-            this.TTSettingInfo.SetToolTip(this.CBPersistentObjectStatesSector, "The mission to launch on \"Resume Game\".");
+            this.TTSettingInfo.SetToolTip(this.CBPersistentObjectStatesSector, "Breakable objects, world coins and wasps.");
             this.CBPersistentObjectStatesSector.SelectedIndexChanged += new System.EventHandler(this.CBPersistentObjectStatesSector_SelectedIndexChanged);
             // 
             // CLBPersistentObjectStates
@@ -964,8 +964,8 @@
             this.CLBPersistentObjectStates.Name = "CLBPersistentObjectStates";
             this.CLBPersistentObjectStates.Size = new System.Drawing.Size(550, 124);
             this.CLBPersistentObjectStates.TabIndex = 18;
-            this.TTSettingInfo.SetToolTip(this.CLBPersistentObjectStates, "Breaksable objects, world coins and wasps.\r\nNames in brackets are the vanilla gam" +
-        "e objects.");
+            this.TTSettingInfo.SetToolTip(this.CLBPersistentObjectStates, "Breakable objects, world coins and wasps.\r\nNames in brackets are the vanilla game" +
+        " objects.");
             this.CLBPersistentObjectStates.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBPersistentObjectStates_ItemCheck);
             // 
             // CMSCheckedListBox
@@ -998,8 +998,8 @@
             this.LblPersistentObjectStates.Size = new System.Drawing.Size(123, 13);
             this.LblPersistentObjectStates.TabIndex = 17;
             this.LblPersistentObjectStates.Text = "Persistent Object States:";
-            this.TTSettingInfo.SetToolTip(this.LblPersistentObjectStates, "Breaksable objects, world coins and wasps.\r\nNames in brackets are the vanilla gam" +
-        "e objects.");
+            this.TTSettingInfo.SetToolTip(this.LblPersistentObjectStates, "Breakable objects, world coins and wasps.\r\nNames in brackets are the vanilla game" +
+        " objects.");
             // 
             // CBItchyScratchyTicket
             // 
