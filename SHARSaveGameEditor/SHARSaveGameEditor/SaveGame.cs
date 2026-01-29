@@ -396,7 +396,7 @@ namespace SHARSaveGameEditor
 
                 public Card()
                 {
-                    Name = "Cardx";
+                    Name = "NULL";
                     Collected = false;
                 }
 
